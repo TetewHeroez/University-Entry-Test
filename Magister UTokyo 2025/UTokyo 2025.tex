@@ -1,0 +1,672 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{
+  left=15mm,
+  right=15mm,
+  top=15mm,
+  bottom=15mm
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.2em}
+\setlist[enumerate,2]{label=(\arabic*),leftmargin=2.2em}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{The University of Tokyo 2025}}\\[2mm]
+  {\large \textbf{Problems 1--3}}
+\end{center}
+
+\section*{Problem 1}
+
+A line on a two-dimensional plane can be expressed as
+\[
+  \alpha x+\beta y+\gamma=0,
+\]
+where $(x,y)$ is a point on the line in the Cartesian coordinate system. We call the column vector
+\[
+  (\alpha,\beta,\gamma)^T
+\]
+a coefficient vector of the line. Answer the following questions. Note that the coefficient vector in your answer must satisfy
+\[
+  \alpha^2+\beta^2=1.
+\]
+
+\begin{enumerate}
+  \item Find a coefficient vector of a line that passes through a point $\vec{a}$ and is perpendicular to a unit vector $\vec{v}$ on a two-dimensional plane.
+
+  \item Let a line B pass through a point $\vec{b}$ and be perpendicular to a unit vector $\vec{n}$. Given a line A, let the line A$'$ be the mirror transformation of the line A over the line B. Using $\vec{b}$ and $\vec{n}$, write a three-dimensional square matrix that transforms a coefficient vector of the line A to a coefficient vector of the line A$'$.
+
+  \item Find the determinant of the matrix derived in Question (2).
+
+  \item Consider the movement of the line D$_t$ whose coefficient vector changes with the real variable $t$ as
+        \[
+          (4t,4t^2-1,t)^T.
+        \]
+        This line passes through a point regardless of $t$. Find the coordinate of that point.
+
+  \item Suppose that, with the mirror transformation over a line M$_t$, which also changes with $t$, the line D$_t$ in Question (4) is transformed to the line with a coefficient vector
+        \[
+          (0,1,-t)^T.
+        \]
+        Find the coefficient vector $(\alpha_t,\beta_t,\gamma_t)^T$ of the line M$_t$, where $\alpha_t>0$ and $\beta_t>0$ for $t>0$.
+
+  \item When $t$ changes from $0$ to $+\infty$, consider the region where the line M$_t$ in Question (5) can exist. Describe the region using a simple mathematical expression and draw a diagram of the region.
+\end{enumerate}
+
+\section*{Problem 2}
+
+Let $t$ be a real independent variable, and let $a(t)$, $x(t)$ and $y(t)$ be real-valued functions. Answer the following questions.
+
+\begin{enumerate}
+  \item Let $a(t)$ be a continuous and periodic function of $t$ whose period is $T$. Find the initial-value-problem solution $x(t)$ of the ordinary differential equation
+        \[
+          \frac{d}{dt}x(t)=a(t)x(t),
+        \]
+        where $x(0)=x_0\neq 0$.
+
+  \item Find the necessary and sufficient condition on $a(t)$ such that the solution $x(t)$ in Question (1) is a periodic solution with a period $T$.
+
+  \item Find the initial-value-problem solutions $x(t)$ and $y(t)$ of the simultaneous ordinary differential equations
+        \[
+          \begin{aligned}
+            \frac{d}{dt}x(t)&=-kx(t)+\sin(t)\cos(t)y(t),\\
+            \frac{d}{dt}y(t)&=(-k+\sin(t))y(t),
+          \end{aligned}
+        \]
+        where $k$ is a real constant, $x(0)=x_0\neq 0$ and $y(0)=y_0\neq 0$.
+
+  \item Explain briefly how $x(t)$ and $y(t)$ converge as $t\to\infty$ when $k>0$ in Question (3).
+
+  \item Draw a schematic graph of the solution trajectory in Question (3) on the $yx$-plane where $k=0$, $x_0=2$ and $y_0=1$.
+\end{enumerate}
+
+\section*{Problem 3}
+
+A coin with the probability of coming up heads equal to $p$ is tossed $n$ times. Let $a_n$ be the probability that the coin never comes up heads twice in a row, and let $b_n$ be the probability that the coin never comes up heads three times in a row. Here, let
+\[
+  a_1=1,\qquad b_1=b_2=1.
+\]
+Answer the following questions.
+
+\begin{enumerate}
+  \item Obtain $a_2$ as a function of $p$.
+
+  \item When $n\geq 3$, describe $a_n$ by using $p$, $a_{n-1}$ and $a_{n-2}$.
+
+  \item When $p=\dfrac{2}{3}$, obtain all the pairs $(\alpha,\beta)$ of real numbers that satisfy the following recursion:
+        \[
+          a_n+\alpha a_{n-1}=\beta(a_{n-1}+\alpha a_{n-2}).
+        \]
+
+  \item When $p=\dfrac{2}{3}$, obtain $a_n$ as a function of $n$.
+
+  \item Obtain $b_3$ as a function of $p$.
+
+  \item When $n\geq 4$, describe $b_n$ by using $p$, $b_{n-1}$, $b_{n-2}$ and $b_{n-3}$.
+
+  \item When $p=\dfrac{3}{4}$, show that the following equation holds for any positive integer $n$:
+        \[
+          \begin{aligned}
+            b_n={}&
+            \frac{9}{8}\left(\frac{3}{4}\right)^{n-1}
+            -\frac{(-1)^{n-1}}{8}
+            \left(\frac{\sqrt{3}}{4}\right)^{n-1}
+            \cos((n-1)\theta) \\
+            &-\frac{\sqrt{2}i}{8}
+            \left\{
+            \left(\frac{-1+\sqrt{2}i}{4}\right)^{n-1}
+            -
+            \left(\frac{-1-\sqrt{2}i}{4}\right)^{n-1}
+            \right\},
+          \end{aligned}
+        \]
+        where $i$ is the imaginary unit and $\theta$ is the angle that satisfies
+        \[
+          \cos\theta=\frac{1}{\sqrt{3}},
+          \qquad
+          \sin\theta=\frac{\sqrt{2}}{\sqrt{3}}.
+        \]
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+  {\Large \textbf{Solutions 1--3}}
+\end{center}
+
+\section*{Solution 1}
+
+\begin{enumerate}
+  \item Let
+        \[
+          \vec{a}=
+          \begin{bmatrix}
+            a_1\\a_2
+          \end{bmatrix},
+          \qquad
+          \vec{v}=
+          \begin{bmatrix}
+            v_1\\v_2
+          \end{bmatrix},
+          \qquad
+          \|\vec{v}\|=1.
+        \]
+        Since the line is perpendicular to $\vec{v}$, the vector $\vec{v}$ is a normal vector of the line. Hence the line is
+        \[
+          \vec{v}^{\,T}(\vec{x}-\vec{a})=0.
+        \]
+        Therefore, a coefficient vector is
+        \[
+          \boxed{
+          \begin{bmatrix}
+            v_1\\
+            v_2\\
+            -\vec{v}^{\,T}\vec{a}
+          \end{bmatrix}}
+          =
+          \boxed{
+          \begin{bmatrix}
+            v_1\\
+            v_2\\
+            -(v_1a_1+v_2a_2)
+          \end{bmatrix}}.
+        \]
+        Since $\vec{v}$ is a unit vector, $v_1^2+v_2^2=1$.
+
+  \item Write
+        \[
+          \vec{n}=
+          \begin{bmatrix}
+            n_1\\n_2
+          \end{bmatrix},
+          \qquad
+          \|\vec{n}\|=1.
+        \]
+        The reflection of a point $\vec{x}$ over the line B is
+        \[
+          \vec{x}'=(I-2\vec{n}\vec{n}^{\,T})\vec{x}
+          +2(\vec{n}^{\,T}\vec{b})\vec{n}.
+        \]
+        Put
+        \[
+          S=I-2\vec{n}\vec{n}^{\,T}.
+        \]
+        If line A has coefficient vector
+        \[
+          \begin{bmatrix}
+            \alpha\\\beta\\\gamma
+          \end{bmatrix},
+          \qquad
+          \vec{u}=
+          \begin{bmatrix}
+            \alpha\\\beta
+          \end{bmatrix},
+        \]
+        then the reflected line A$'$ has normal vector $S\vec{u}$ and constant term
+        \[
+          \gamma+2(\vec{n}^{\,T}\vec{b})(\vec{n}^{\,T}\vec{u}).
+        \]
+        Thus the desired matrix is
+        \[
+          \boxed{
+          \begin{bmatrix}
+            1-2n_1^2 & -2n_1n_2 & 0\\
+            -2n_1n_2 & 1-2n_2^2 & 0\\
+            2(\vec{n}^{\,T}\vec{b})n_1 & 2(\vec{n}^{\,T}\vec{b})n_2 & 1
+          \end{bmatrix}}.
+        \]
+
+  \item The matrix in Question (2) is block triangular. Hence its determinant is
+        \[
+          \det(I-2\vec{n}\vec{n}^{\,T}).
+        \]
+        This is the determinant of a reflection matrix in the plane, so it equals $-1$. Therefore,
+        \[
+          \boxed{-1}.
+        \]
+
+  \item The line D$_t$ is
+        \[
+          4tx+(4t^2-1)y+t=0.
+        \]
+        If a point $(x,y)$ lies on this line for every $t$, then
+        \[
+          4yt^2+(4x+1)t-y=0
+        \]
+        for every real $t$. Therefore every coefficient in this polynomial in $t$ must be zero:
+        \[
+          4y=0,\qquad 4x+1=0,\qquad -y=0.
+        \]
+        Hence
+        \[
+          \boxed{(x,y)=\left(-\frac14,0\right)}.
+        \]
+
+  \item The line D$_t$ has normal vector
+        \[
+          \begin{bmatrix}
+            4t\\4t^2-1
+          \end{bmatrix},
+        \]
+        whose length is
+        \[
+          \sqrt{16t^2+(4t^2-1)^2}=4t^2+1.
+        \]
+        Its unit normal vector is
+        \[
+          \vec{d}=
+          \frac{1}{4t^2+1}
+          \begin{bmatrix}
+            4t\\4t^2-1
+          \end{bmatrix}.
+        \]
+        The target line has the same geometric line as the coefficient vector
+        \[
+          \begin{bmatrix}
+            0\\-1\\t
+          \end{bmatrix}.
+        \]
+        The mirror line has normal direction proportional to the bisector of the two normal directions:
+        \[
+          \vec{d}-
+          \begin{bmatrix}
+            0\\-1
+          \end{bmatrix}
+          =
+          \frac{4t}{4t^2+1}
+          \begin{bmatrix}
+            1\\2t
+          \end{bmatrix}.
+        \]
+        Therefore the unit normal vector of M$_t$ satisfying $\alpha_t>0$ and $\beta_t>0$ for $t>0$ is
+        \[
+          \frac{1}{\sqrt{1+4t^2}}
+          \begin{bmatrix}
+            1\\2t
+          \end{bmatrix}.
+        \]
+        Since D$_t$ and its image intersect at
+        \[
+          (-t^2,t),
+        \]
+        the mirror line M$_t$ also passes through this point. Hence
+        \[
+          \gamma_t
+          =
+          -\frac{1}{\sqrt{1+4t^2}}
+          \begin{bmatrix}
+            1&2t
+          \end{bmatrix}
+          \begin{bmatrix}
+            -t^2\\t
+          \end{bmatrix}
+          =
+          -\frac{t^2}{\sqrt{1+4t^2}}.
+        \]
+        Thus
+        \[
+          \boxed{
+          \begin{bmatrix}
+            \alpha_t\\\beta_t\\\gamma_t
+          \end{bmatrix}
+          =
+          \frac{1}{\sqrt{1+4t^2}}
+          \begin{bmatrix}
+            1\\2t\\-t^2
+          \end{bmatrix}}.
+        \]
+
+  \item From Question (5), the line M$_t$ is
+        \[
+          x+2ty-t^2=0,\qquad t\geq 0.
+        \]
+        A point $(x,y)$ lies on at least one of these lines if and only if there exists $t\geq 0$ such that
+        \[
+          t^2-2yt-x=0.
+        \]
+        This quadratic equation has a nonnegative real root exactly on the region
+        \[
+          \boxed{
+          \{(x,y)\mid x\geq 0\}
+          \cup
+          \{(x,y)\mid y\geq 0,\ x\geq -y^2\}.}
+        \]
+        Equivalently, the boundary consists of the negative $y$-axis and the parabola $x=-y^2$ for $y\geq 0$.
+
+        \begin{center}
+        \setlength{\unitlength}{0.9mm}
+        \begin{picture}(105,75)
+          \put(45,10){\vector(1,0){50}}
+          \put(45,10){\vector(0,1){55}}
+          \put(96,7){$x$}
+          \put(48,66){$y$}
+          \put(43,7){$0$}
+          \qbezier(45,10)(30,34)(15,62)
+          \put(13,64){$x=-y^2$}
+          \put(45,10){\line(0,1){55}}
+          \put(47,24){$x\geq 0$}
+          \put(22,43){region}
+          \put(20,38){$x\geq -y^2$}
+          \put(20,33){$y\geq 0$}
+        \end{picture}
+        \end{center}
+\end{enumerate}
+
+\section*{Solution 2}
+
+\begin{enumerate}
+  \item The differential equation is separable:
+        \[
+          \frac{x'(t)}{x(t)}=a(t).
+        \]
+        Integrating from $0$ to $t$ gives
+        \[
+          \log |x(t)|-\log |x_0|=\int_0^t a(s)\,ds.
+        \]
+        Therefore
+        \[
+          \boxed{
+          x(t)=x_0\exp\left(\int_0^t a(s)\,ds\right).}
+        \]
+
+  \item Since $a(t)$ has period $T$,
+        \[
+          x(t+T)
+          =
+          x(t)
+          \exp\left(\int_t^{t+T}a(s)\,ds\right)
+          =
+          x(t)
+          \exp\left(\int_0^T a(s)\,ds\right).
+        \]
+        Thus $x(t+T)=x(t)$ for all $t$ if and only if
+        \[
+          \exp\left(\int_0^T a(s)\,ds\right)=1.
+        \]
+        Since $a(t)$ is real-valued, this is equivalent to
+        \[
+          \boxed{\int_0^T a(s)\,ds=0.}
+        \]
+
+  \item First solve the equation for $y(t)$:
+        \[
+          y'(t)=(-k+\sin t)y(t).
+        \]
+        Hence
+        \[
+          \boxed{
+          y(t)=y_0e^{-kt+1-\cos t}.}
+        \]
+        Next,
+        \[
+          x'(t)+kx(t)=\sin t\cos t\,y(t).
+        \]
+        Multiplying by $e^{kt}$ gives
+        \[
+          \frac{d}{dt}\{e^{kt}x(t)\}
+          =
+          y_0e^{1-\cos t}\sin t\cos t.
+        \]
+        Since
+        \[
+          \int_0^t e^{1-\cos s}\sin s\cos s\,ds
+          =
+          (1+\cos t)e^{1-\cos t}-2,
+        \]
+        we obtain
+        \[
+          \boxed{
+          x(t)=e^{-kt}
+          \left[
+          x_0+y_0\{(1+\cos t)e^{1-\cos t}-2\}
+          \right].}
+        \]
+
+  \item When $k>0$, the factors
+        \[
+          e^{1-\cos t}
+          \quad\text{and}\quad
+          (1+\cos t)e^{1-\cos t}-2
+        \]
+        are bounded periodic functions of $t$. Therefore the factor $e^{-kt}$ forces both solutions to converge to zero:
+        \[
+          \boxed{x(t)\to 0,\qquad y(t)\to 0\quad (t\to\infty).}
+        \]
+
+  \item For $k=0$, $x_0=2$ and $y_0=1$, the solution becomes
+        \[
+          y(t)=e^{1-\cos t},
+          \qquad
+          x(t)=(1+\cos t)e^{1-\cos t}.
+        \]
+        Since
+        \[
+          \cos t=1-\log y,
+        \]
+        the trajectory satisfies
+        \[
+          \boxed{x=y(2-\log y),\qquad 1\leq y\leq e^2.}
+        \]
+        It starts at $(x,y)=(2,1)$, reaches $(0,e^2)$ when $t=\pi$, and then returns periodically.
+
+        \begin{center}
+        \setlength{\unitlength}{0.85mm}
+        \begin{picture}(105,78)
+          \put(15,12){\vector(1,0){75}}
+          \put(15,12){\vector(0,1){58}}
+          \put(91,9){$x$}
+          \put(18,71){$y$}
+          \put(78,20){$(2,1)$}
+          \put(19,62){$(0,e^2)$}
+          \qbezier(78,20)(60,58)(20,62)
+          \put(48,50){$x=y(2-\log y)$}
+        \end{picture}
+        \end{center}
+\end{enumerate}
+
+\section*{Solution 3}
+
+Let
+\[
+  q=1-p.
+\]
+
+\begin{enumerate}
+  \item The only forbidden outcome in two tosses is HH. Therefore
+        \[
+          \boxed{a_2=1-p^2.}
+        \]
+
+  \item For $n\geq 3$, a valid sequence either ends in T, or it ends in TH. Hence
+        \[
+          \boxed{
+          a_n=(1-p)a_{n-1}+p(1-p)a_{n-2}.}
+        \]
+
+  \item When $p=\dfrac23$, we have
+        \[
+          a_n=\frac13a_{n-1}+\frac29a_{n-2}.
+        \]
+        If
+        \[
+          a_n+\alpha a_{n-1}
+          =
+          \beta(a_{n-1}+\alpha a_{n-2}),
+        \]
+        then
+        \[
+          \left(\frac13+\alpha\right)a_{n-1}
+          +\frac29a_{n-2}
+          =
+          \beta a_{n-1}+\alpha\beta a_{n-2}.
+        \]
+        Thus
+        \[
+          \beta=\frac13+\alpha,
+          \qquad
+          \alpha\beta=\frac29.
+        \]
+        Therefore
+        \[
+          \alpha\left(\frac13+\alpha\right)=\frac29,
+        \]
+        or
+        \[
+          9\alpha^2+3\alpha-2=0.
+        \]
+        Hence
+        \[
+          \alpha=\frac13
+          \quad\text{or}\quad
+          \alpha=-\frac23.
+        \]
+        The corresponding $\beta$ values are
+        \[
+          \beta=\frac23
+          \quad\text{or}\quad
+          \beta=-\frac13.
+        \]
+        Thus
+        \[
+          \boxed{
+          (\alpha,\beta)=
+          \left(\frac13,\frac23\right),
+          \left(-\frac23,-\frac13\right).}
+        \]
+
+  \item From Question (2), for $p=\dfrac23$,
+        \[
+          a_n=\frac13a_{n-1}+\frac29a_{n-2}.
+        \]
+        Its characteristic equation is
+        \[
+          r^2-\frac13r-\frac29=0,
+        \]
+        whose roots are
+        \[
+          r=\frac23,\qquad r=-\frac13.
+        \]
+        Therefore
+        \[
+          a_n=A\left(\frac23\right)^{n-1}
+          +B\left(-\frac13\right)^{n-1}.
+        \]
+        Since
+        \[
+          a_1=1,
+          \qquad
+          a_2=1-\left(\frac23\right)^2=\frac59,
+        \]
+        we get
+        \[
+          A=\frac89,
+          \qquad
+          B=\frac19.
+        \]
+        Hence
+        \[
+          \boxed{
+          a_n=
+          \frac89\left(\frac23\right)^{n-1}
+          +\frac19\left(-\frac13\right)^{n-1}.}
+        \]
+
+  \item The only forbidden outcome in three tosses is HHH. Thus
+        \[
+          \boxed{b_3=1-p^3.}
+        \]
+
+  \item For $n\geq 4$, a valid sequence either ends in T, TH, or THH. Hence
+        \[
+          \boxed{
+          b_n=(1-p)b_{n-1}
+          +p(1-p)b_{n-2}
+          +p^2(1-p)b_{n-3}.}
+        \]
+
+  \item When $p=\dfrac34$, the recurrence becomes
+        \[
+          b_n=\frac14b_{n-1}
+          +\frac{3}{16}b_{n-2}
+          +\frac{9}{64}b_{n-3}.
+        \]
+        The characteristic equation is
+        \[
+          r^3-\frac14r^2-\frac{3}{16}r-\frac{9}{64}=0,
+        \]
+        or
+        \[
+          64r^3-16r^2-12r-9=0.
+        \]
+        Factoring gives
+        \[
+          64r^3-16r^2-12r-9
+          =
+          \left(r-\frac34\right)(64r^2+32r+12).
+        \]
+        Therefore the roots are
+        \[
+          r_1=\frac34,\qquad
+          r_2=\frac{-1+\sqrt2 i}{4},\qquad
+          r_3=\frac{-1-\sqrt2 i}{4}.
+        \]
+        Hence
+        \[
+          b_n=C_1r_1^{n-1}+C_2r_2^{n-1}+C_3r_3^{n-1}.
+        \]
+        Using
+        \[
+          b_1=1,\qquad b_2=1,\qquad b_3=1-\left(\frac34\right)^3=\frac{37}{64},
+        \]
+        gives
+        \[
+          C_1=\frac98,\qquad
+          C_2=-\frac{1}{16}-\frac{\sqrt2 i}{8},\qquad
+          C_3=-\frac{1}{16}+\frac{\sqrt2 i}{8}.
+        \]
+        Now write
+        \[
+          r_2=\frac{\sqrt3}{4}(\cos(\pi-\theta)+i\sin(\pi-\theta)),
+          \qquad
+          r_3=\frac{\sqrt3}{4}(\cos(\pi-\theta)-i\sin(\pi-\theta)),
+        \]
+        where
+        \[
+          \cos\theta=\frac{1}{\sqrt3},
+          \qquad
+          \sin\theta=\frac{\sqrt2}{\sqrt3}.
+        \]
+        Then
+        \[
+          r_2^{n-1}+r_3^{n-1}
+          =
+          2(-1)^{n-1}
+          \left(\frac{\sqrt3}{4}\right)^{n-1}
+          \cos((n-1)\theta).
+        \]
+        Substituting the constants $C_1,C_2,C_3$ into the general solution and grouping the conjugate terms yields
+        \[
+          \boxed{
+          \begin{aligned}
+            b_n={}&
+            \frac{9}{8}\left(\frac{3}{4}\right)^{n-1}
+            -\frac{(-1)^{n-1}}{8}
+            \left(\frac{\sqrt{3}}{4}\right)^{n-1}
+            \cos((n-1)\theta) \\
+            &-\frac{\sqrt{2}i}{8}
+            \left\{
+            \left(\frac{-1+\sqrt{2}i}{4}\right)^{n-1}
+            -
+            \left(\frac{-1-\sqrt{2}i}{4}\right)^{n-1}
+            \right\}.
+          \end{aligned}}
+        \]
+        This is the desired expression.
+\end{enumerate}
+
+\end{document}

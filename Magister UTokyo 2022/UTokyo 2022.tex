@@ -1,0 +1,434 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{
+  left=15mm,
+  right=15mm,
+  top=15mm,
+  bottom=15mm
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.2em}
+\setlist[enumerate,2]{label=(\alph*),leftmargin=2.2em}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{The University of Tokyo 2022}}\\[2mm]
+  {\large \textbf{Problems 1--3}}
+\end{center}
+
+\section*{Problem 1}
+
+Consider the following multiple conditions on $x,y,z\in\mathbb{R}$:
+\[
+  \begin{cases}
+    0<z-xy<1,\\
+    0<z-(x+y)^2<-xy.
+  \end{cases}
+\]
+Let $\Omega$ be the set of points $(x,y)$ for which at least one $z$ exists satisfying the above conditions. Note that the set $\Omega$ can be seen in the three-dimensional Cartesian coordinate system as the orthogonal projection of points $(x,y,z)$ satisfying the above conditions onto the $xy$-plane. Answer the following questions.
+
+\begin{enumerate}
+  \item Find the inequalities on $x$ and $y$ representing $\Omega$.
+
+  \item Draw a figure of $\Omega$ in the $xy$-plane. If the boundary of $\Omega$ intersects with the $x$-axis or the $y$-axis, write down the coordinates at each intersection.
+
+  \item The curved segments of the boundary of $\Omega$ correspond to the linear transformation of arcs of the unit circle with a matrix $X$. Find one such $X$. Note that the point $(1,0)$ on the unit circle must be transformed to a point where the curvature is maximized in the curved segments.
+
+  \item Calculate the determinant of $X$ found in (3).
+
+  \item Calculate the area of the set $\Omega$. Note that the absolute value of the determinant of a matrix is the area scale factor of the transformation with that matrix.
+\end{enumerate}
+
+\section*{Problem 2}
+
+Consider the following integral $I_n(\alpha)$ for $\alpha\geq 1$ and $n>0$:
+\[
+  I_n(\alpha)=\int_{1/n}^{n}\frac{f(\alpha x)-f(x)}{x}\,dx.
+\]
+Assume that a real-valued function $f(x)$ is continuous and differentiable on $x\geq 0$, its derivative is continuous, and
+\[
+  \lim_{x\to\infty}f(x)=0.
+\]
+Answer the following questions.
+
+\begin{enumerate}
+  \item Define
+        \[
+          J_n(\alpha)=\frac{dI_n(\alpha)}{d\alpha}.
+        \]
+        Show that
+        \[
+          J_n(\alpha)=\frac{1}{\alpha}
+          \left\{f(\alpha n)-f\left(\frac{\alpha}{n}\right)\right\}.
+        \]
+        You can use the fact that the integration and the differentiation commute in this context.
+
+  \item Define
+        \[
+          I(\alpha)=\lim_{n\to\infty}I_n(\alpha).
+        \]
+        Show that $\lim_{n\to\infty}J_n(\beta)$ exists for any $\beta\in[1,\alpha]$ and it uniformly converges on $[1,\alpha]$, and show that
+        \[
+          I(\alpha)=\int_1^\alpha
+          \left(\lim_{n\to\infty}J_n(\beta)\right)\,d\beta.
+        \]
+
+  \item Obtain $I(\alpha)$.
+
+  \item Calculate the following integral. Note that $p>q>0$.
+        \[
+          \int_0^\infty
+          \frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\,dx.
+        \]
+\end{enumerate}
+
+\section*{Problem 3}
+
+Consider a region $R$ defined by $0<x<1$ and $0<y<1$ in the $xy$-plane. We randomly select a point on $R$ and refer to the selected point as A. We assume that A is uniformly distributed on $R$. Let AB be a perpendicular line from A to the $y$-axis and AC be a perpendicular line from A to the $x$-axis as shown in the figure. We call rectangle OCAB as the rectangle of A, where O denotes the origin. Let $S$ be a random variable representing the area of the rectangle of A. Answer the following questions.
+
+\begin{enumerate}
+  \item Calculate the expectation value of $S$.
+
+  \item Calculate the probability that $S\leq r$ holds, where $0<r<1$.
+
+  \item Calculate the probability density function of $S$.
+\end{enumerate}
+
+Again consider the region $R$. Let $n$ be a positive integer. We select $n$ points on $R$ and refer to the selected points as $A_1,A_2,\ldots,A_n$. We assume that each of the points is uniformly distributed on $R$, and $A_i$ and $A_j$ for $i\neq j$ are selected independently. Answer the following question.
+
+\begin{enumerate}[resume]
+  \item Let $S_i$ be a random variable representing the area of the rectangle of $A_i$. Let $Z$ be a random variable which is the minimum of $S_1,S_2,\ldots,S_n$. Calculate the probability density function of $Z$.
+\end{enumerate}
+
+\begin{center}
+\setlength{\unitlength}{0.8mm}
+\begin{picture}(100,70)
+  \put(15,10){\vector(1,0){70}}
+  \put(15,10){\vector(0,1){55}}
+  \put(87,7){$x$}
+  \put(18,66){$y$}
+  \put(15,10){\line(1,0){55}}
+  \put(15,10){\line(0,1){45}}
+  \put(70,10){\line(0,1){45}}
+  \put(15,55){\line(1,0){55}}
+  \multiput(18,12)(5,0){10}{\line(1,1){12}}
+  \put(67,57){A}
+  \put(10,52){B}
+  \put(67,5){C}
+  \put(10,5){O}
+  \put(42,31){$S$}
+  \dashbox{1}(55,45){}
+  \put(67,57){\circle*{1.5}}
+  \put(67,62){$(1,1)$}
+  \put(4,55){$(0,1)$}
+  \put(63,1){$(1,0)$}
+\end{picture}
+\end{center}
+
+\newpage
+
+\begin{center}
+  {\Large \textbf{Solutions 1--3}}
+\end{center}
+
+\section*{Solution 1}
+
+\begin{enumerate}
+  \item For a fixed $(x,y)$, the first condition says
+        \[
+          xy<z<xy+1,
+        \]
+        and the second condition says
+        \[
+          (x+y)^2<z<(x+y)^2-xy.
+        \]
+        Thus such a $z$ exists if and only if the two open intervals
+        \[
+          (xy,xy+1)
+          \quad\text{and}\quad
+          ((x+y)^2,(x+y)^2-xy)
+        \]
+        overlap.
+
+        The second interval is non-empty precisely when
+        \[
+          xy<0.
+        \]
+        Also, the two intervals overlap precisely when
+        \[
+          (x+y)^2<xy+1.
+        \]
+        This is equivalent to
+        \[
+          x^2+xy+y^2<1.
+        \]
+        Therefore
+        \[
+          \boxed{
+          \Omega=\{(x,y)\in\mathbb{R}^2\mid xy<0,\ x^2+xy+y^2<1\}.}
+        \]
+
+  \item The set $\Omega$ consists of the two parts of the ellipse
+        \[
+          x^2+xy+y^2<1
+        \]
+        lying in the second and fourth quadrants. The boundary consists of the curved ellipse segments together with the portions of the coordinate axes in the closed ellipse.
+
+        The boundary intersects the $x$-axis on
+        \[
+          \boxed{\{(x,0)\mid -1\leq x\leq 1\}},
+        \]
+        and it intersects the $y$-axis on
+        \[
+          \boxed{\{(0,y)\mid -1\leq y\leq 1\}}.
+        \]
+        In particular, the ellipse itself meets the axes at
+        \[
+          \boxed{(\pm1,0),\ (0,\pm1).}
+        \]
+
+        \begin{center}
+        \setlength{\unitlength}{0.8mm}
+        \begin{picture}(110,80)
+          \put(55,40){\vector(1,0){45}}
+          \put(55,40){\vector(-1,0){45}}
+          \put(55,40){\vector(0,1){32}}
+          \put(55,40){\vector(0,-1){32}}
+          \put(101,37){$x$}
+          \put(58,72){$y$}
+          \qbezier(15,70)(35,52)(55,40)
+          \qbezier(55,40)(75,28)(95,10)
+          \qbezier(15,70)(35,88)(55,40)
+          \qbezier(55,40)(75,-8)(95,10)
+          \put(30,57){$\Omega$}
+          \put(76,20){$\Omega$}
+          \put(80,43){$(1,0)$}
+          \put(17,36){$(-1,0)$}
+          \put(58,64){$(0,1)$}
+          \put(58,13){$(0,-1)$}
+        \end{picture}
+        \end{center}
+
+  \item The ellipse is
+        \[
+          \begin{bmatrix}x&y\end{bmatrix}
+          \begin{bmatrix}
+            1 & 1/2\\
+            1/2 & 1
+          \end{bmatrix}
+          \begin{bmatrix}x\\y\end{bmatrix}
+          =1.
+        \]
+        Its major-axis endpoints on the curved boundary are
+        \[
+          (1,-1)
+          \quad\text{and}\quad
+          (-1,1),
+        \]
+        where the curvature is maximized. One suitable matrix that maps the unit circle to this ellipse and maps $(1,0)$ to $(1,-1)$ is
+        \[
+          \boxed{
+          X=
+          \begin{bmatrix}
+            1 & 1/\sqrt{3}\\
+            -1 & 1/\sqrt{3}
+          \end{bmatrix}.}
+        \]
+
+  \item For the matrix above,
+        \[
+          \det X
+          =
+          \frac{1}{\sqrt3}+\frac{1}{\sqrt3}
+          =
+          \boxed{\frac{2}{\sqrt3}.}
+        \]
+
+  \item Under the transformation $X$, the condition $xy<0$ becomes
+        \[
+          |v|<\sqrt3|u|
+        \]
+        in the unit disk with coordinates $(u,v)$. In polar coordinates this corresponds to total angle
+        \[
+          \frac{4\pi}{3}.
+        \]
+        Hence the corresponding area in the unit disk is
+        \[
+          \frac12\cdot\frac{4\pi}{3}
+          =
+          \frac{2\pi}{3}.
+        \]
+        Multiplying by the area scale factor $|\det X|=2/\sqrt3$, we obtain
+        \[
+          \boxed{
+          \operatorname{Area}(\Omega)=
+          \frac{4\pi}{3\sqrt3}.}
+        \]
+\end{enumerate}
+
+\section*{Solution 2}
+
+\begin{enumerate}
+  \item Differentiating under the integral sign gives
+        \[
+          J_n(\alpha)
+          =
+          \int_{1/n}^{n} f'(\alpha x)\,dx.
+        \]
+        With $u=\alpha x$, $du=\alpha\,dx$, so
+        \[
+          J_n(\alpha)
+          =
+          \frac1\alpha
+          \int_{\alpha/n}^{\alpha n}f'(u)\,du
+          =
+          \boxed{
+          \frac1\alpha
+          \left\{f(\alpha n)-f\left(\frac{\alpha}{n}\right)\right\}.}
+        \]
+
+  \item For $\beta\in[1,\alpha]$,
+        \[
+          J_n(\beta)
+          =
+          \frac1\beta
+          \left\{f(\beta n)-f\left(\frac{\beta}{n}\right)\right\}.
+        \]
+        Since $\beta n\geq n$ and $\lim_{x\to\infty}f(x)=0$,
+        \[
+          f(\beta n)\to 0
+        \]
+        uniformly on $[1,\alpha]$. Also, since $0\leq \beta/n\leq \alpha/n$ and $f$ is continuous at $0$,
+        \[
+          f(\beta/n)\to f(0)
+        \]
+        uniformly on $[1,\alpha]$. Hence
+        \[
+          J_n(\beta)\to -\frac{f(0)}{\beta}
+        \]
+        uniformly on $[1,\alpha]$.
+
+        Since $I_n(1)=0$, we have
+        \[
+          I_n(\alpha)=\int_1^\alpha J_n(\beta)\,d\beta.
+        \]
+        The uniform convergence allows the limit to pass through the integral, so
+        \[
+          \boxed{
+          I(\alpha)=\int_1^\alpha
+          \left(\lim_{n\to\infty}J_n(\beta)\right)d\beta.}
+        \]
+
+  \item From part (2),
+        \[
+          I(\alpha)
+          =
+          \int_1^\alpha -\frac{f(0)}{\beta}\,d\beta
+          =
+          \boxed{-f(0)\log\alpha.}
+        \]
+
+  \item Put
+        \[
+          f(x)=e^{-x}\cos x,
+          \qquad
+          \alpha=\frac{p}{q}.
+        \]
+        Then $f(0)=1$ and, using $u=qx$,
+        \[
+          \int_0^\infty
+          \frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\,dx
+          =
+          \int_0^\infty
+          \frac{f(\alpha u)-f(u)}{u}\,du.
+        \]
+        Therefore, by part (3),
+        \[
+          \boxed{
+          \int_0^\infty
+          \frac{e^{-px}\cos(px)-e^{-qx}\cos(qx)}{x}\,dx
+          =
+          -\log\frac{p}{q}
+          =
+          \log\frac{q}{p}.}
+        \]
+\end{enumerate}
+
+\section*{Solution 3}
+
+\begin{enumerate}
+  \item If $A=(X,Y)$, then $X$ and $Y$ are independent uniform random variables on $(0,1)$, and
+        \[
+          S=XY.
+        \]
+        Therefore
+        \[
+          E[S]=E[X]E[Y]=\frac12\cdot\frac12.
+        \]
+        Hence
+        \[
+          \boxed{E[S]=\frac14.}
+        \]
+
+  \item For $0<r<1$,
+        \[
+          P(S\leq r)
+          =
+          P(XY\leq r).
+        \]
+        Since $0<X<1$ and $0<Y<1$,
+        \[
+          P(XY\leq r)
+          =
+          \int_0^r1\,dx+\int_r^1\frac{r}{x}\,dx.
+        \]
+        Thus
+        \[
+          P(S\leq r)
+          =
+          r+r\int_r^1\frac{1}{x}\,dx
+          =
+          \boxed{r(1-\log r).}
+        \]
+
+  \item The distribution function is
+        \[
+          F_S(r)=r(1-\log r)
+          \qquad (0<r<1).
+        \]
+        Hence the density is
+        \[
+          \boxed{
+          f_S(r)=-\log r
+          \qquad (0<r<1).}
+        \]
+        Also $f_S(r)=0$ outside $(0,1)$.
+
+  \item Since $Z=\min(S_1,\ldots,S_n)$ and the $S_i$ are independent,
+        \[
+          P(Z>z)=P(S_1>z,\ldots,S_n>z)
+          =
+          \{1-F_S(z)\}^n.
+        \]
+        Thus
+        \[
+          F_Z(z)=1-\{1-z(1-\log z)\}^n
+          =
+          1-\{1-z+z\log z\}^n.
+        \]
+        Differentiating gives
+        \[
+          \boxed{
+          f_Z(z)=
+          n(-\log z)\{1-z+z\log z\}^{n-1}
+          \qquad (0<z<1).}
+        \]
+        Also $f_Z(z)=0$ outside $(0,1)$.
+\end{enumerate}
+
+\end{document}

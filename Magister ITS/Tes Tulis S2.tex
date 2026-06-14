@@ -1,0 +1,561 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{geometry}
+	\geometry{
+		total = {160mm, 237mm},
+		left = 10mm,
+		right = 10mm,
+		top = 10mm,
+		bottom = 10mm,
+	}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\graphicspath{{C:/Users/teoso/OneDrive/Documents/Tugas Kuliah/Template Math Depart/}}
+
+\begin{document}
+
+% \begin{center}
+%   % Ganti 'logo-its.png' dengan nama file logo Anda
+%   \includegraphics[width=3cm]{ITS.png}
+
+%   \textbf{KEMENTERIAN PENDIDIKAN, KEBUDAYAAN, RISET, DAN TEKNOLOGI} \\
+%   \textbf{INSTITUT TEKNOLOGI SEPULUH NOPEMBER} \\
+%   \textbf{FAKULTAS SAINS DAN ANALITIKA DATA} \\
+%   \textbf{DEPARTEMEN MATEMATIKA} \\
+%   \small Gedung Departemen Matematika, Kampus ITS Sukolilo, Surabaya 60111 \\
+%   \small Telepon: +62 31 5943354, 5995874 | Faks: +62 31 5996506 | Laman: www.its.ac.id/matematika
+% \end{center}
+
+% \hrulefill
+
+\begin{center}
+  \vspace{0.2cm}
+  \textbf{TES MATERI BIDANG PROGRAM STUDI MAGISTER MATEMATIKA} \\
+  \textbf{SEMESTER GASAL 2024/2025} \\
+  \textbf{GELOMBANG III}\\~\\
+
+  \begin{tabular}{l l}
+    Hari, Tanggal & : Kamis, 8 Agustus 2024 \\
+    Waktu         & : 08.00 -- 10.40 WIB    \\
+    Sifat         & : Buku Terbuka
+  \end{tabular}
+
+\end{center}
+
+\pagenumbering{gobble}
+
+\begin{enumerate}
+  \item \ [KALKULUS] Diketahui permintaan untuk suatu produk dalam bentuk persamaan
+        \[ q- 90 + 20p=0 \qquad 0 \le q \le 90 \]
+        dengan $q$ adalah banyaknya unit dan $p$ harga per unit, dan diketahui juga fungsi harga rata-ratanya adalah
+        \[ H = q^2 - 8q + 57 + \frac{2}{q} \qquad 0 \le q \le 90 \]
+        Berapakah nilai $q$ agar diperoleh keuntungan maksimum dan berapakah keuntungan maksimum tersebut? Gambarkan grafik-grafik dari setiap fungsi dari masalah di atas, berikan komentar Anda mengenai grafik tersebut dan kaitannya dengan jawaban Anda!
+
+  \item \ [ANALISIS] Perhatikan barisan bilangan real yang didefinisikan sebagai berikut:
+        \[ x_1 = 1 \quad \text{dan} \quad x_{n+1} = \sqrt{1 + 2x_n} \quad \text{untuk } n \ge 1 \]
+        \begin{enumerate}
+          \item Gunakan Induksi Matematika untuk menunjukkan bahwa $x_n < 4$ untuk semua $n \ge 1$!
+          \item Apakah barisan tersebut konvergen? Berikan penjelasan untuk jawaban Anda!
+        \end{enumerate}
+
+  \item \ [ALJABAR LINEAR ELEMENTER] Diberikan matriks
+        \[ A = \begin{bmatrix}
+            -1 & 2 & 4 & 0  \\
+            0  & 3 & 1 & 7  \\
+            0  & 0 & 5 & 8  \\
+            0  & 0 & 0 & -2
+          \end{bmatrix} \]
+        \begin{enumerate}
+          \item Dapatkan semua nilai eigen dari $A$ beserta vektor-vektor yang berkesesuaian!
+          \item Apakah himpunan vektor-vektor eigen bebas linear? Jelaskan jawaban Anda!
+          \item Apakah $A$ dapat didiagonalkan? Jika ya, dapatkan bentuk diagonal tersebut; jika tidak, berikan penjelasannya!
+        \end{enumerate}
+
+  \item \ [ALJABAR LINEAR] Diberikan dua sistem persamaan linear
+        \begin{align}
+          \begin{cases}
+            835x + 667y & = 168 \\
+            333x + 266y & = 67
+          \end{cases} \tag{5.1} \\
+          \intertext{dan}
+          \begin{cases}
+            835x + 667y & = 168 \\
+            333x + 266y & = 66
+          \end{cases} \tag{5.2}
+        \end{align}
+        Selesaikan sistem persamaan (5.1) dan sistem persamaan (5.2). Jelaskan mengapa penyelesaian dari (5.1) dan penyelesaian dari (5.2) sangat jauh berbeda hasilnya, padahal kenyataannya kedua sistem tersebut hampir sama! Interpretasikan hal ini secara geometrik!
+
+  \item \ [STRUKTUR ALJABAR] Diberikan himpunan
+        \[ G = \left\{ \left. \begin{bmatrix} x \\ y \end{bmatrix} \,\right|\, x, y \in \mathbb{R} \right\} \]
+        dengan $\mathbb{R}$ himpunan bilangan real. Selanjutnya dalam $G$ didefinisikan operasi $+$ dengan
+        \[ \begin{bmatrix} x_1 \\ y_1 \end{bmatrix} + \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} = \begin{bmatrix} x_1 + x_2 \\ y_1 + y_2 \end{bmatrix},\,\forall  \begin{bmatrix} x_1 \\ y_1 \end{bmatrix}, \begin{bmatrix} x_2 \\ y_2 \end{bmatrix} \in G \]
+        Bila
+        \[ N = \left\{ \begin{bmatrix} x \\ y \end{bmatrix} \in G \mid y = x,\, x \in \mathbb{R} \right\} \]
+        Maka tunjukkan bahwa $N$ adalah suatu subgrup normal dari $G$ dan $G/N \cong \mathbb{R}$ !
+
+\end{enumerate}
+
+\newpage
+
+\section*{Solusi}
+
+\begin{enumerate}
+  \item \ [KALKULUS]
+        Dari persamaan permintaan
+        \[
+          q - 90 + 20p = 0
+        \]
+        diperoleh fungsi harga
+        \[
+          p(q) = \frac{90-q}{20}.
+        \]
+        Fungsi pendapatan total adalah
+        \[
+          R(q) = p(q)q = \frac{q(90-q)}{20}.
+        \]
+        Dalam konteks keuntungan, fungsi $H$ ditafsirkan sebagai biaya rata-rata. Maka biaya totalnya adalah
+        \[
+          C(q) = qH(q)
+          = q\left(q^2 - 8q + 57 + \frac{2}{q}\right)
+          = q^3 - 8q^2 + 57q + 2.
+        \]
+        Jadi fungsi keuntungan adalah
+        \begin{align*}
+          K(q)
+          &= R(q) - C(q) \\
+          &= \frac{q(90-q)}{20} - \left(q^3 - 8q^2 + 57q + 2\right) \\
+          &= -q^3 + \frac{159}{20}q^2 - \frac{105}{2}q - 2.
+        \end{align*}
+        Turunannya adalah
+        \[
+          K'(q) = -3q^2 + \frac{159}{10}q - \frac{105}{2}
+          = \frac{-30q^2 + 159q - 525}{10}.
+        \]
+        Perhatikan bahwa diskriminan dari $-30q^2 + 159q - 525$ adalah
+        \[
+          159^2 - 4(30)(525) = 25281 - 63000 < 0.
+        \]
+        Karena koefisien $q^2$ bernilai negatif, maka
+        \[
+          -30q^2 + 159q - 525 < 0
+        \]
+        untuk setiap $q$. Akibatnya $K'(q) < 0$, sehingga $K(q)$ monoton turun pada interval produksi.
+
+        Dengan demikian, model menunjukkan bahwa keuntungan maksimum dicapai pada nilai $q$ terkecil. Jika $q=0$ diizinkan melalui perpanjangan fungsi biaya total $C(0)=2$, maka
+        \[
+          K(0)= -2.
+        \]
+        Jadi nilai maksimumnya adalah
+        \[
+          \boxed{q=0,\qquad K_{\max}=-2.}
+        \]
+        Secara ekonomi, jika tidak ada kewajiban membayar biaya tetap saat tidak berproduksi, keputusan terbaik adalah tidak berproduksi dan keuntungan maksimum adalah $0$.
+
+        Komentar grafik:
+        \begin{itemize}
+          \item Grafik $p(q)=\frac{90-q}{20}$ adalah garis lurus menurun dari $p=4{,}5$ saat $q=0$ ke $p=0$ saat $q=90$.
+          \item Grafik $R(q)=\frac{q(90-q)}{20}$ adalah parabola terbuka ke bawah, bernilai nol pada $q=0$ dan $q=90$.
+          \item Grafik $H(q)=q^2-8q+57+\frac{2}{q}$ memiliki asimtot tegak di $q=0$ dan nilainya tetap jauh lebih besar daripada harga jual $p(q)$ pada interval yang diberikan.
+          \item Karena biaya rata-rata lebih besar daripada harga jual, fungsi keuntungan tidak pernah positif dan justru menurun ketika $q$ bertambah.
+        \end{itemize}
+
+  \item \ [ANALISIS]
+        Diberikan
+        \[
+          x_1=1,\qquad x_{n+1}=\sqrt{1+2x_n}.
+        \]
+        \begin{enumerate}
+          \item Akan ditunjukkan bahwa $x_n<4$ untuk semua $n\geq 1$.
+
+                Untuk $n=1$, jelas
+                \[
+                  x_1=1<4.
+                \]
+                Misalkan $x_n<4$. Karena $x_n\geq 0$, maka
+                \[
+                  x_{n+1}=\sqrt{1+2x_n}
+                  < \sqrt{1+2(4)}
+                  = \sqrt{9}
+                  =3<4.
+                \]
+                Jadi, berdasarkan induksi matematika,
+                \[
+                  \boxed{x_n<4 \text{ untuk semua } n\geq 1.}
+                \]
+
+          \item Barisan tersebut konvergen. Pertama, barisan ini terbatas atas, misalnya oleh $4$ berdasarkan bagian sebelumnya.
+
+                Selanjutnya, titik tetap positif dari fungsi
+                \[
+                  f(x)=\sqrt{1+2x}
+                \]
+                diperoleh dari
+                \[
+                  x=\sqrt{1+2x}
+                  \iff x^2=1+2x
+                  \iff x^2-2x-1=0.
+                \]
+                Maka
+                \[
+                  x=1\pm \sqrt{2}.
+                \]
+                Karena semua suku barisan bernilai positif, kandidat limitnya adalah
+                \[
+                  L=1+\sqrt{2}.
+                \]
+                Akan ditunjukkan pula bahwa barisan naik. Karena $x_1=1<1+\sqrt{2}$ dan fungsi $f$ naik, jika $x_n<1+\sqrt{2}$ maka
+                \[
+                  x_{n+1}=f(x_n)<f(1+\sqrt{2})=1+\sqrt{2}.
+                \]
+                Selain itu, untuk $0<x_n<1+\sqrt{2}$ berlaku
+                \[
+                  x_{n+1}>x_n
+                  \iff \sqrt{1+2x_n}>x_n
+                  \iff 1+2x_n>x_n^2
+                  \iff x_n^2-2x_n-1<0,
+                \]
+                yang benar pada interval $0<x_n<1+\sqrt{2}$. Jadi barisan monoton naik dan terbatas atas, sehingga konvergen.
+
+                Limitnya adalah
+                \[
+                  \boxed{\lim_{n\to\infty}x_n=1+\sqrt{2}.}
+                \]
+        \end{enumerate}
+
+  \item \ [ALJABAR LINEAR ELEMENTER]
+        Karena $A$ adalah matriks segitiga atas, nilai-nilai eigennya adalah entri-entri diagonalnya, yaitu
+        \[
+          \lambda_1=-1,\qquad \lambda_2=3,\qquad \lambda_3=5,\qquad \lambda_4=-2.
+        \]
+
+        \begin{enumerate}
+          \item Vektor-vektor eigen yang bersesuaian diperoleh dari $(A-\lambda I)\mathbf{x}=0$.
+
+                Untuk $\lambda=-1$:
+                \[
+                  \mathbf{v}_1=
+                  \begin{bmatrix}
+                    1\\0\\0\\0
+                  \end{bmatrix}.
+                \]
+
+                Untuk $\lambda=3$:
+                \[
+                  \mathbf{v}_2=
+                  \begin{bmatrix}
+                    1\\2\\0\\0
+                  \end{bmatrix}.
+                \]
+
+                Untuk $\lambda=5$:
+                \[
+                  \mathbf{v}_3=
+                  \begin{bmatrix}
+                    5\\3\\6\\0
+                  \end{bmatrix}.
+                \]
+
+                Untuk $\lambda=-2$:
+                \[
+                  \mathbf{v}_4=
+                  \begin{bmatrix}
+                    242\\-41\\-40\\35
+                  \end{bmatrix}.
+                \]
+
+          \item Himpunan vektor-vektor eigen tersebut bebas linear. Alasannya, vektor-vektor eigen yang berhubungan dengan nilai eigen yang berbeda selalu bebas linear. Karena keempat nilai eigen berbeda, maka
+                \[
+                  \{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3,\mathbf{v}_4\}
+                \]
+                bebas linear.
+
+          \item Matriks $A$ dapat didiagonalkan karena memiliki empat vektor eigen bebas linear di $\mathbb{R}^4$. Ambil
+                \[
+                  P=
+                  \begin{bmatrix}
+                    1 & 1 & 5 & 242\\
+                    0 & 2 & 3 & -41\\
+                    0 & 0 & 6 & -40\\
+                    0 & 0 & 0 & 35
+                  \end{bmatrix}.
+                \]
+                Maka
+                \[
+                  P^{-1}AP
+                  =
+                  D
+                  =
+                  \begin{bmatrix}
+                    -1 & 0 & 0 & 0\\
+                    0 & 3 & 0 & 0\\
+                    0 & 0 & 5 & 0\\
+                    0 & 0 & 0 & -2
+                  \end{bmatrix}.
+                \]
+        \end{enumerate}
+
+  \item \ [ALJABAR LINEAR]
+        Untuk sistem (5.1),
+        \[
+          \begin{cases}
+            835x+667y=168,\\
+            333x+266y=67,
+          \end{cases}
+        \]
+        determinan matriks koefisiennya adalah
+        \[
+          \Delta=
+          \begin{vmatrix}
+            835 & 667\\
+            333 & 266
+          \end{vmatrix}
+          =835(266)-667(333)
+          =222110-222111=-1.
+        \]
+        Dengan aturan Cramer,
+        \[
+          x=\frac{
+          \begin{vmatrix}
+            168 & 667\\
+            67 & 266
+          \end{vmatrix}}{\Delta}
+          =
+          \frac{168(266)-667(67)}{-1}
+          =
+          \frac{-1}{-1}
+          =1,
+        \]
+        dan
+        \[
+          y=\frac{
+          \begin{vmatrix}
+            835 & 168\\
+            333 & 67
+          \end{vmatrix}}{\Delta}
+          =
+          \frac{835(67)-168(333)}{-1}
+          =
+          \frac{1}{-1}
+          =-1.
+        \]
+        Jadi penyelesaian sistem (5.1) adalah
+        \[
+          \boxed{(x,y)=(1,-1).}
+        \]
+
+        Untuk sistem (5.2),
+        \[
+          \begin{cases}
+            835x+667y=168,\\
+            333x+266y=66,
+          \end{cases}
+        \]
+        diperoleh
+        \[
+          x=
+          \frac{168(266)-667(66)}{-1}
+          =
+          \frac{666}{-1}
+          =-666,
+        \]
+        dan
+        \[
+          y=
+          \frac{835(66)-168(333)}{-1}
+          =
+          \frac{-834}{-1}
+          =834.
+        \]
+        Jadi penyelesaian sistem (5.2) adalah
+        \[
+          \boxed{(x,y)=(-666,834).}
+        \]
+
+        Kedua sistem hampir sama, tetapi determinan matriks koefisiennya sangat kecil, yaitu $\Delta=-1$. Hal ini menunjukkan bahwa dua garis pada sistem tersebut hampir sejajar. Secara geometrik, perubahan kecil pada ruas kanan persamaan kedua, dari $67$ menjadi $66$, menggeser salah satu garis sedikit saja, tetapi karena kedua garis hampir sejajar, titik potongnya berpindah sangat jauh.
+
+  \item \ [STRUKTUR ALJABAR]
+        Himpunan
+        \[
+          G=\left\{
+          \left.
+          \begin{bmatrix}
+            x\\y
+          \end{bmatrix}
+          \right| x,y\in\mathbb{R}
+          \right\}
+        \]
+        dengan operasi penjumlahan biasa adalah grup abelian.
+
+        Akan ditunjukkan bahwa
+        \[
+          N=
+          \left\{
+          \begin{bmatrix}
+            x\\y
+          \end{bmatrix}
+          \in G \mid y=x,\ x\in\mathbb{R}
+          \right\}
+          =
+          \left\{
+          \begin{bmatrix}
+            x\\x
+          \end{bmatrix}
+          \mid x\in\mathbb{R}
+          \right\}
+        \]
+        adalah subgrup dari $G$.
+
+        Ambil
+        \[
+          \mathbf{a}=
+          \begin{bmatrix}
+            a\\a
+          \end{bmatrix},
+          \qquad
+          \mathbf{b}=
+          \begin{bmatrix}
+            b\\b
+          \end{bmatrix}
+          \in N.
+        \]
+        Maka
+        \[
+          \mathbf{a}+\mathbf{b}
+          =
+          \begin{bmatrix}
+            a+b\\a+b
+          \end{bmatrix}
+          \in N.
+        \]
+        Selain itu, elemen identitas
+        \[
+          \begin{bmatrix}
+            0\\0
+          \end{bmatrix}
+          \in N
+        \]
+        dan invers dari
+        \[
+          \begin{bmatrix}
+            a\\a
+          \end{bmatrix}
+        \]
+        adalah
+        \[
+          -
+          \begin{bmatrix}
+            a\\a
+          \end{bmatrix}
+          =
+          \begin{bmatrix}
+            -a\\-a
+          \end{bmatrix}
+          \in N.
+        \]
+        Jadi $N$ adalah subgrup dari $G$.
+
+        Karena $G$ adalah grup abelian, setiap subgrup dari $G$ adalah subgrup normal. Maka
+        \[
+          \boxed{N\trianglelefteq G.}
+        \]
+
+        Selanjutnya definisikan homomorfisma
+        \[
+          \varphi:G\to\mathbb{R},
+          \qquad
+          \varphi\left(
+          \begin{bmatrix}
+            x\\y
+          \end{bmatrix}
+          \right)=y-x.
+        \]
+        Untuk
+        \[
+          \begin{bmatrix}
+            x_1\\y_1
+          \end{bmatrix},
+          \begin{bmatrix}
+            x_2\\y_2
+          \end{bmatrix}
+          \in G,
+        \]
+        berlaku
+        \begin{align*}
+          \varphi\left(
+          \begin{bmatrix}
+            x_1\\y_1
+          \end{bmatrix}
+          +
+          \begin{bmatrix}
+            x_2\\y_2
+          \end{bmatrix}
+          \right)
+          &=
+          \varphi\left(
+          \begin{bmatrix}
+            x_1+x_2\\y_1+y_2
+          \end{bmatrix}
+          \right) \\
+          &=(y_1+y_2)-(x_1+x_2) \\
+          &=(y_1-x_1)+(y_2-x_2) \\
+          &=
+          \varphi\left(
+          \begin{bmatrix}
+            x_1\\y_1
+          \end{bmatrix}
+          \right)
+          +
+          \varphi\left(
+          \begin{bmatrix}
+            x_2\\y_2
+          \end{bmatrix}
+          \right).
+        \end{align*}
+        Jadi $\varphi$ adalah homomorfisma.
+
+        Kernel dari $\varphi$ adalah
+        \[
+          \ker(\varphi)
+          =
+          \left\{
+          \begin{bmatrix}
+            x\\y
+          \end{bmatrix}
+          \in G \mid y-x=0
+          \right\}
+          =
+          \left\{
+          \begin{bmatrix}
+            x\\x
+          \end{bmatrix}
+          \mid x\in\mathbb{R}
+          \right\}
+          =N.
+        \]
+        Selain itu, $\varphi$ surjektif karena untuk setiap $r\in\mathbb{R}$ dapat dipilih
+        \[
+          \begin{bmatrix}
+            0\\r
+          \end{bmatrix}
+          \in G
+        \]
+        sehingga
+        \[
+          \varphi\left(
+          \begin{bmatrix}
+            0\\r
+          \end{bmatrix}
+          \right)=r.
+        \]
+        Berdasarkan Teorema Isomorfisma Pertama,
+        \[
+          G/\ker(\varphi)\cong \operatorname{Im}(\varphi).
+        \]
+        Karena $\ker(\varphi)=N$ dan $\operatorname{Im}(\varphi)=\mathbb{R}$, maka
+        \[
+          \boxed{G/N\cong\mathbb{R}.}
+        \]
+\end{enumerate}
+
+\end{document}

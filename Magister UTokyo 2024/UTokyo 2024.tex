@@ -1,0 +1,587 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{
+  left=15mm,
+  right=15mm,
+  top=15mm,
+  bottom=15mm
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.2em}
+\setlist[enumerate,2]{label=(\alph*),leftmargin=2.2em}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{The University of Tokyo 2024}}\\[2mm]
+  {\large \textbf{Problems 1--3}}
+\end{center}
+
+\section*{Problem 1}
+
+Let $\mathbb{R}^3$ be the set of the three-dimensional real column vectors and $\mathbb{R}^{3\times 3}$ be the set of the three-by-three real matrices. Let $n_1,n_2,n_3\in\mathbb{R}^3$ be linearly independent unit-length vectors and $n_4\in\mathbb{R}^3$ be a unit-length vector not parallel to $n_1,n_2,$ or $n_3$. Let $A$ and $B$ be square matrices defined as
+\[
+  A=
+  \begin{pmatrix}
+    n_1^T-n_2^T\\
+    n_1^T-n_3^T\\
+    n_3^T-n_4^T
+  \end{pmatrix},
+  \qquad
+  B=\sum_{i=1}^4 n_in_i^T.
+\]
+Here, $X^T$ and $x^T$ denote the transpose of a matrix $X$ and a vector $x$, respectively. Answer the following questions.
+
+\begin{enumerate}
+  \item Find the condition for $n_4$ such that the rank of $A$ is three.
+
+  \item In the three-dimensional Euclidean space $\mathbb{R}^3$, consider four planes
+        \[
+          \Pi_i=\{x\in\mathbb{R}^3\mid n_i^Tx-d_i=0\}
+        \]
+        where $d_i$ is a real number, and $i=1,2,3,4$, that satisfy the following three conditions: (i) the rank of $A$ is three, (ii)
+        \[
+          \Omega=\{x\in\mathbb{R}^3\mid n_i^Tx-d_i\geq 0,\ i=1,2,3,4\}
+        \]
+        is not the empty set, and (iii) there exists a sphere C $(\subset\Omega)$ to which $\Pi_i$ $(i=1,2,3,4)$ are tangent. The position vector of the center of C is represented by $A^{-1}u$ using a vector $u\in\mathbb{R}^3$. Express $u$ using $d_i$ $(i=1,2,3,4)$.
+
+  \item Show that $B$ is a positive definite symmetric matrix.
+
+  \item Consider the point P from which the sum of squared distances to four planes
+        \[
+          \{x\in\mathbb{R}^3\mid n_i^Tx-d_i=0\}
+        \]
+        where $d_i$ is a real number, and $i=1,2,3,4$, is minimized. The position vector of P is represented by $B^{-1}v$ using a vector $v\in\mathbb{R}^3$. Express $v$ using $n_i$ and $d_i$ $(i=1,2,3,4)$.
+
+  \item Let $l_i$ be a straight line through a point $Q_i$, the position vector of which is $x_i\in\mathbb{R}^3$, parallel to $n_i$ $(i=1,2,3)$ in $\mathbb{R}^3$. Let $R_i$ be the orthogonal projection of an arbitrary point $R$, the position vector of which is $y\in\mathbb{R}^3$, onto $l_i$. The position vector of $R_i$ is represented by
+        \[
+          y-W_i(y-x_i)
+        \]
+        using a matrix $W_i\in\mathbb{R}^{3\times 3}$. The identity matrix is denoted by $I\in\mathbb{R}^{3\times 3}$.
+        \begin{enumerate}
+          \item Express $W_i$ using $n_i$ and $I$.
+          \item Show that $W_i^TW_i=W_i$.
+          \item Consider a plane
+                \[
+                  \Sigma=\{x\in\mathbb{R}^3\mid a^Tx=b\}
+                \]
+                where $a\in\mathbb{R}^3$ is a non-zero vector, and $b$ is a real number. Let $S\in\Sigma$ be the point from which the sum of squared distances to $l_1,l_2,$ and $l_3$ is minimized. When $n_1,n_2,$ and $n_3$ are orthogonal to each other, the position vector of $S$ is represented by
+                \[
+                  \left(I-\frac{aa^T}{a^Ta}\right)w+\frac{ab}{a^Ta}
+                \]
+                using a vector $w\in\mathbb{R}^3$ which is independent of $a$ and $b$. Express $w$ using $W_i$ and $x_i$ $(i=1,2,3)$.
+        \end{enumerate}
+\end{enumerate}
+
+\section*{Problem 2}
+
+Consider a function $f(s)$ defined by the following integral for positive real numbers $s$:
+\[
+  f(s)=\int_0^\infty t^{s-1}\exp(-t)\,dt.
+\]
+Answer the following questions. You may answer without showing that the above integral converges.
+
+\begin{enumerate}
+  \item Find the value of $f(1)$.
+
+  \item The inequality $\exp(t)>t^n/n!$ holds for any positive real number $t$ and non-negative integer $n$.
+        \begin{enumerate}
+          \item For positive real numbers $s$, show the following inequality:
+                \[
+                  \int_0^1 t^{s-1}\exp(-t)\,dt<\frac{1}{s}.
+                \]
+          \item When $n>s>0$, show that the following inequality holds for any real number $c$ that satisfies $c>1$:
+                \[
+                  \int_1^c t^{s-1}\exp(-t)\,dt<\frac{n!}{n-s}.
+                \]
+        \end{enumerate}
+
+  \item When the second-order derivative of $f(s)$ is expressed as
+        \[
+          \frac{d^2f(s)}{ds^2}=\int_0^\infty g(t,s)\exp(-t)\,dt,
+        \]
+        find a function $g(t,s)$. You may answer without showing that the order of differentiation and integration can be exchanged.
+
+  \item Find the value of $D$ defined as
+        \[
+          D=\int_0^\infty(\log t)^2\exp(-t)\,dt
+          -
+          \left\{\int_0^\infty(\log t)\exp(-t)\,dt\right\}^2.
+        \]
+        Here, you may use the fact that the following relation holds:
+        \[
+          \left.\frac{d^2}{ds^2}\log f(s)\right|_{s=1}=\frac{\pi^2}{6}.
+        \]
+
+  \item Define a function $p(r)$ for positive real numbers $r$ and $\alpha$ as
+        \[
+          p(r)=\frac{r}{\alpha}\exp\left(-\frac{r^2}{2\alpha}\right).
+        \]
+        Find the value of $S$ defined as
+        \[
+          S=\int_0^\infty(\log r)^2p(r)\,dr
+          -
+          \left\{\int_0^\infty(\log r)p(r)\,dr\right\}^2.
+        \]
+\end{enumerate}
+
+\section*{Problem 3}
+
+Consider a particle moving on the coordinate plane, and denote the location of the particle at time $t\in\{0,1,2,\ldots\}$ by $(X_t,Y_t)$. The initial location of the particle is $(X_0,Y_0)=(0,0)$. Also, if $(X_t,Y_t)=(a,b)$, then $(X_{t+1},Y_{t+1})=(a+1,b)$ with probability $p$, $(X_{t+1},Y_{t+1})=(a,b+1)$ with probability $q$, and $(X_{t+1},Y_{t+1})=(a,b)$ with probability $1-p-q$. Here, it is assumed that $p,q>0$, $p+q<1$, and the movements of the particle at different time points are independent. Let $(X,Y)$ denote the location of the particle such that
+\[
+  (X_{t+1},Y_{t+1})=(X_t,Y_t)
+\]
+for the first time. Answer the following questions.
+
+\begin{enumerate}
+  \item Show that the probability that $(X,Y)=(1,2)$ is $3pq^2(1-p-q)$.
+
+  \item For non-negative integers $n$, find the probability that $X+Y=n$.
+
+  \item For non-negative integers $n$, let $f_n$ denote the probability that $X=n$.
+        \begin{enumerate}
+          \item Find $f_0$.
+          \item Express the probability that $X\geq n+1$ given the condition $X\geq n$, using $f_0$.
+          \item Show that $f_n=(1-f_0)^nf_0$.
+        \end{enumerate}
+
+  \item Express the expectation of $X$ using $p$ and $q$.
+
+  \item Express the correlation coefficient between $X$ and $Y$
+        \[
+          \frac{E[(X-\mu_X)(Y-\mu_Y)]}
+          {\sqrt{E[(X-\mu_X)^2]E[(Y-\mu_Y)^2]}}
+        \]
+        using $p$ and $q$, where $\mu_X=E[X]$ denotes the expectation of $X$ and $\mu_Y=E[Y]$ denotes the expectation of $Y$.
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+  {\Large \textbf{Solutions 1--3}}
+\end{center}
+
+\section*{Solution 1}
+
+\begin{enumerate}
+  \item Since $n_1,n_2,n_3$ are linearly independent unit vectors, they form a basis of $\mathbb{R}^3$. Write
+        \[
+          n_4=an_1+bn_2+cn_3.
+        \]
+        With respect to this basis, the three rows of $A$ correspond to
+        \[
+          (1,-1,0),\qquad (1,0,-1),\qquad (-a,-b,1-c).
+        \]
+        Their determinant is
+        \[
+          \begin{vmatrix}
+            1&-1&0\\
+            1&0&-1\\
+            -a&-b&1-c
+          \end{vmatrix}
+          =1-a-b-c.
+        \]
+        Therefore
+        \[
+          \operatorname{rank}A=3
+          \iff
+          1-a-b-c\neq 0.
+        \]
+        Equivalently,
+        \[
+          \boxed{
+          n_4^T(n_1+n_2+n_3)\neq 1.}
+        \]
+
+  \item Let $z$ be the center of the sphere and let its radius be $r$. Since the sphere is tangent to all four planes and lies in $\Omega$,
+        \[
+          n_i^Tz-d_i=r
+          \qquad (i=1,2,3,4).
+        \]
+        Subtracting these equations gives
+        \[
+          (n_1-n_2)^Tz=d_1-d_2,
+        \]
+        \[
+          (n_1-n_3)^Tz=d_1-d_3,
+        \]
+        and
+        \[
+          (n_3-n_4)^Tz=d_3-d_4.
+        \]
+        Hence $Az=u$, where
+        \[
+          \boxed{
+          u=
+          \begin{bmatrix}
+            d_1-d_2\\
+            d_1-d_3\\
+            d_3-d_4
+          \end{bmatrix}.}
+        \]
+        Since $\operatorname{rank}A=3$, the center is $z=A^{-1}u$.
+
+  \item The matrix $B$ is symmetric because
+        \[
+          (n_in_i^T)^T=n_in_i^T
+        \]
+        for every $i$. For any nonzero $x\in\mathbb{R}^3$,
+        \[
+          x^TBx
+          =
+          \sum_{i=1}^4 x^Tn_in_i^Tx
+          =
+          \sum_{i=1}^4(n_i^Tx)^2.
+        \]
+        Since $n_1,n_2,n_3$ are linearly independent, no nonzero $x$ can be orthogonal to all of $n_1,n_2,n_3$. Thus
+        \[
+          x^TBx>0
+        \]
+        for every nonzero $x$. Therefore $B$ is positive definite symmetric.
+
+  \item The squared distance from $x$ to the plane $n_i^Tx-d_i=0$ is
+        \[
+          (n_i^Tx-d_i)^2,
+        \]
+        because $n_i$ is a unit vector. Thus we minimize
+        \[
+          F(x)=\sum_{i=1}^4(n_i^Tx-d_i)^2.
+        \]
+        Differentiating gives
+        \[
+          \nabla F(x)=2\sum_{i=1}^4(n_i^Tx-d_i)n_i.
+        \]
+        Setting this equal to zero yields
+        \[
+          \left(\sum_{i=1}^4 n_in_i^T\right)x
+          =
+          \sum_{i=1}^4d_in_i.
+        \]
+        Therefore the minimizing point is $x=B^{-1}v$, where
+        \[
+          \boxed{
+          v=\sum_{i=1}^4d_in_i.}
+        \]
+
+  \item
+        \begin{enumerate}
+          \item The orthogonal projection of $y$ onto the line through $x_i$ in the direction $n_i$ is
+                \[
+                  x_i+n_in_i^T(y-x_i).
+                \]
+                Since this is also written as
+                \[
+                  y-W_i(y-x_i),
+                \]
+                we obtain
+                \[
+                  \boxed{
+                  W_i=I-n_in_i^T.}
+                \]
+
+          \item Since $n_i$ is a unit vector,
+                \[
+                  W_i^T=I-n_in_i^T=W_i
+                \]
+                and
+                \[
+                  W_i^2
+                  =
+                  (I-n_in_i^T)^2
+                  =
+                  I-2n_in_i^T+n_i(n_i^Tn_i)n_i^T
+                  =
+                  I-n_in_i^T
+                  =
+                  W_i.
+                \]
+                Hence
+                \[
+                  \boxed{W_i^TW_i=W_i.}
+                \]
+
+          \item The squared distance from $s$ to $l_i$ is
+                \[
+                  \|W_i(s-x_i)\|^2.
+                \]
+                By part (b), this is
+                \[
+                  (s-x_i)^TW_i(s-x_i).
+                \]
+                Therefore the sum of squared distances is minimized, without the plane constraint, when
+                \[
+                  \left(\sum_{i=1}^3W_i\right)s
+                  =
+                  \sum_{i=1}^3W_ix_i.
+                \]
+                If $n_1,n_2,n_3$ are orthogonal unit vectors, then
+                \[
+                  \sum_{i=1}^3W_i
+                  =
+                  \sum_{i=1}^3(I-n_in_i^T)
+                  =
+                  3I-I
+                  =
+                  2I.
+                \]
+                Hence the unconstrained minimizer is
+                \[
+                  w=\frac12\sum_{i=1}^3W_ix_i.
+                \]
+                The constrained minimizer on $a^Ts=b$ is the orthogonal projection of $w$ onto $\Sigma$, namely
+                \[
+                  \left(I-\frac{aa^T}{a^Ta}\right)w+\frac{ab}{a^Ta}.
+                \]
+                Thus
+                \[
+                  \boxed{
+                  w=\frac12\sum_{i=1}^3W_ix_i.}
+                \]
+        \end{enumerate}
+\end{enumerate}
+
+\section*{Solution 2}
+
+\begin{enumerate}
+  \item Since
+        \[
+          f(1)=\int_0^\infty e^{-t}\,dt,
+        \]
+        we have
+        \[
+          \boxed{f(1)=1.}
+        \]
+
+  \item
+        \begin{enumerate}
+          \item Since $e^{-t}<1$ for $t>0$,
+                \[
+                  \int_0^1t^{s-1}e^{-t}\,dt
+                  <
+                  \int_0^1t^{s-1}\,dt
+                  =
+                  \frac1s.
+                \]
+
+          \item From
+                \[
+                  e^t>\frac{t^n}{n!},
+                \]
+                we get
+                \[
+                  e^{-t}<\frac{n!}{t^n}.
+                \]
+                Therefore
+                \[
+                  \int_1^c t^{s-1}e^{-t}\,dt
+                  <
+                  n!\int_1^c t^{s-n-1}\,dt.
+                \]
+                Since $n>s$,
+                \[
+                  n!\int_1^c t^{s-n-1}\,dt
+                  =
+                  \frac{n!}{n-s}\left(1-c^{s-n}\right)
+                  <
+                  \frac{n!}{n-s}.
+                \]
+        \end{enumerate}
+
+  \item Differentiating twice with respect to $s$ gives
+        \[
+          \frac{d^2}{ds^2}t^{s-1}
+          =
+          (\log t)^2t^{s-1}.
+        \]
+        Hence
+        \[
+          \boxed{
+          g(t,s)=(\log t)^2t^{s-1}.}
+        \]
+
+  \item We have
+        \[
+          f'(s)=\int_0^\infty(\log t)t^{s-1}e^{-t}\,dt,
+        \]
+        and
+        \[
+          f''(s)=\int_0^\infty(\log t)^2t^{s-1}e^{-t}\,dt.
+        \]
+        Since $f(1)=1$,
+        \[
+          \left.\frac{d^2}{ds^2}\log f(s)\right|_{s=1}
+          =
+          f''(1)-\{f'(1)\}^2
+          =
+          D.
+        \]
+        Using the given relation,
+        \[
+          \boxed{D=\frac{\pi^2}{6}.}
+        \]
+
+  \item Put
+        \[
+          u=\frac{r^2}{2\alpha}.
+        \]
+        Then
+        \[
+          du=\frac{r}{\alpha}\,dr,
+        \]
+        so $u$ has density $e^{-u}$ on $(0,\infty)$. Also,
+        \[
+          \log r=\frac12\log(2\alpha)+\frac12\log u.
+        \]
+        Adding a constant does not change variance, and multiplying by $1/2$ multiplies variance by $1/4$. Therefore, using the result of part (4),
+        \[
+          S=\frac14\cdot\frac{\pi^2}{6}.
+        \]
+        Hence
+        \[
+          \boxed{S=\frac{\pi^2}{24}.}
+        \]
+\end{enumerate}
+
+\section*{Solution 3}
+
+Let
+\[
+  r=1-p-q.
+\]
+The particle moves right with probability $p$, moves upward with probability $q$, and stops for the first time with probability $r$.
+
+\begin{enumerate}
+  \item To end at $(1,2)$ before the first stop, the particle must make exactly one right move and two upward moves in the first three steps, in any order, and then stop. Hence
+        \[
+          P((X,Y)=(1,2))
+          =
+          \binom31pq^2r
+          =
+          \boxed{3pq^2(1-p-q).}
+        \]
+
+  \item The event $X+Y=n$ means that the first $n$ steps are moves and the next step is the first stop. Therefore
+        \[
+          \boxed{
+          P(X+Y=n)=(p+q)^n(1-p-q).}
+        \]
+
+  \item
+        \begin{enumerate}
+          \item The event $X=0$ means no right move occurs before the first stop. At each step, either an upward move occurs, with probability $q$, or the first stop occurs, with probability $r$. Thus
+                \[
+                  f_0=r(1+q+q^2+\cdots)
+                  =
+                  \frac{r}{1-q}.
+                \]
+                Hence
+                \[
+                  \boxed{
+                  f_0=\frac{1-p-q}{1-q}.}
+                \]
+
+          \item The number $X$ has a geometric distribution:
+                \[
+                  f_n
+                  =
+                  \sum_{m=0}^\infty
+                  \binom{n+m}{n}p^nq^mr
+                  =
+                  \frac{r}{1-q}
+                  \left(\frac{p}{1-q}\right)^n.
+                \]
+                Therefore
+                \[
+                  P(X\geq n+1\mid X\geq n)
+                  =
+                  \frac{p}{1-q}.
+                \]
+                Since
+                \[
+                  1-f_0
+                  =
+                  1-\frac{1-p-q}{1-q}
+                  =
+                  \frac{p}{1-q},
+                \]
+                we get
+                \[
+                  \boxed{
+                  P(X\geq n+1\mid X\geq n)=1-f_0.}
+                \]
+
+          \item From the result above,
+                \[
+                  \boxed{
+                  f_n=(1-f_0)^nf_0.}
+                \]
+        \end{enumerate}
+
+  \item Since $X$ has the geometric distribution
+        \[
+          f_n=(1-f_0)^nf_0,
+        \]
+        its expectation is
+        \[
+          E[X]=\frac{1-f_0}{f_0}.
+        \]
+        Substituting
+        \[
+          f_0=\frac{1-p-q}{1-q}
+        \]
+        gives
+        \[
+          \boxed{
+          E[X]=\frac{p}{1-p-q}.}
+        \]
+
+  \item The joint probability generating function of $(X,Y)$ is
+        \[
+          G(s,t)=E[s^Xt^Y]
+          =
+          \sum_{n=0}^\infty r(ps+qt)^n
+          =
+          \frac{r}{1-ps-qt}.
+        \]
+        Hence
+        \[
+          E[X]=\frac{p}{r},
+          \qquad
+          E[Y]=\frac{q}{r},
+        \]
+        \[
+          E[XY]
+          =
+          \left.\frac{\partial^2G}{\partial s\,\partial t}\right|_{s=t=1}
+          =
+          \frac{2pq}{r^2}.
+        \]
+        Therefore
+        \[
+          \operatorname{Cov}(X,Y)
+          =
+          E[XY]-E[X]E[Y]
+          =
+          \frac{pq}{r^2}.
+        \]
+        Similarly,
+        \[
+          \operatorname{Var}(X)=\frac{p(1-q)}{r^2},
+          \qquad
+          \operatorname{Var}(Y)=\frac{q(1-p)}{r^2}.
+        \]
+        Thus the correlation coefficient is
+        \[
+          \frac{\operatorname{Cov}(X,Y)}
+          {\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}
+          =
+          \boxed{
+          \sqrt{\frac{pq}{(1-p)(1-q)}}.}
+        \]
+\end{enumerate}
+
+\end{document}

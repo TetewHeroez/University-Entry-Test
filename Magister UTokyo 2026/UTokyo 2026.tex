@@ -1,0 +1,601 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{
+  left=15mm,
+  right=15mm,
+  top=15mm,
+  bottom=15mm
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label=(\arabic*),leftmargin=2.2em}
+\setlist[enumerate,2]{label=(\roman*),leftmargin=2.2em}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{The University of Tokyo 2026}}\\[2mm]
+  {\large \textbf{Problems 1--3}}
+\end{center}
+
+\section*{Problem 1}
+
+Answer the following questions on real square matrices.
+
+\begin{enumerate}
+  \item Let $A$ be a matrix defined as
+        \[
+          A=
+          \begin{pmatrix}
+            5 & -4 & 0\\
+            -4 & 5 & 0\\
+            0 & 0 & 16
+          \end{pmatrix}.
+        \]
+        \begin{enumerate}
+          \item Find all the eigenvalues of $A$. For each of these eigenvalues, find a corresponding eigenvector.
+          \item Find a real symmetric positive definite matrix $B$ satisfying $B^2=A$.
+        \end{enumerate}
+
+  \item Let $C$ be a real symmetric positive definite matrix. Show that there exists a unique real symmetric positive definite matrix $D$ satisfying $D^2=C$.
+
+  \item Let a real square matrix $F$ be nonsingular.
+        \begin{enumerate}
+          \item Show that there exist unique real symmetric positive definite matrices $S$ and $T$ and unique orthogonal matrices $U$ and $V$ satisfying
+                \[
+                  F=SU=VT.
+                \]
+          \item Show that $S$ and $T$ in Question (i) satisfy
+                \[
+                  T=F^{-1}SF.
+                \]
+          \item Show that $U$ and $V$ in Question (i) satisfy $U=V$.
+        \end{enumerate}
+\end{enumerate}
+
+\section*{Problem 2}
+
+Let $x$ be a real independent variable. Let $y(x)$ be a real-valued function. Consider the following ordinary differential equation. Here, $a,b,c$ and $d$ are real-valued constants, and $x+cy+d\neq 0$.
+\[
+  \frac{dy}{dx}
+  =
+  \frac{ax+y+b}{x+cy+d}.
+  \tag{2.1}
+\]
+Answer the following questions.
+
+\begin{enumerate}
+  \item Assume that $a=c=0$. Find the general solution of Equation (2.1) in this case.
+
+  \item Assume that $ac=1$. Convert Equation (2.1) in this case into a separable form with an appropriate change of variables.
+
+  \item Assume that $ac\neq 1$. Convert Equation (2.1) in this case into a homogeneous form with an appropriate change of variables.
+\end{enumerate}
+
+Next, consider an ordinary differential equation in the following form. Here, $P(x),Q(x)$ and $R(x)$ are real-valued functions that depend only on $x$.
+\[
+  \frac{dy}{dx}+P(x)+Q(x)y+R(x)y^2=0.
+  \tag{2.2}
+\]
+
+\begin{enumerate}[resume]
+  \item Assume that $R(x)=0$. Find the general solution of Equation (2.2) in this case.
+
+  \item Assume that $P(x)=0$. Show that Equation (2.2) in this case can be converted into an ordinary differential equation in the same form as that in Question (4) by an appropriate change of variables with respect to $y$. Also, find the general solution of that ordinary differential equation.
+
+  \item Let $y_1(x)$ denote a particular solution of Equation (2.2). Show that Equation (2.2) can be converted into an ordinary differential equation in the same form as that in Question (5) with the change of variables $z=y-y_1$.
+
+  \item Assume that
+        \[
+          P(x)=x^2+x+1,\qquad Q(x)=2x+1,\qquad R(x)=1.
+        \]
+        Find the general solution of Equation (2.2) in this case.
+\end{enumerate}
+
+\section*{Problem 3}
+
+Consider a moving point on a number line. The initial position of the moving point is $0$. At each step, the moving point moves by $1$, either in the positive or the negative direction, each with probability $\frac12$. For a positive integer $n$, denote by $P_n$ the position of the moving point in the line after $n$ steps. It is assumed that the movements of the moving point are independent.
+
+For a random variable $X$, let $E(X)$ and $V(X)$ be the expected value and variance of $X$, respectively. Let $\Pr(X\geq k)$ and $\Pr(|X|\geq k)$ be the probability of satisfying $X\geq k$ and $|X|\geq k$, respectively.
+
+Answer the following questions.
+
+\begin{enumerate}
+  \item Find the expected value of $P_n$.
+
+  \item Find the variance of $P_n$.
+
+  \item Show that for any positive integer $k$, the probability of satisfying $|P_n|\geq k$ satisfies
+        \[
+          \Pr(|P_n|\geq k)\leq \frac{V(P_n)}{k^2}.
+        \]
+
+  \item Show that for any $t>0$ and any positive integer $k$, the probability of satisfying $P_n\geq k$ satisfies
+        \[
+          \Pr(P_n\geq k)
+          =
+          \Pr(\exp(tP_n)\geq \exp(tk))
+          \leq
+          \frac{E(\exp(tP_n))}{\exp(tk)}.
+        \]
+
+  \item Show that for any $t>0$, the expected value of $\exp(tP_n)$ satisfies
+        \[
+          E(\exp(tP_n))\leq \exp\left(\frac{t^2n}{2}\right).
+        \]
+
+  \item Show that for any positive integer $k$, the probability of satisfying $P_n\geq k$ satisfies
+        \[
+          \Pr(P_n\geq k)\leq \exp\left(-\frac{k^2}{2n}\right).
+        \]
+
+  \item Show that the probability that $|P_n|\geq 10^6$ after $n=10^{10}$ steps is less than $10^{-4}$.
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+  {\Large \textbf{Solutions 1--3}}
+\end{center}
+
+\section*{Solution 1}
+
+\begin{enumerate}
+  \item
+        \begin{enumerate}
+          \item The upper-left $2\times2$ block is
+                \[
+                  \begin{pmatrix}
+                    5&-4\\
+                    -4&5
+                  \end{pmatrix}.
+                \]
+                Its eigenvalues are $1$ and $9$, with eigenvectors $(1,1)^T$ and $(1,-1)^T$, respectively. The third coordinate gives the eigenvalue $16$. Hence the eigenvalues and eigenvectors of $A$ are
+                \[
+                  \boxed{\lambda=1,\quad
+                  \begin{pmatrix}1\\1\\0\end{pmatrix}},
+                \]
+                \[
+                  \boxed{\lambda=9,\quad
+                  \begin{pmatrix}1\\-1\\0\end{pmatrix}},
+                \]
+                and
+                \[
+                  \boxed{\lambda=16,\quad
+                  \begin{pmatrix}0\\0\\1\end{pmatrix}}.
+                \]
+
+          \item The positive square roots of the eigenvalues $1,9,16$ are $1,3,4$. Therefore a real symmetric positive definite square root of $A$ is
+                \[
+                  \boxed{
+                  B=
+                  \begin{pmatrix}
+                    2&-1&0\\
+                    -1&2&0\\
+                    0&0&4
+                  \end{pmatrix}.}
+                \]
+                Indeed,
+                \[
+                  B^2=
+                  \begin{pmatrix}
+                    5&-4&0\\
+                    -4&5&0\\
+                    0&0&16
+                  \end{pmatrix}
+                  =A.
+                \]
+        \end{enumerate}
+
+  \item Since $C$ is real symmetric positive definite, the spectral theorem gives
+        \[
+          C=Q\Lambda Q^T,
+        \]
+        where $Q$ is orthogonal and
+        \[
+          \Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_m),
+          \qquad
+          \lambda_i>0.
+        \]
+        Define
+        \[
+          D=Q\operatorname{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_m})Q^T.
+        \]
+        Then $D$ is real symmetric positive definite and $D^2=C$.
+
+        To prove uniqueness, suppose $E$ is also real symmetric positive definite and $E^2=C$. Since $E$ commutes with $C=E^2$, each eigenspace of $C$ is invariant under $E$. On the eigenspace corresponding to $\lambda$, the matrix $E$ satisfies
+        \[
+          E^2=\lambda I.
+        \]
+        Since $E$ is positive definite, all its eigenvalues on this eigenspace are positive, so they must all be $\sqrt{\lambda}$. Hence $E$ agrees with $D$ on every eigenspace of $C$. Therefore $E=D$.
+
+  \item
+        \begin{enumerate}
+          \item Since $F$ is nonsingular,
+                \[
+                  FF^T
+                  \quad\text{and}\quad
+                  F^TF
+                \]
+                are real symmetric positive definite. By Question (2), define
+                \[
+                  S=(FF^T)^{1/2},
+                  \qquad
+                  T=(F^TF)^{1/2}.
+                \]
+                Put
+                \[
+                  U=S^{-1}F,
+                  \qquad
+                  V=FT^{-1}.
+                \]
+                Then
+                \[
+                  UU^T=S^{-1}FF^TS^{-1}=I,
+                \]
+                and
+                \[
+                  V^TV=T^{-1}F^TFT^{-1}=I.
+                \]
+                Thus $U$ and $V$ are orthogonal, and
+                \[
+                  F=SU=VT.
+                \]
+                Uniqueness follows because $S^2=FF^T$ and $T^2=F^TF$ uniquely determine the positive definite matrices $S,T$, and then
+                \[
+                  U=S^{-1}F,\qquad V=FT^{-1}
+                \]
+                are also uniquely determined.
+
+          \item From $F=SU$,
+                \[
+                  F^TF=U^TS^2U.
+                \]
+                Hence
+                \[
+                  T=U^TSU.
+                \]
+                Also,
+                \[
+                  F^{-1}SF
+                  =
+                  (SU)^{-1}S(SU)
+                  =
+                  U^{-1}S^{-1}S^2U
+                  =
+                  U^TSU.
+                \]
+                Therefore
+                \[
+                  \boxed{T=F^{-1}SF.}
+                \]
+
+          \item Since $F=SU$ and $F=VT$, part (ii) gives
+                \[
+                  F=V(F^{-1}SF).
+                \]
+                Multiplying by $F^{-1}$ on the right gives
+                \[
+                  I=VF^{-1}S.
+                \]
+                Hence
+                \[
+                  V=SF^{-1}.
+                \]
+                On the other hand,
+                \[
+                  U=S^{-1}F.
+                \]
+                From $F=SU$, we get $F^{-1}=U^{-1}S^{-1}=U^TS^{-1}$, so
+                \[
+                  V=SF^{-1}=SU^TS^{-1}.
+                \]
+                A simpler way is to use $T=F^{-1}SF$ in $F=VT$:
+                \[
+                  F=VF^{-1}SF.
+                \]
+                Thus
+                \[
+                  VF^{-1}S=I.
+                \]
+                Since $F^{-1}S=U^{-1}=U^T$, we have $VU^T=I$, and therefore
+                \[
+                  \boxed{U=V.}
+                \]
+        \end{enumerate}
+\end{enumerate}
+
+\section*{Solution 2}
+
+\begin{enumerate}
+  \item If $a=c=0$, then
+        \[
+          \frac{dy}{dx}=\frac{y+b}{x+d}.
+        \]
+        Put $Y=y+b$ and $X=x+d$. Then
+        \[
+          \frac{dY}{dX}=\frac{Y}{X}.
+        \]
+        Hence
+        \[
+          \frac{dY}{Y}=\frac{dX}{X},
+        \]
+        so
+        \[
+          Y=CX.
+        \]
+        Therefore
+        \[
+          \boxed{y+b=C(x+d).}
+        \]
+
+  \item Assume $ac=1$. Put
+        \[
+          u=x+cy+d.
+        \]
+        Then
+        \[
+          ax+y+b=a(x+cy)+b=a(u-d)+b=au+b-ad.
+        \]
+        Since
+        \[
+          \frac{du}{dx}=1+c\frac{dy}{dx},
+        \]
+        Equation (2.1) becomes
+        \[
+          \frac{du}{dx}
+          =
+          1+c\frac{au+b-ad}{u}
+          =
+          2+\frac{c(b-ad)}{u}.
+        \]
+        This is separable:
+        \[
+          \boxed{
+          \frac{u\,du}{2u+c(b-ad)}=dx.}
+        \]
+
+  \item Assume $ac\neq 1$. Choose constants $\xi,\eta$ satisfying
+        \[
+          \xi+c\eta+d=0,
+          \qquad
+          a\xi+\eta+b=0.
+        \]
+        Since $1-ac\neq0$, the solution is
+        \[
+          \xi=\frac{bc-d}{1-ac},
+          \qquad
+          \eta=\frac{ad-b}{1-ac}.
+        \]
+        Put
+        \[
+          X=x-\xi,\qquad Y=y-\eta.
+        \]
+        Then $dY/dX=dy/dx$ and Equation (2.1) becomes
+        \[
+          \boxed{
+          \frac{dY}{dX}=\frac{aX+Y}{X+cY}.}
+        \]
+        The right-hand side depends only on $Y/X$, so this is a homogeneous differential equation.
+
+  \item If $R(x)=0$, Equation (2.2) becomes
+        \[
+          y'+Q(x)y=-P(x).
+        \]
+        Let
+        \[
+          \mu(x)=\exp\left(\int Q(x)\,dx\right).
+        \]
+        Then
+        \[
+          (\mu y)'=-P\mu.
+        \]
+        Hence the general solution is
+        \[
+          \boxed{
+          y(x)=\frac{C-\int P(x)\mu(x)\,dx}{\mu(x)}.}
+        \]
+
+  \item If $P(x)=0$, Equation (2.2) becomes
+        \[
+          y'+Q(x)y+R(x)y^2=0.
+        \]
+        The solution $y=0$ is one solution. For $y\neq0$, put
+        \[
+          z=\frac1y.
+        \]
+        Then
+        \[
+          z'=-\frac{y'}{y^2}.
+        \]
+        Dividing the equation by $y^2$ gives
+        \[
+          -z'+Q(x)z+R(x)=0,
+        \]
+        or
+        \[
+          \boxed{z'-Q(x)z=R(x).}
+        \]
+        This is linear, as in Question (4). With
+        \[
+          \nu(x)=\exp\left(-\int Q(x)\,dx\right),
+        \]
+        the general nonzero solution is
+        \[
+          z(x)=\frac{C+\int R(x)\nu(x)\,dx}{\nu(x)},
+        \]
+        and
+        \[
+          \boxed{
+          y(x)=
+          \frac{\nu(x)}
+          {C+\int R(x)\nu(x)\,dx}.}
+        \]
+
+  \item Let
+        \[
+          z=y-y_1.
+        \]
+        Since $y_1$ is a particular solution,
+        \[
+          y_1'+P+Qy_1+Ry_1^2=0.
+        \]
+        Substituting $y=y_1+z$ into Equation (2.2) and subtracting the equation for $y_1$ gives
+        \[
+          z'+(Q+2Ry_1)z+Rz^2=0.
+        \]
+        This has the same form as Question (5), with no constant term.
+
+  \item In this case Equation (2.2) is
+        \[
+          y'+x^2+x+1+(2x+1)y+y^2=0.
+        \]
+        A particular solution is
+        \[
+          y_1=-x.
+        \]
+        Put
+        \[
+          z=y+x.
+        \]
+        By Question (6),
+        \[
+          z'+z+z^2=0.
+        \]
+        This is separable:
+        \[
+          \frac{dz}{z(1+z)}=-dx.
+        \]
+        Therefore
+        \[
+          \log\left|\frac{z}{1+z}\right|=-x+C.
+        \]
+        Hence
+        \[
+          z=\frac{Ce^{-x}}{1-Ce^{-x}},
+        \]
+        including $z=0$ when $C=0$. Thus
+        \[
+          \boxed{
+          y(x)=-x+\frac{Ce^{-x}}{1-Ce^{-x}}.}
+        \]
+\end{enumerate}
+
+\section*{Solution 3}
+
+Let
+\[
+  P_n=X_1+X_2+\cdots+X_n,
+\]
+where
+\[
+  \Pr(X_i=1)=\Pr(X_i=-1)=\frac12
+\]
+and $X_1,\ldots,X_n$ are independent.
+
+\begin{enumerate}
+  \item Since $E(X_i)=0$,
+        \[
+          \boxed{E(P_n)=0.}
+        \]
+
+  \item Since $V(X_i)=1$ and the steps are independent,
+        \[
+          \boxed{V(P_n)=n.}
+        \]
+
+  \item By Chebyshev's inequality,
+        \[
+          \Pr(|P_n-E(P_n)|\geq k)\leq\frac{V(P_n)}{k^2}.
+        \]
+        Since $E(P_n)=0$,
+        \[
+          \boxed{
+          \Pr(|P_n|\geq k)\leq\frac{V(P_n)}{k^2}.}
+        \]
+
+  \item Since $t>0$, the function $\exp(tx)$ is increasing. Therefore
+        \[
+          \{P_n\geq k\}
+          =
+          \{\exp(tP_n)\geq \exp(tk)\}.
+        \]
+        By Markov's inequality,
+        \[
+          \boxed{
+          \Pr(P_n\geq k)
+          =
+          \Pr(\exp(tP_n)\geq \exp(tk))
+          \leq
+          \frac{E(\exp(tP_n))}{\exp(tk)}.}
+        \]
+
+  \item Since the $X_i$ are independent,
+        \[
+          E(e^{tP_n})
+          =
+          \prod_{i=1}^nE(e^{tX_i})
+          =
+          \left(\frac{e^t+e^{-t}}{2}\right)^n
+          =
+          (\cosh t)^n.
+        \]
+        Now
+        \[
+          \log(\cosh t)\leq \frac{t^2}{2}
+        \]
+        for $t>0$, because the derivative of
+        \[
+          \frac{t^2}{2}-\log(\cosh t)
+        \]
+        is $t-\tanh t\geq0$, and its value at $t=0$ is $0$. Hence
+        \[
+          \boxed{
+          E(e^{tP_n})\leq \exp\left(\frac{t^2n}{2}\right).}
+        \]
+
+  \item Combining Questions (4) and (5),
+        \[
+          \Pr(P_n\geq k)
+          \leq
+          \exp\left(\frac{nt^2}{2}-tk\right).
+        \]
+        Choose
+        \[
+          t=\frac{k}{n}>0.
+        \]
+        Then
+        \[
+          \Pr(P_n\geq k)
+          \leq
+          \boxed{
+          \exp\left(-\frac{k^2}{2n}\right).}
+        \]
+
+  \item By symmetry, the same bound applies to $\Pr(P_n\leq -k)$. Hence
+        \[
+          \Pr(|P_n|\geq k)
+          \leq
+          2\exp\left(-\frac{k^2}{2n}\right).
+        \]
+        For $k=10^6$ and $n=10^{10}$,
+        \[
+          2\exp\left(-\frac{10^{12}}{2\cdot10^{10}}\right)
+          =
+          2e^{-50}.
+        \]
+        Since
+        \[
+          2e^{-50}<10^{-4},
+        \]
+        we obtain
+        \[
+          \boxed{
+          \Pr(|P_n|\geq 10^6)<10^{-4}.}
+        \]
+\end{enumerate}
+
+\end{document}
