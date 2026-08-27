@@ -1,0 +1,315 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{bm}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item Define a subset $D$ of $\mathbb{R}^2$ by
+        \[
+          D = \{ (x, y) \in \mathbb{R}^2 \mid x \ge 0, y \ge 0, (x^2 + y^2)^2 \le x^2 + 2y^2 \}.
+        \]
+        Find the value of the integral
+        \[
+          \iint_D xy e^{1-x^2-y^2} \, dx \, dy.
+        \]
+
+  \item Let $a$ be a complex number. Define a complex $3 \times 3$ matrix $A$ by
+        \[
+          A = \begin{pmatrix}
+          a-1 & 0 & 0 \\
+          1 & -a & 1 \\
+          2a & -2a & a+1
+          \end{pmatrix}.
+        \]
+        Find all the eigenvalues of $A$ and the rank of $A$.
+
+  \item Let $n, m$ be positive integers satisfying $n \ge 2m$. Let $V$ be a finite dimensional $\mathbb{C}$-vector space. Let $f : V \to V$ be a linear map satisfying $f^n = f^m$. Prove that
+        \[
+          V = \operatorname{Ker}(f^m) \oplus \operatorname{Im}(f^m).
+        \]
+        Here $\operatorname{Ker}(f^m)$ is the kernel of $f^m$ and $\operatorname{Im}(f^m)$ is the image of $f^m$.
+
+  \item Let $r$ be a positive real number and define a function $\rho_r(x)$ on $\mathbb{R}$ by
+        \[
+          \rho_r(x) = \sin\left(r e^{-r^2 x^2}\right).
+        \]
+        For a bounded continuous real-valued function $f(x)$ on $\mathbb{R}$, answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item For any $r > 0$, show that the improper integral $\int_{-\infty}^\infty f(x) \rho_r(x) \, dx$ converges.
+          \item Show that $\lim_{r \to \infty} \int_{-\infty}^\infty f(x) \rho_r(x) \, dx = 0$.
+          \item Suppose that $f(x)$ is differentiable at $x = 0$ and that $f(0) = 0$. Show that $\lim_{r \to \infty} r \int_{-\infty}^\infty f(x) \rho_r(x) \, dx = 0$.
+        \end{enumerate}
+
+  \item Let $a$ be a positive real number. Find the value of the following improper integral.
+        \[
+          \int_{-\infty}^\infty \frac{(\cos x - 1)(x + 1)}{x(x^2 + a^2)} \, dx.
+        \]
+
+  \item Let $S^2$ be the 2-dimensional sphere $\{ (x_1, x_2, x_3) \in \mathbb{R}^3 \mid x_1^2 + x_2^2 + x_3^2 = 1 \}$. Define a map $f = (f_1, f_2, f_3) : S^2 \times S^2 \to \mathbb{R}^3$ by
+        \[
+          f((x_1, x_2, x_3), (y_1, y_2, y_3)) = (x_1 + y_1, x_2 + y_2, x_3 + y_3).
+        \]
+        Find all critical values of $f$. Here we say that $q \in \mathbb{R}^3$ is a critical value of $f$ if there exists $p \in S^2 \times S^2$ such that $f(p) = q$ and that, for a local coordinate system $(u_1, u_2, u_3, u_4)$ on $S^2 \times S^2$ around $p$, the Jacobian matrix
+        \[
+          \left( \frac{\partial f_i}{\partial u_j} (p) \right)_{1 \le i \le 3, 1 \le j \le 4}
+        \]
+        has rank less than or equal to 2.
+
+  \item Let $n$ be a positive integer. Let $M_n(\mathbb{C})$ be the set of $n \times n$ complex square matrices, seen as a complex vector space with matrix addition and scalar multiplication. Define the diagonal matrix $A \in M_n(\mathbb{C})$ by
+        \[
+          A = \begin{pmatrix}
+          1 & 0 & \cdots & 0 \\
+          0 & 2 & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots \\
+          0 & 0 & \cdots & n
+          \end{pmatrix}.
+        \]
+        Prove that there is $B \in M_n(\mathbb{C})$ such that
+        \[
+          \{ A^i B^j \in M_n(\mathbb{C}) \mid i, j \in \{0, 1, \dots, n-1\} \}
+        \]
+        forms a basis for $M_n(\mathbb{C})$, where $A^0 = B^0 = E$ (the unit matrix).
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        We use polar coordinates $x = r \cos \theta$ and $y = r \sin \theta$. 
+        The region $D$ is in the first quadrant, so $0 \le \theta \le \pi/2$.
+        The bounding condition $(x^2 + y^2)^2 \le x^2 + 2y^2$ transforms into:
+        \[
+          r^4 \le r^2 \cos^2 \theta + 2r^2 \sin^2 \theta = r^2 (1 + \sin^2 \theta).
+        \]
+        Since $r \ge 0$, this simplifies to $r^2 \le 1 + \sin^2 \theta$.
+        The integral in polar coordinates becomes:
+        \begin{align*}
+          I &= \int_0^{\pi/2} \int_0^{\sqrt{1+\sin^2\theta}} (r\cos\theta)(r\sin\theta) e^{1-r^2} r \, dr \, d\theta \\
+          &= \int_0^{\pi/2} \cos\theta \sin\theta \left( \int_0^{\sqrt{1+\sin^2\theta}} r^3 e^{1-r^2} \, dr \right) \, d\theta.
+        \end{align*}
+        Let $u = 1 + \sin^2\theta$. Then $du = 2 \sin\theta \cos\theta \, d\theta$, and the limits for $u$ are from $1$ to $2$.
+        The integral is now:
+        \[
+          I = \frac{1}{2} \int_1^2 \left( \int_0^{\sqrt{u}} r^3 e^{1-r^2} \, dr \right) \, du.
+        \]
+        We evaluate the inner integral with the substitution $v = r^2$, $dv = 2r \, dr$:
+        \[
+          \int_0^{\sqrt{u}} r^3 e^{1-r^2} \, dr = \frac{1}{2} \int_0^u v e^{1-v} \, dv.
+        \]
+        Using integration by parts ($w = v, dz = e^{1-v}dv \implies z = -e^{1-v}$):
+        \[
+          \int v e^{1-v} \, dv = -v e^{1-v} + \int e^{1-v} \, dv = -v e^{1-v} - e^{1-v} = -(v+1)e^{1-v}.
+        \]
+        Evaluating from $0$ to $u$:
+        \[
+          \left[ -(v+1)e^{1-v} \right]_0^u = e - (u+1)e^{1-u}.
+        \]
+        So the inner integral evaluates to $\frac{1}{2} (e - (u+1)e^{1-u})$. 
+        Substituting this back into the outer integral:
+        \[
+          I = \frac{1}{4} \int_1^2 \left( e - (u+1)e^{1-u} \right) \, du.
+        \]
+        We evaluate the two parts separately. First, $\int_1^2 e \, du = e$. 
+        For the second part, use integration by parts with $w = u+1, dz = e^{1-u}du \implies z = -e^{1-u}$:
+        \begin{align*}
+          \int_1^2 (u+1)e^{1-u} \, du &= \left[ -(u+1)e^{1-u} \right]_1^2 - \int_1^2 (-e^{1-u}) \, du \\
+          &= \left[ -(u+1)e^{1-u} - e^{1-u} \right]_1^2 = \left[ -(u+2)e^{1-u} \right]_1^2 \\
+          &= -4e^{-1} - (-3e^0) = 3 - \frac{4}{e}.
+        \end{align*}
+        Combining these results, the final value of the integral is:
+        \[
+          I = \frac{1}{4} \left( e - \left( 3 - \frac{4}{e} \right) \right) = \frac{e}{4} - \frac{3}{4} + \frac{1}{e}.
+        \]
+
+  \item % Solution for 2
+        The characteristic polynomial of $A$ is:
+        \begin{align*}
+          \det(A - \lambda I) &= \det \begin{pmatrix} a-1-\lambda & 0 & 0 \\ 1 & -a-\lambda & 1 \\ 2a & -2a & a+1-\lambda \end{pmatrix} \\
+          &= (a-1-\lambda) \det \begin{pmatrix} -a-\lambda & 1 \\ -2a & a+1-\lambda \end{pmatrix} \\
+          &= (a-1-\lambda) [(-a-\lambda)(a+1-\lambda) + 2a] \\
+          &= (a-1-\lambda) [\lambda^2 - \lambda - a(a-1)].
+        \end{align*}
+        The roots of $\lambda^2 - \lambda - a(a-1) = 0$ are $\lambda = a$ and $\lambda = 1-a$. 
+        Thus, the eigenvalues of $A$ are $a-1$, $a$, and $1-a$.
+        
+        To find the rank of $A$, we consider the determinant of $A$, which is the product of its eigenvalues: $\det(A) = (a-1)a(1-a) = -a(a-1)^2$.
+        \begin{itemize}
+          \item \textbf{Case $a \notin \{0, 1\}$}: $\det(A) \neq 0$, so $A$ is invertible. The rank of $A$ is 3.
+          \item \textbf{Case $a = 1$}: The matrix becomes
+                $A = \begin{pmatrix} 0 & 0 & 0 \\ 1 & -1 & 1 \\ 2 & -2 & 2 \end{pmatrix}$.
+                The first row is zero, and the third row is twice the second row. There is only one linearly independent row, so the rank of $A$ is 1.
+          \item \textbf{Case $a = 0$}: The matrix becomes
+                $A = \begin{pmatrix} -1 & 0 & 0 \\ 1 & 0 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+                The second column is all zeros, but the first and third columns are linearly independent. Thus, the rank of $A$ is 2.
+        \end{itemize}
+
+  \item % Solution for 3
+        By the Rank-Nullity Theorem, for the linear map $f^m : V \to V$, we have:
+        \[
+          \dim(V) = \dim(\operatorname{Ker}(f^m)) + \dim(\operatorname{Im}(f^m)).
+        \]
+        To prove that $V = \operatorname{Ker}(f^m) \oplus \operatorname{Im}(f^m)$, it suffices to show that their intersection is trivial, i.e., $\operatorname{Ker}(f^m) \cap \operatorname{Im}(f^m) = \{0\}$.
+        
+        Let $v \in \operatorname{Ker}(f^m) \cap \operatorname{Im}(f^m)$.
+        Because $v \in \operatorname{Im}(f^m)$, there exists some $u \in V$ such that $v = f^m(u)$.
+        Because $v \in \operatorname{Ker}(f^m)$, we also have $f^m(v) = 0$.
+        Substituting $v$, we obtain:
+        \[
+          f^{2m}(u) = f^m(f^m(u)) = f^m(v) = 0.
+        \]
+        We are given that $n \ge 2m$, so we can write $n = 2m + p$ for some integer $p \ge 0$.
+        Applying $f^p$ to both sides yields:
+        \[
+          f^n(u) = f^{2m+p}(u) = f^p(f^{2m}(u)) = f^p(0) = 0.
+        \]
+        We are also given that $f^n = f^m$. Therefore:
+        \[
+          f^m(u) = f^n(u) = 0.
+        \]
+        Since $v = f^m(u)$, we conclude that $v = 0$.
+        Thus, $\operatorname{Ker}(f^m) \cap \operatorname{Im}(f^m) = \{0\}$, which completes the proof that $V = \operatorname{Ker}(f^m) \oplus \operatorname{Im}(f^m)$.
+
+  \item % Solution for 4
+        Since $f(x)$ is bounded and continuous on $\mathbb{R}$, there exists $M > 0$ such that $|f(x)| \le M$ for all $x \in \mathbb{R}$.
+        \begin{enumerate}[label=(\arabic*)]
+          \item For any $r > 0$, we have $|\rho_r(x)| = |\sin(r e^{-r^2 x^2})|$. Using the inequality $|\sin y| \le y$ for $y \ge 0$, we get:
+                \[
+                  |\rho_r(x)| \le r e^{-r^2 x^2}.
+                \]
+                Thus, $|f(x)\rho_r(x)| \le M r e^{-r^2 x^2}$.
+                The integral of the upper bound converges:
+                \[
+                  \int_{-\infty}^\infty M r e^{-r^2 x^2} \, dx = M \sqrt{\pi} < \infty.
+                \]
+                By the comparison test, the improper integral $\int_{-\infty}^\infty f(x) \rho_r(x) \, dx$ converges absolutely, and hence converges.
+                
+          \item We bound the integral uniformly using the substitution $y = rx$ ($dx = dy/r$):
+                \[
+                  \left| \int_{-\infty}^\infty f(x) \rho_r(x) \, dx \right| \le \int_{-\infty}^\infty M |\sin(r e^{-r^2 x^2})| \, dx = \frac{M}{r} \int_{-\infty}^\infty |\sin(r e^{-y^2})| \, dy.
+                \]
+                We use the bound $|\sin(z)| \le \min(1, z)$ for $z \ge 0$:
+                \[
+                  \frac{M}{r} \int_{-\infty}^\infty \min(1, r e^{-y^2}) \, dy = \frac{2M}{r} \int_0^\infty \min(1, r e^{-y^2}) \, dy.
+                \]
+                The intersection point where $r e^{-y^2} = 1$ is $y = \sqrt{\ln r}$ (for $r > 1$). Splitting the integral:
+                \begin{align*}
+                  \int_0^\infty \min(1, r e^{-y^2}) \, dy &= \int_0^{\sqrt{\ln r}} 1 \, dy + \int_{\sqrt{\ln r}}^\infty r e^{-y^2} \, dy \\
+                  &\le \sqrt{\ln r} + \int_{\sqrt{\ln r}}^\infty r \frac{y}{\sqrt{\ln r}} e^{-y^2} \, dy \\
+                  &= \sqrt{\ln r} + \frac{r}{\sqrt{\ln r}} \left[ -\frac{1}{2} e^{-y^2} \right]_{\sqrt{\ln r}}^\infty \\
+                  &= \sqrt{\ln r} + \frac{r}{\sqrt{\ln r}} \frac{1}{2r} = \sqrt{\ln r} + \frac{1}{2\sqrt{\ln r}}.
+                \end{align*}
+                So the integral is bounded by $\frac{2M}{r} \left( \sqrt{\ln r} + \frac{1}{2\sqrt{\ln r}} \right)$. Since $\lim_{r \to \infty} \frac{\sqrt{\ln r}}{r} = 0$, the limit of the integral is 0.
+
+          \item Since $f$ is differentiable at $0$ and $f(0)=0$, there is a constant $C > 0$ and a $\delta > 0$ such that $|f(x)| \le C|x|$ for all $|x| \le \delta$. We split the integral:
+                \[
+                  r \int_{-\infty}^\infty f(x) \rho_r(x) \, dx = r \int_{|x| \le \delta} f(x) \rho_r(x) \, dx + r \int_{|x| > \delta} f(x) \rho_r(x) \, dx = I_1 + I_2.
+                \]
+                For $I_2$, we use $|\rho_r(x)| \le r e^{-r^2 x^2}$:
+                \[
+                  |I_2| \le r \int_{|x| > \delta} M r e^{-r^2 x^2} \, dx = 2 M r^2 \int_\delta^\infty e^{-r^2 x^2} \, dx \le 2 M r^2 \int_\delta^\infty \frac{x}{\delta} e^{-r^2 x^2} \, dx = \frac{M}{\delta} e^{-r^2 \delta^2}.
+                \]
+                As $r \to \infty$, $e^{-r^2 \delta^2}$ decays exponentially, so $I_2 \to 0$.
+                For $I_1$, using the bound on $f(x)$ and substituting $y = rx$:
+                \begin{align*}
+                  |I_1| &\le r \int_{-\delta}^\delta C|x| |\sin(r e^{-r^2 x^2})| \, dx = \frac{2C}{r} \int_0^{r\delta} y |\sin(r e^{-y^2})| \, dy \\
+                  &\le \frac{2C}{r} \int_0^\infty y \min(1, r e^{-y^2}) \, dy.
+                \end{align*}
+                Splitting this integral at $y = \sqrt{\ln r}$:
+                \begin{align*}
+                  \int_0^\infty y \min(1, r e^{-y^2}) \, dy &= \int_0^{\sqrt{\ln r}} y \, dy + r \int_{\sqrt{\ln r}}^\infty y e^{-y^2} \, dy \\
+                  &= \left[ \frac{y^2}{2} \right]_0^{\sqrt{\ln r}} + r \left[ -\frac{1}{2} e^{-y^2} \right]_{\sqrt{\ln r}}^\infty \\
+                  &= \frac{\ln r}{2} + \frac{r}{2} e^{-\ln r} = \frac{\ln r + 1}{2}.
+                \end{align*}
+                Thus, $|I_1| \le \frac{C(\ln r + 1)}{r}$. As $r \to \infty$, $\frac{\ln r}{r} \to 0$, so $I_1 \to 0$.
+                Since both $I_1 \to 0$ and $I_2 \to 0$, the sum goes to 0.
+        \end{enumerate}
+
+  \item % Solution for 5
+        Let $I = \int_{-\infty}^\infty \frac{(\cos x - 1)(x + 1)}{x(x^2 + a^2)} \, dx$. We can expand this into two integrals:
+        \[
+          I = \int_{-\infty}^\infty \frac{x(\cos x - 1)}{x(x^2 + a^2)} \, dx + \int_{-\infty}^\infty \frac{\cos x - 1}{x(x^2 + a^2)} \, dx.
+        \]
+        The integrand in the second integral is an odd function because $\cos(-x) - 1 = \cos x - 1$ is even, and $(-x)((-x)^2 + a^2) = -x(x^2 + a^2)$ is odd. Since the singularity at $x=0$ is removable (as $\lim_{x \to 0} \frac{\cos x - 1}{x} = 0$), the principal value of the integral over $\mathbb{R}$ evaluates exactly to zero.
+        Thus, the problem simplifies to evaluating:
+        \[
+          I = \int_{-\infty}^\infty \frac{\cos x - 1}{x^2 + a^2} \, dx.
+        \]
+        This can be computed using contour integration. Consider the function $f(z) = \frac{e^{iz} - 1}{z^2 + a^2}$. 
+        We integrate $f(z)$ over a large semicircular contour in the upper half-plane, closed along the real axis from $-R$ to $R$.
+        The function $f(z)$ has simple poles at $z = \pm ia$. Only $z = ia$ lies inside our contour (since $a > 0$).
+        The residue at $z = ia$ is:
+        \[
+          \operatorname{Res}_{z=ia} f(z) = \lim_{z \to ia} (z - ia) \frac{e^{iz} - 1}{(z - ia)(z + ia)} = \frac{e^{i(ia)} - 1}{2ia} = \frac{e^{-a} - 1}{2ia}.
+        \]
+        By Cauchy's Residue Theorem, the integral along the closed contour is $2\pi i$ times the residue. The integral along the semicircular arc vanishes as $R \to \infty$ by Jordan's Lemma.
+        So we have:
+        \[
+          \int_{-\infty}^\infty \frac{e^{ix} - 1}{x^2 + a^2} \, dx = 2\pi i \left( \frac{e^{-a} - 1}{2ia} \right) = \frac{\pi (e^{-a} - 1)}{a}.
+        \]
+        Taking the real part of this equation gives exactly our desired integral:
+        \[
+          \int_{-\infty}^\infty \frac{\cos x - 1}{x^2 + a^2} \, dx = \frac{\pi (e^{-a} - 1)}{a} = -\frac{\pi (1 - e^{-a})}{a}.
+        \]
+
+  \item % Solution for 6
+        Let $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$. The map is $f(x, y) = x + y$.
+        The domain is the manifold $S^2 \times S^2$. The tangent space at a point $(x, y) \in S^2 \times S^2$ is the direct sum of the tangent spaces of the spheres:
+        \[
+          T_{(x, y)} (S^2 \times S^2) = T_x S^2 \oplus T_y S^2.
+        \]
+        A vector in $T_x S^2$ is orthogonal to the position vector $x$, meaning $T_x S^2 = \{ v \in \mathbb{R}^3 \mid v \cdot x = 0 \}$.
+        The differential of $f$ at $(x, y)$ is a linear map $df_{(x, y)} : T_x S^2 \oplus T_y S^2 \to \mathbb{R}^3$ given by $df_{(x, y)}(v, w) = v + w$.
+        The image of this differential is the subspace spanned by the sum of the two tangent spaces:
+        \[
+          \operatorname{Im}(df_{(x, y)}) = T_x S^2 + T_y S^2 \subseteq \mathbb{R}^3.
+        \]
+        The Jacobian matrix has rank less than or equal to 2 if and only if the dimension of this image is at most 2.
+        Since $T_x S^2$ and $T_y S^2$ are both 2-dimensional planes in $\mathbb{R}^3$, their sum has dimension less than or equal to 2 if and only if they are the exact same plane!
+        Two tangent planes to the unit sphere are identical if and only if their normal vectors are parallel. Thus, $x = y$ or $x = -y$.
+        This gives two sets of critical points on $S^2 \times S^2$, and we map them through $f$ to find the critical values:
+        \begin{itemize}
+          \item \textbf{Case 1 ($x = y$)}: $f(x, x) = 2x$. Since $x \in S^2$, this traces out a sphere of radius 2 in $\mathbb{R}^3$.
+          \item \textbf{Case 2 ($x = -y$)}: $f(x, -x) = \bm{0}$. This corresponds to the origin.
+        \end{itemize}
+        Thus, the set of all critical values is the union of the origin and the sphere of radius 2:
+        \[
+          \{ \bm{0} \} \cup \{ q \in \mathbb{R}^3 \mid \|q\| = 2 \}.
+        \]
+
+  \item % Solution for 7
+        Let $B$ be the $n \times n$ cyclic permutation matrix, defined such that its entries are $B_{k, l} = 1$ if $l \equiv k+1 \pmod n$, and $0$ otherwise (with 1-based indexing for rows and columns).
+        The powers of $B$ act as cyclic shifts on the columns. The matrix $B^j$ has entries $(B^j)_{k, l} = 1$ if $l \equiv k+j \pmod n$, and $0$ otherwise.
+        
+        The given matrix $A = \operatorname{diag}(1, 2, \dots, n)$ has entries $A_{k, m} = k \, \delta_{k, m}$.
+        We compute the entries of the product matrix $A^i B^j$:
+        \[
+          (A^i B^j)_{k, l} = \sum_{m=1}^n (A^i)_{k, m} (B^j)_{m, l} = (A^i)_{k, k} (B^j)_{k, l} = k^i \, \delta_{l, \, (k+j \bmod n)}.
+        \]
+        This shows that the non-zero entries of $A^i B^j$ are located exclusively on the $j$-th shifted diagonal (where $l \equiv k+j \pmod n$).
+        
+        We have $n^2$ matrices in our set $\{ A^i B^j \mid 0 \le i, j \le n-1 \}$. Since $\dim(M_n(\mathbb{C})) = n^2$, we only need to show that these $n^2$ matrices are linearly independent to prove they form a basis.
+        Suppose there is a linear combination that evaluates to the zero matrix:
+        \[
+          \sum_{j=0}^{n-1} \sum_{i=0}^{n-1} c_{i, j} A^i B^j = \bm{0}.
+        \]
+        Because matrices with different values of $j$ have disjoint supports (their non-zero entries do not overlap), the sum can only be the zero matrix if the sum for each individual $j$ is the zero matrix:
+        \[
+          \sum_{i=0}^{n-1} c_{i, j} A^i B^j = \bm{0} \quad \text{for each } j \in \{0, 1, \dots, n-1\}.
+        \]
+        Looking at the non-zero entries (where $l \equiv k+j \pmod n$) for a fixed $j$, this gives a system of $n$ equations corresponding to the $n$ rows $k \in \{1, 2, \dots, n\}$:
+        \[
+          \sum_{i=0}^{n-1} c_{i, j} k^i = 0 \quad \text{for } k = 1, 2, \dots, n.
+        \]
+        For a fixed $j$, this is a linear system in the variables $c_{0, j}, c_{1, j}, \dots, c_{n-1, j}$. The coefficient matrix of this system is the Vandermonde matrix generated by the values $1, 2, \dots, n$.
+        Since these values are distinct, the Vandermonde matrix is invertible (its determinant is non-zero).
+        Thus, the only solution is $c_{i, j} = 0$ for all $i$.
+        Since this holds for every $j$, all coefficients $c_{i, j}$ must be zero. 
+        This proves that the set of matrices is linearly independent, and therefore it forms a basis for $M_n(\mathbb{C})$.
+\end{enumerate}
+
+\end{document}

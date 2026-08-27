@@ -1,0 +1,267 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{bm}
+
+\geometry{
+  a4paper,
+  left=20mm,
+  right=20mm,
+  top=25mm,
+  bottom=25mm,
+}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Problem 1
+        Define a subset $D$ of $\mathbb{R}^3$ by
+        \[
+          D = \left\{ (x, y, z) \in \mathbb{R}^3 \;\middle|\; \frac{1}{4} \le x^2 + y^2 - 2yz + 4z^2 \le 1 \right\}.
+        \]
+        Find the value of the integral
+        \[
+          \iiint_D \log(x^2 + y^2 - 2yz + 4z^2) dx dy dz.
+        \]
+
+  \item % Problem 2
+        For $a \in \mathbb{R}$, define real $2 \times 4$ matrices $A, B$ by
+        \[
+          A = \begin{pmatrix} 1 & 0 & a & a+1 \\ 0 & 1 & 1 & 1 \end{pmatrix}, \quad B = \begin{pmatrix} 0 & 0 & 1 & 1 \\ -1 & 3 & 3-a & 0 \end{pmatrix}.
+        \]
+        Let $f: \mathbb{R}^4 \to \mathbb{R}^2, g: \mathbb{R}^4 \to \mathbb{R}^2$ be the linear maps defined by $f(x) = Ax, g(x) = Bx$ $(x \in \mathbb{R}^4)$. Find
+        \[
+          \dim(\operatorname{Ker}(f) \cap \operatorname{Ker}(g)), \quad \dim(\operatorname{Ker}(f) + \operatorname{Ker}(g)).
+        \]
+
+  \item % Problem 3
+        Let $V$ be a finite dimensional $\mathbb{C}$-vector space and let $S, T : V \to V$ be diagonalizable linear maps satisfying $ST = TS$. Let $r \ge 2$ be an integer, $\alpha, \beta \in \mathbb{C}$ be complex numbers, $\lambda_1, \dots, \lambda_r \in \mathbb{C}$ be distinct complex numbers. Let $v, u_1, \dots, u_r$ be non-zero vectors in $V$ satisfying
+        \[
+          v = u_1 + u_2 + \dots + u_r,
+        \]
+        where $u_j$ is an eigenvector of $S$ corresponding to the eigenvalue $\lambda_j$ for each integer $j$ satisfying $1 \le j \le r$. Assume that $v$ is an eigenvector of $T$ corresponding to the eigenvalue $\alpha$ and $u_1$ is an eigenvector of $T$ corresponding to the eigenvalue $\beta$. Prove that $\alpha = \beta$.
+
+  \item % Problem 4
+        Let $f(x)$ be a real-valued continuous function on $x \ge 1$, and assume that $\lim_{x \to \infty} f(x) = 1$. Find the limit
+        \[
+          \lim_{n \to \infty} n \int_1^\infty \frac{\exp(-\frac{n}{x}) f(x)}{x^2} dx.
+        \]
+
+  \item % Problem 5
+        Let $x_0$ be a positive real number, and put $a_m(t) = \frac{1}{1 + (t + \frac{1}{m})^2}$ ($t \ge 0$, $m$ is a positive integer). Prove that the solution $x_m : [0, \infty) \to \mathbb{R}$ of the initial value problem of the ordinary differential equation
+        \[
+          \begin{cases} x'_m(t) = a_m(t) x_m(t)^{1/2}, & t \ge 0, \\ x_m(0) = x_0 \end{cases}
+        \]
+        converges uniformly to a continuous function on $[0, \infty)$ as $m \to \infty$.
+
+  \item % Problem 6
+        Consider the subset $X$ of $\mathbb{R}^3$ defined by
+        \[
+          X = \{ (x, y, z) \in \mathbb{R}^3 \mid x^4 + y^4 - z^3 = 1 \}.
+        \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item Prove that $X$ is a differentiable submanifold of $\mathbb{R}^3$.
+          \item For $r \in \mathbb{R}$, set $H_r = \{ (x, y, z) \in \mathbb{R}^3 \mid z = r \}$. Determine the range of $r$ for which $X \cap H_r$ is a non-empty 1-dimensional differentiable submanifold of $\mathbb{R}^3$.
+        \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution 1
+        Let $Q(x,y,z) = x^2 + y^2 - 2yz + 4z^2$. We can rewrite this by completing the square:
+        \[
+          Q(x,y,z) = x^2 + (y-z)^2 + 3z^2.
+        \]
+        We apply the linear change of coordinates:
+        \[
+          u = x, \quad v = y - z, \quad w = \sqrt{3}z.
+        \]
+        The Jacobian determinant of this transformation from $(x, y, z)$ to $(u, v, w)$ is given by
+        \[
+          \frac{\partial(u,v,w)}{\partial(x,y,z)} = \det \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & \sqrt{3} \end{pmatrix} = \sqrt{3}.
+        \]
+        Thus, $dx dy dz = \frac{1}{\sqrt{3}} du dv dw$. The integration domain $D$ corresponds to $D' = \{ (u,v,w) \mid \frac{1}{4} \le u^2 + v^2 + w^2 \le 1 \}$.
+        Passing to spherical coordinates $(r, \theta, \phi)$ in the $(u, v, w)$ space where $r^2 = u^2 + v^2 + w^2$, the volume element becomes $r^2 \sin \phi dr d\theta d\phi$, and the domain $D'$ is mapped to $\frac{1}{2} \le r \le 1$, $0 \le \theta \le 2\pi$, $0 \le \phi \le \pi$.
+        The integral simplifies as follows:
+        \begin{align*}
+          \iiint_D \log(Q) dx dy dz &= \iiint_{D'} \log(r^2) \frac{1}{\sqrt{3}} r^2 \sin\phi dr d\theta d\phi \\
+          &= \frac{1}{\sqrt{3}} \left( \int_0^{2\pi} d\theta \right) \left( \int_0^\pi \sin\phi d\phi \right) \left( \int_{1/2}^1 \log(r^2) r^2 dr \right) \\
+          &= \frac{4\pi}{\sqrt{3}} \int_{1/2}^1 2r^2 \log r dr.
+        \end{align*}
+        Using integration by parts on $\int r^2 \log r dr$:
+        \[
+          \int r^2 \log r dr = \frac{r^3}{3} \log r - \int \frac{r^3}{3} \cdot \frac{1}{r} dr = \frac{r^3}{3} \log r - \frac{r^3}{9}.
+        \]
+        Evaluating from $r = \frac{1}{2}$ to $r = 1$:
+        \begin{align*}
+          2 \left[ \frac{r^3}{3} \log r - \frac{r^3}{9} \right]_{1/2}^1 &= 2 \left( \left( 0 - \frac{1}{9} \right) - \left( \frac{1}{24} \log \frac{1}{2} - \frac{1}{72} \right) \right) \\
+          &= 2 \left( -\frac{1}{9} + \frac{1}{24} \log 2 + \frac{1}{72} \right) \\
+          &= 2 \left( \frac{1}{24} \log 2 - \frac{7}{72} \right) = \frac{1}{12} \log 2 - \frac{7}{36}.
+        \end{align*}
+        Thus, the final value of the integral is
+        \[
+          \frac{4\pi}{\sqrt{3}} \left( \frac{1}{12} \log 2 - \frac{7}{36} \right) = \frac{\pi}{\sqrt{3}} \left( \frac{1}{3} \log 2 - \frac{7}{9} \right).
+        \]
+
+  \item % Solution 2
+        Let us find the dimensions of the kernels of the linear maps $f$ and $g$. The dimensions of the kernels are given by the Rank-Nullity Theorem: $\dim(\operatorname{Ker}(M)) = 4 - \operatorname{rank}(M)$ for any $2 \times 4$ matrix $M$.
+        Since rows of $A$ and $B$ are clearly linearly independent for any $a$, $\operatorname{rank}(A) = 2$ and $\operatorname{rank}(B) = 2$.
+        Hence, $\dim(\operatorname{Ker}(f)) = 4 - 2 = 2$ and $\dim(\operatorname{Ker}(g)) = 4 - 2 = 2$.
+
+        The intersection $\operatorname{Ker}(f) \cap \operatorname{Ker}(g)$ is the null space of the block matrix $C$ formed by stacking $A$ and $B$:
+        \[
+          C = \begin{pmatrix} A \\ B \end{pmatrix} = \begin{pmatrix} 1 & 0 & a & a+1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ -1 & 3 & 3-a & 0 \end{pmatrix}.
+        \]
+        We apply elementary row operations to determine the rank of $C$:
+        \[
+          R_4 \leftarrow R_4 + R_1 : \begin{pmatrix} 1 & 0 & a & a+1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 3 & 3 & a+1 \end{pmatrix} \xrightarrow{R_4 \leftarrow R_4 - 3R_2} \begin{pmatrix} 1 & 0 & a & a+1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & a-2 \end{pmatrix}.
+        \]
+        The rank of $C$ relies on the value of $a - 2$.
+        \begin{itemize}
+          \item If $a = 2$, then the last row becomes identically zero, making the rank of $C$ equal to $3$.
+          \item If $a \neq 2$, then the last row has a non-zero pivot, making the rank of $C$ equal to $4$.
+        \end{itemize}
+        The dimension of the intersection is $\dim(\operatorname{Ker}(f) \cap \operatorname{Ker}(g)) = 4 - \operatorname{rank}(C)$. Therefore:
+        \[
+          \dim(\operatorname{Ker}(f) \cap \operatorname{Ker}(g)) = \begin{cases} 1, & \text{if } a = 2, \\ 0, & \text{if } a \neq 2. \end{cases}
+        \]
+        By the dimension formula for vector subspaces, $\dim(U + V) = \dim(U) + \dim(V) - \dim(U \cap V)$, we have:
+        \[
+          \dim(\operatorname{Ker}(f) + \operatorname{Ker}(g)) = 2 + 2 - \dim(\operatorname{Ker}(f) \cap \operatorname{Ker}(g)).
+        \]
+        Therefore:
+        \[
+          \dim(\operatorname{Ker}(f) + \operatorname{Ker}(g)) = \begin{cases} 3, & \text{if } a = 2, \\ 4, & \text{if } a \neq 2. \end{cases}
+        \]
+
+  \item % Solution 3
+        Let $E_{\lambda_j} = \operatorname{Ker}(S - \lambda_j I)$ be the eigenspace of $S$ associated with the eigenvalue $\lambda_j$. Because $S$ and $T$ commute ($ST = TS$), the eigenspaces of $S$ are $T$-invariant. To see this, suppose $x \in E_{\lambda_j}$, then $S(Tx) = T(Sx) = T(\lambda_j x) = \lambda_j(Tx)$, so $Tx \in E_{\lambda_j}$.
+        
+        We are given $v = \sum_{j=1}^r u_j$, where $u_j \in E_{\lambda_j} \setminus \{0\}$. Applying $T$ to this decomposition, we get:
+        \[
+          Tv = T\left(\sum_{j=1}^r u_j\right) = \sum_{j=1}^r T u_j.
+        \]
+        We are also given that $v$ is an eigenvector of $T$ with eigenvalue $\alpha$, so $Tv = \alpha v = \sum_{j=1}^r \alpha u_j$.
+        Equating both expressions for $Tv$:
+        \[
+          \sum_{j=1}^r T u_j = \sum_{j=1}^r \alpha u_j.
+        \]
+        Because $u_1, \dots, u_r$ correspond to distinct eigenvalues $\lambda_1, \dots, \lambda_r$ of $S$, the eigenspaces $E_{\lambda_1}, \dots, E_{\lambda_r}$ are linearly independent subspaces. Therefore, the decomposition of a vector across these eigenspaces is uniquely determined.
+        Since $T u_j \in E_{\lambda_j}$ (by the $T$-invariance of $E_{\lambda_j}$) and $\alpha u_j \in E_{\lambda_j}$, it must hold term-by-term that:
+        \[
+          T u_j = \alpha u_j \quad \text{for all } 1 \le j \le r.
+        \]
+        In particular for $j=1$, we get $Tu_1 = \alpha u_1$.
+        However, the problem explicitly assumes that $u_1$ is an eigenvector of $T$ corresponding to the eigenvalue $\beta$, meaning $Tu_1 = \beta u_1$.
+        Equating these yields $\alpha u_1 = \beta u_1$. Since $u_1$ is a non-zero vector, we conclude that $\alpha = \beta$.
+
+  \item % Solution 4
+        Let us evaluate the limit:
+        \[
+          L = \lim_{n \to \infty} n \int_1^\infty \frac{\exp(-\frac{n}{x}) f(x)}{x^2} dx.
+        \]
+        Perform the substitution $u = \frac{n}{x}$. The differential is $du = -\frac{n}{x^2} dx$.
+        The bounds change as follows: when $x = 1$, $u = n$; when $x \to \infty$, $u \to 0$.
+        Substituting this into the integral, we get:
+        \begin{align*}
+          n \int_1^\infty \exp\left(-\frac{n}{x}\right) f(x) \frac{1}{x^2} dx &= \int_n^0 \exp(-u) f\left(\frac{n}{u}\right) (-du) \\
+          &= \int_0^n \exp(-u) f\left(\frac{n}{u}\right) du.
+        \end{align*}
+        We can rewrite this integral over the domain $(0, \infty)$ using an indicator function:
+        \[
+          \int_0^\infty \exp(-u) f\left(\frac{n}{u}\right) \mathbf{1}_{[0, n]}(u) du.
+        \]
+        Let $g_n(u) = \exp(-u) f\left(\frac{n}{u}\right) \mathbf{1}_{[0, n]}(u)$. For any fixed $u > 0$, as $n \to \infty$, $\frac{n}{u} \to \infty$. Since $\lim_{x \to \infty} f(x) = 1$, we have:
+        \[
+          \lim_{n \to \infty} g_n(u) = \exp(-u) \cdot 1 \cdot 1 = \exp(-u).
+        \]
+        Since $f(x)$ is continuous on $[1, \infty)$ and converges to a finite limit at infinity, $f$ must be bounded on $[1, \infty)$. Let $M = \sup_{x \ge 1} |f(x)|$.
+        Then we can bound the sequence of functions $g_n(u)$ by an integrable dominating function:
+        \[
+          |g_n(u)| \le \exp(-u) \left| f\left(\frac{n}{u}\right) \right| \le M \exp(-u).
+        \]
+        Since $M \exp(-u)$ is absolutely integrable over $(0, \infty)$, we can apply Lebesgue's Dominated Convergence Theorem, which allows us to pass the limit inside the integral:
+        \[
+          L = \lim_{n \to \infty} \int_0^\infty g_n(u) du = \int_0^\infty \lim_{n \to \infty} g_n(u) du = \int_0^\infty \exp(-u) du = 1.
+        \]
+        Thus, the limit is $1$.
+
+  \item % Solution 5
+        The differential equation $x'_m(t) = a_m(t) x_m(t)^{1/2}$ with $x_m(0) = x_0 > 0$ is separable. Dividing by $x_m(t)^{1/2}$ and integrating from $0$ to $t$:
+        \[
+          \int_0^t x_m(s)^{-1/2} x'_m(s) ds = \int_0^t a_m(s) ds.
+        \]
+        Evaluating the left side yields $2x_m(t)^{1/2} - 2x_0^{1/2}$. For the right side:
+        \[
+          \int_0^t \frac{1}{1 + (s + 1/m)^2} ds = \left[ \arctan\left(s + \frac{1}{m}\right) \right]_0^t = \arctan\left(t + \frac{1}{m}\right) - \arctan\left(\frac{1}{m}\right).
+        \]
+        Solving for $x_m(t)$:
+        \[
+          x_m(t) = \left( x_0^{1/2} + \frac{1}{2} \left[ \arctan\left(t + \frac{1}{m}\right) - \arctan\left(\frac{1}{m}\right) \right] \right)^2.
+        \]
+        We define the continuous candidate limit function $x(t)$ by formally letting $m \to \infty$:
+        \[
+          x(t) = \left( x_0^{1/2} + \frac{1}{2} \arctan(t) \right)^2.
+        \]
+        We need to show that $x_m(t)$ converges uniformly to $x(t)$ on $[0, \infty)$. Let $f_m(t) = \arctan(t + 1/m) - \arctan(1/m)$ and $f(t) = \arctan(t)$.
+        Using the triangle inequality and the Mean Value Theorem on $\arctan(u)$:
+        \begin{align*}
+          |f_m(t) - f(t)| &= \left| \arctan\left(t + \frac{1}{m}\right) - \arctan(t) - \arctan\left(\frac{1}{m}\right) \right| \\
+          &\le \left| \arctan\left(t + \frac{1}{m}\right) - \arctan(t) \right| + \left| \arctan\left(\frac{1}{m}\right) - \arctan(0) \right| \\
+          &\le \left( \sup_{u \in \mathbb{R}} \frac{d}{du}\arctan(u) \right) \cdot \frac{1}{m} + \left( \sup_{u \in \mathbb{R}} \frac{d}{du}\arctan(u) \right) \cdot \frac{1}{m}.
+        \end{align*}
+        Since the derivative of $\arctan(u)$ is bounded by 1, we get:
+        \[
+          |f_m(t) - f(t)| \le \frac{1}{m} + \frac{1}{m} = \frac{2}{m}.
+        \]
+        This bound is independent of $t$, meaning $f_m(t)$ converges uniformly to $f(t)$ on $[0, \infty)$.
+        Now, let $g(y) = \left( x_0^{1/2} + \frac{1}{2} y \right)^2$. Since both $f_m(t)$ and $f(t)$ only take values within $[0, \pi]$, they are confined to a compact interval $K \subset \mathbb{R}$. The function $g(y)$ is uniformly continuous on compact intervals. Therefore, the uniform convergence of the argument $f_m \rightrightarrows f$ implies the uniform convergence of the composition $x_m = g \circ f_m \rightrightarrows g \circ f = x$.
+        To verify directly:
+        \begin{align*}
+          |x_m(t) - x(t)| &= \left| \left( x_0^{1/2} + \frac{1}{2} f_m(t) \right)^2 - \left( x_0^{1/2} + \frac{1}{2} f(t) \right)^2 \right| \\
+          &= \frac{1}{2} |f_m(t) - f(t)| \cdot \left| 2x_0^{1/2} + \frac{1}{2}(f_m(t) + f(t)) \right| \\
+          &\le \frac{1}{2} \cdot \frac{2}{m} \cdot \left( 2x_0^{1/2} + \frac{\pi}{2} \right) \xrightarrow{m \to \infty} 0.
+        \end{align*}
+        Thus, $x_m(t)$ converges uniformly to the continuous function $x(t)$ on $[0, \infty)$.
+
+  \item % Solution 6
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $F(x,y,z) = x^4 + y^4 - z^3 - 1$. Then $X = F^{-1}(0)$. We compute the gradient of $F$:
+          \[
+            \nabla F = (4x^3, 4y^3, -3z^2).
+          \]
+          To find the critical points, we set $\nabla F = \mathbf{0}$, which gives $4x^3 = 0, 4y^3 = 0, -3z^2 = 0$. This implies $(x, y, z) = (0, 0, 0)$.
+          We check if this critical point lies in $X$ by evaluating $F$:
+          \[
+            F(0,0,0) = 0^4 + 0^4 - 0^3 - 1 = -1 \neq 0.
+          \]
+          Since $(0,0,0) \notin X$, the gradient $\nabla F$ is non-zero everywhere on $X$. Therefore, by the Preimage Theorem (or Implicit Function Theorem), 0 is a regular value of $F$, making $X$ a differentiable 2-dimensional submanifold of $\mathbb{R}^3$.
+          
+          \item The intersection $X \cap H_r$ is determined by the constraint $z = r$. The remaining variables must satisfy:
+          \[
+            x^4 + y^4 = 1 + r^3.
+          \]
+          For this set to be non-empty, there must exist real solutions for $(x, y)$. Since $x^4 + y^4 \ge 0$ for all real $x, y$, we must strictly have:
+          \[
+            1 + r^3 \ge 0 \implies r^3 \ge -1 \implies r \ge -1.
+          \]
+          Let $G_r(x,y) = x^4 + y^4 - (1+r^3)$. The intersection $X \cap H_r$ can be identified with the level set $G_r^{-1}(0)$ in $\mathbb{R}^2$.
+          For this level set to be a 1-dimensional differentiable submanifold, we require $\nabla G_r \neq \mathbf{0}$ for all points satisfying $G_r(x,y) = 0$.
+          \[
+            \nabla G_r = (4x^3, 4y^3).
+          \]
+          The only point where $\nabla G_r = \mathbf{0}$ is $(x, y) = (0,0)$.
+          We check under what condition $(0,0)$ lies in the level set $G_r^{-1}(0)$:
+          \[
+            G_r(0,0) = -(1+r^3) = 0 \implies r = -1.
+          \]
+          If $r = -1$, then the set $X \cap H_{-1}$ contains only the point $(0,0)$, which forms a 0-dimensional manifold, not a 1-dimensional submanifold.
+          If $r > -1$, then $1+r^3 > 0$, so $(0,0)$ is not in the level set, which means $\nabla G_r$ is non-zero everywhere on the level set. Consequently, the set $X \cap H_r$ forms a smooth 1-dimensional curve (differentiable submanifold).
+          Thus, the range of $r$ for which $X \cap H_r$ is a non-empty 1-dimensional differentiable submanifold is $r > -1$.
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}

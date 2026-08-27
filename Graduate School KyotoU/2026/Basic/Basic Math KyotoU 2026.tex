@@ -1,0 +1,209 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item Let
+        \[ D = \{ (x, y) \in \mathbb{R}^2 \mid x > 0, 0 \le y \le x^2 \}. \]
+        Find the set of real numbers $\alpha$ for which the following improper integral converges:
+        \[ \iint_D \frac{dx dy}{(x^3 + y^3)^\alpha}. \]
+
+  \item Let $a, b$ be real numbers. Find the rank of the matrix
+        \[ \begin{pmatrix} a & a & b & b \\ a & a & -b & b \\ b & b & a & a \\ -b & b & -a & a \end{pmatrix}. \]
+
+  \item Let $n$ be a positive integer, and let $M_n(\mathbb{C})$ be the complex vector space consisting of all complex $n \times n$ matrices. Given $X \in M_n(\mathbb{C})$, define the subspace $V_X$ of $M_n(\mathbb{C})$ by
+        \[ V_X = \{ A \in M_n(\mathbb{C}) \mid AX = XA \}. \]
+        Prove that the minimum value in $\{ \dim V_X \mid X \in M_n(\mathbb{C}) \}$ is $n$, where $\dim V_X$ denotes the dimension of $V_X$ as a complex vector space.
+
+  \item In the following, consider sequences $\{a_n\}_{n=1}^\infty$ and $\{b_n\}_{n=1}^\infty$ of real numbers which satisfy
+        \begin{align*}
+          \limsup_{n \to \infty} a_n &= 3, \quad \liminf_{n \to \infty} a_n = 0, \\
+          \limsup_{n \to \infty} b_n &= 7, \quad \liminf_{n \to \infty} b_n = 1.
+        \end{align*}
+        \begin{enumerate}[label=(\arabic*)]
+          \item Find the maximum and minimum possible values of $\limsup_{n \to \infty} |a_n - b_n|$. Furthermore, give one example each of sequences $(\{a_n\}_{n=1}^\infty, \{b_n\}_{n=1}^\infty)$ for which these maximum and minimum values are attained.
+          \item Find the maximum and minimum possible values of $\liminf_{n \to \infty} |a_n - b_n|$. Furthermore, give one example each of sequences $(\{a_n\}_{n=1}^\infty, \{b_n\}_{n=1}^\infty)$ for which these maximum and minimum values are attained.
+        \end{enumerate}
+
+  \item Let $u(x, y)$ be a real-valued $C^2$-function on $\mathbb{R}^2 \setminus \{(0, 0)\}$ that satisfies the equation
+        \[ \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \]
+        on $\mathbb{R}^2 \setminus \{(0, 0)\}$. Furthermore, assume that there exists a positive constant $C$ satisfying
+        \[ \left| \frac{\partial u}{\partial x}(x, y) \right| + \left| \frac{\partial u}{\partial y}(x, y) \right| \le C \left( \frac{1}{\sqrt{x^2 + y^2}} + 1 \right) \]
+        for all $(x, y) \in \mathbb{R}^2 \setminus \{(0, 0)\}$. Here $i$ denotes the imaginary unit.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Prove that $f(x + iy) := \frac{\partial u}{\partial x}(x, y) - i \frac{\partial u}{\partial y}(x, y)$ is a holomorphic function on $\mathbb{C} \setminus \{0\}$.
+          \item Prove that there exist real numbers $a, b, c, d$ satisfying
+                \[ u(x, y) = a \log(x^2 + y^2) + bx + cy + d \]
+                for all $(x, y) \in \mathbb{R}^2 \setminus \{(0, 0)\}$.
+        \end{enumerate}
+
+  \item Let $n$ be a positive integer and $a$ a real number. Define the subset $X$ of $\mathbb{R}^3$ by
+        \[ X = \{ (x, y, z) \in \mathbb{R}^3 \mid x^2 + y^4 + az^n = 1 \}. \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item Prove that $X$ is a differentiable submanifold of $\mathbb{R}^3$.
+          \item Define the function $f : X \to \mathbb{R}$ by $f(x, y, z) = z$. Find all $n, a$ such that $f$ has exactly two critical points.
+        \end{enumerate}
+
+  \item Given an integer $n \ge 2$, let $E_n = \{1, 2, \dots, n\}$, and let $\binom{E_n}{2}$ be the set of all subsets of $E_n$ of cardinality 2. Furthermore, let $E_n^*$ be the set of all subsets $S$ of $\binom{E_n}{2}$ of cardinality $n - 1$ which satisfy the following condition (*):
+
+        (*) for every $T, T' \in S$, $T \cap T' \neq \emptyset$.
+
+        Define the function $F_n : E_n \to E_n^*$ by
+        \[
+          F_n(i) = \left\{ T \in \binom{E_n}{2} \;\middle|\; i \in T \right\}.
+        \]
+        Find all integers $n \ge 2$ such that $F_n$ is a bijection.
+
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        We can rewrite the integral using the substitution $y = xz$, $dy = x dz$. The domain $D$ is given by $x > 0$ and $0 \le y \le x^2$, which corresponds to $x > 0$ and $0 \le z \le x$.
+        The integral becomes:
+        \[
+          I = \int_0^\infty \int_0^x \frac{x \, dz}{(x^3 + x^3 z^3)^\alpha} \, dx = \int_0^\infty x^{1-3\alpha} \left( \int_0^x \frac{dz}{(1+z^3)^\alpha} \right) dx.
+        \]
+        Let $F(x) = \int_0^x \frac{dz}{(1+z^3)^\alpha}$. The integral converges if and only if both the integral near $x \to 0$ and $x \to \infty$ converge.
+        For $x \to 0$, $F(x) \sim x$, so the integrand behaves as $x^{2-3\alpha}$. The integral $\int_0^1 x^{2-3\alpha} dx$ converges if and only if $2-3\alpha > -1$, which implies $\alpha < 1$.
+        For $x \to \infty$, we consider two cases:
+        \begin{itemize}
+          \item Case 1: $3\alpha > 1 \iff \alpha > \frac{1}{3}$. Here, $F(x)$ converges to a positive constant $C = \int_0^\infty (1+z^3)^{-\alpha} dz$ as $x \to \infty$. The integrand is then asymptotically $C x^{1-3\alpha}$. The integral $\int_1^\infty x^{1-3\alpha} dx$ converges if and only if $1-3\alpha < -1$, which gives $\alpha > \frac{2}{3}$. Since $\frac{2}{3} > \frac{1}{3}$, this case yields $\alpha \in \left(\frac{2}{3}, 1\right)$.
+          \item Case 2: $3\alpha \le 1 \iff \alpha \le \frac{1}{3}$. If $\alpha < \frac{1}{3}$, $F(x) \sim \int_0^x z^{-3\alpha} dz \sim x^{1-3\alpha}$, so the integrand is $\sim x^{2-6\alpha}$. For convergence, we need $2-6\alpha < -1 \implies \alpha > \frac{1}{2}$, which contradicts $\alpha < \frac{1}{3}$. If $\alpha = \frac{1}{3}$, $F(x) \sim \log x$, so the integrand is $\sim \log x$, which diverges when integrated over $[1, \infty)$.
+        \end{itemize}
+        Thus, the integral converges if and only if $\frac{2}{3} < \alpha < 1$.
+
+  \item % Solution for 2
+        Let $A$ be the given matrix. We apply elementary row operations to determine the rank.
+        First, subtracting the first row from the second yields:
+        \[
+          A \sim \begin{pmatrix} a & a & b & b \\ 0 & 0 & -2b & 0 \\ b & b & a & a \\ -b & b & -a & a \end{pmatrix}.
+        \]
+        Next, adding the third row to the fourth yields:
+        \[
+          A \sim \begin{pmatrix} a & a & b & b \\ 0 & 0 & -2b & 0 \\ b & b & a & a \\ 0 & 2b & 0 & 2a \end{pmatrix}.
+        \]
+        The determinant of $A$ can be computed (or expanding along the zeros) as $\det A = -4b^2(a^2 - b^2)$.
+        \begin{itemize}
+          \item If $b \neq 0$ and $a \neq \pm b$, then $\det A \neq 0$, so the matrix is invertible and the rank is $4$.
+          \item If $b = 0$, the matrix becomes:
+                \[
+                  A = \begin{pmatrix} a & a & 0 & 0 \\ a & a & 0 & 0 \\ 0 & 0 & a & a \\ 0 & 0 & -a & a \end{pmatrix} \sim \begin{pmatrix} a & a & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & a & a \\ 0 & 0 & -a & a \end{pmatrix}.
+                \]
+                If $a \neq 0$, the rows $(a, a, 0, 0)$, $(0, 0, a, a)$, and $(0, 0, -a, a)$ are linearly independent. Thus, the rank is $3$. If $a = 0$, the matrix is the zero matrix, so the rank is $0$.
+          \item If $a = b \neq 0$, then $R_1 = R_3$ and $R_2 = -R_4$. Since $a \neq 0$, it's easy to verify that there are exactly 3 linearly independent rows, so the rank is $3$.
+          \item If $a = -b \neq 0$, similarly $R_1 = -R_3$ and the matrix has exactly 3 linearly independent rows, so the rank is $3$.
+        \end{itemize}
+        In conclusion:
+        - If $a = 0, b = 0$, the rank is $0$. \\
+        - If $a = \pm b \neq 0$ or $b = 0, a \neq 0$, the rank is $3$. \\
+        - If $b \neq 0$ and $a \neq \pm b$, the rank is $4$.
+
+  \item % Solution for 3
+        By the structure theorem for finitely generated modules over a principal ideal domain (or by Jordan Canonical Form), $V$ can be decomposed into a direct sum of cyclic subspaces with respect to $X$. Thus, any matrix $X \in M_n(\mathbb{C})$ is similar to a matrix in Jordan Normal Form. Since the dimension of the centralizer $V_X$ is invariant under similarity (if $P^{-1}XP = J$, then $V_X \cong V_J$), we may assume without loss of generality that $X$ is in Jordan Normal Form:
+        \[
+          X = J_{n_1}(\lambda_1) \oplus J_{n_2}(\lambda_2) \oplus \dots \oplus J_{n_k}(\lambda_k)
+        \]
+        where $J_{n_i}(\lambda_i)$ is a Jordan block of size $n_i \times n_i$ with eigenvalue $\lambda_i$, and $\sum_{i=1}^k n_i = n$.
+        The dimension of the centralizer of such a matrix is given by:
+        \[
+          \dim V_X = \sum_{i=1}^k \sum_{j=1}^k d_{ij}
+        \]
+        where $d_{ij}$ is the dimension of the vector space of matrices $A_{ij}$ satisfying $A_{ij} J_{n_j}(\lambda_j) = J_{n_i}(\lambda_i) A_{ij}$. It is a well-known result that:
+        \[
+          d_{ij} = \begin{cases} \min(n_i, n_j) & \text{if } \lambda_i = \lambda_j \\ 0 & \text{if } \lambda_i \neq \lambda_j \end{cases}
+        \]
+        Consequently, all $d_{ij}$ are non-negative, and for $i = j$, we have $d_{ii} = n_i$. Therefore,
+        \[
+          \dim V_X = \sum_{i=1}^k \sum_{j=1}^k d_{ij} \ge \sum_{i=1}^k d_{ii} = \sum_{i=1}^k n_i = n.
+        \]
+        The minimum value $n$ is achieved, for instance, when $X$ has $n$ distinct eigenvalues, in which case any commuting matrix must be diagonal, yielding $\dim V_X = n$. Thus, the minimum value is $n$.
+
+  \item % Solution for 4
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $L = \limsup_{n \to \infty} |a_n - b_n|$. The maximum possible value of $L$ is given by the maximum possible distance between the cluster points of the two sequences, which is $\max(|x-y|)$ for $x \in [\liminf a_n, \limsup a_n] = [0, 3]$ and $y \in [\liminf b_n, \limsup b_n] = [1, 7]$. Thus, the maximum is $|0 - 7| = 7$. An example achieving this is the cycle $a_n: 0, 3, 0, 3, \dots$ and $b_n: 7, 1, 7, 1, \dots$. \\
+          To find the minimum possible value of $L$, notice that $b_n$ must have a subsequence converging to $7$. For these indices, the corresponding $a_n$ subsequence is bounded in $[0, 3]$. The distance is at least $|3 - 7| = 4$. Thus, $L \ge 4$. This minimum is attained if we pair the upper limit of $b_n$ with the upper limit of $a_n$, and the lower limit of $b_n$ with the lower limit of $a_n$. For example, the cycle $a_n: 3, 0, 3, 0, \dots$ and $b_n: 7, 1, 7, 1, \dots$. \\
+          Maximum: 7, Minimum: 4.
+          \item Let $\ell = \liminf_{n \to \infty} |a_n - b_n|$. We want to find its maximum and minimum. The value $\ell$ is the minimum cluster point of $|a_n - b_n|$. 
+          To minimize $\ell$, we need to make a subsequence of $|a_n - b_n|$ converge to $0$. We can simply set $a_n = b_n$ for a subsequence, provided the value is in the intersection of their ranges, i.e., $[1, 3]$. For example, if we cycle $(a_n, b_n)$ through $(3, 7)$, $(0, 1)$, and $(2, 2)$, then both sequences have the required limits, and the minimum distance is $0$. Thus, the minimum is $0$. \\
+          To maximize $\ell$, we want to maximize the minimum distance between paired cluster points. Notice that $a_n$ must have a subsequence converging to $3$. For these indices, $b_n$ converges to some $y \in [1, 7]$. The distance is $|3-y|$. Also $b_n$ must have a subsequence converging to $1$. For these indices, $a_n$ converges to some $x \in [0, 3]$. The distance is $|x-1|$, which is at most $|3-1| = 2$. Therefore, the sequence $|a_n - b_n|$ will always have a cluster point $\le 2$, so $\ell \le 2$. This maximum is attained by pairing to avoid small differences. For example, cycle $(a_n, b_n)$ through $(0, 7)$ and $(3, 1)$. The distances are $7$ and $2$. \\
+          Maximum: 2, Minimum: 0.
+        \end{enumerate}
+
+  \item % Solution for 5
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $f(x+iy) = U(x, y) + i V(x, y)$ where $U = u_x$ and $V = -u_y$. Since $u$ is a $C^2$ function, $U$ and $V$ are $C^1$ functions on $\mathbb{R}^2 \setminus \{(0,0)\}$. We check the Cauchy-Riemann equations:
+                \[
+                  U_x = u_{xx}, \quad V_y = -u_{yy}.
+                \]
+                Since $u$ is harmonic ($u_{xx} + u_{yy} = 0$), we have $U_x = V_y$. Also,
+                \[
+                  U_y = u_{xy}, \quad V_x = -u_{yx}.
+                \]
+                By Clairaut's theorem, $u_{xy} = u_{yx}$, so $U_y = -V_x$. Since the Cauchy-Riemann equations are satisfied and the partial derivatives are continuous, $f$ is holomorphic on $\mathbb{C} \setminus \{0\}$.
+          \item Consider the function $g(z) = z f(z)$ for $z \in \mathbb{C} \setminus \{0\}$. Using the given inequality,
+                \[
+                  |g(z)| = |z| |f(z)| \le |z| \left( |u_x| + |u_y| \right) \le C|z| \left( \frac{1}{|z|} + 1 \right) = C(1 + |z|).
+                \]
+                As $z \to 0$, $g(z)$ is bounded, which implies that $z=0$ is a removable singularity for $g$. Thus, $g$ extends to an entire function. Furthermore, as $z \to \infty$, $|g(z)| \le C(1+|z|)$, so $g(z)$ has at most linear growth. By Liouville's theorem (or generalized Liouville), $g(z)$ must be a polynomial of degree at most 1, so $g(z) = a_1 + B z$ for some complex constants $a_1, B$.
+                Therefore, $f(z) = \frac{a_1}{z} + B$.
+                Let $a_1 = \alpha + i \beta$ and $B = b_1 - i b_2$. Then,
+                \[
+                  f(z) = \frac{\alpha + i \beta}{x + iy} + b_1 - i b_2 = \frac{\alpha x + \beta y}{x^2+y^2} + b_1 + i \left( \frac{\beta x - \alpha y}{x^2+y^2} - b_2 \right).
+                \]
+                Thus, $u_x = \frac{\alpha x + \beta y}{x^2+y^2} + b_1$ and $u_y = -\left( \frac{\beta x - \alpha y}{x^2+y^2} - b_2 \right) = \frac{\alpha y - \beta x}{x^2+y^2} + b_2$.
+                The differential $du = u_x dx + u_y dy$ must be exact on $\mathbb{R}^2 \setminus \{(0,0)\}$. Integrating $du$ over the unit circle $S^1$ yields:
+                \[
+                  \int_{S^1} u_x dx + u_y dy = \int_0^{2\pi} \left[ (\alpha \cos t + \beta \sin t + b_1)(-\sin t) + (\alpha \sin t - \beta \cos t + b_2)\cos t \right] dt = -2\pi \beta.
+                \]
+                For $u$ to be single-valued, this integral must be zero, so $\beta = 0$.
+                Then $u_x = \frac{\alpha x}{x^2+y^2} + b_1$ and $u_y = \frac{\alpha y}{x^2+y^2} + b_2$. Integrating gives:
+                \[
+                  u(x,y) = \frac{\alpha}{2} \log(x^2+y^2) + b_1 x + b_2 y + d.
+                \]
+                Setting $a = \frac{\alpha}{2}$, $b = b_1$, and $c = b_2$, we obtain the desired form.
+        \end{enumerate}
+
+  \item % Solution for 6
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $F(x, y, z) = x^2 + y^4 + az^n$. We have $X = F^{-1}(1)$. To show $X$ is a differentiable submanifold, it suffices to show that $1$ is a regular value of $F$. The gradient of $F$ is $\nabla F = (2x, 4y^3, a n z^{n-1})$.
+          If $\nabla F = (0, 0, 0)$, then $x = 0$ and $y = 0$.
+          If $n = 1$, then $\nabla F = (0, 0, a)$. If $a \neq 0$, the gradient is never zero. If $a = 0$, $\nabla F = (0, 0, 0) \implies x = y = 0$, but $F(0, 0, z) = 0 \neq 1$, so this point is not in $X$.
+          If $n \ge 2$, then $\nabla F = (0, 0, 0) \implies x = y = z = 0$. However, $F(0, 0, 0) = 0 \neq 1$, so the origin is not in $X$.
+          In all cases, $\nabla F \neq 0$ at all points in $X$. By the Regular Level Set Theorem, $X$ is a differentiable submanifold of $\mathbb{R}^3$.
+          \item We use the method of Lagrange multipliers. The critical points of $f(x,y,z) = z$ on $X$ occur where $\nabla f = \lambda \nabla F$ for some $\lambda \in \mathbb{R}$.
+          This gives the system:
+          \begin{align*}
+            0 &= \lambda(2x) \\
+            0 &= \lambda(4y^3) \\
+            1 &= \lambda(an z^{n-1})
+          \end{align*}
+          From the third equation, $\lambda \neq 0$. Thus, the first two equations imply $x = 0$ and $y = 0$.
+          Since $(x, y, z) \in X$, we must have $F(0, 0, z) = a z^n = 1$.
+          The critical points are precisely the points $(0, 0, z)$ where $a z^n = 1$. We want exactly two critical points, which means the equation $z^n = 1/a$ must have exactly two real roots.
+          For a positive integer $n$, the equation $z^n = c$ has exactly two real roots if and only if $n$ is even and $c > 0$.
+          Thus, we require $n$ to be an even integer and $1/a > 0 \implies a > 0$.
+        \end{enumerate}
+
+  \item % Solution for 7
+        To determine if $F_n$ is a bijection, we first observe its domain and codomain. The domain $E_n$ has size $n$. For the codomain $E_n^*$, any $S \in E_n^*$ is a graph on the vertex set $E_n$ with $n-1$ edges such that any two edges share at least one vertex.
+        For $F_n$, $F_n(i)$ represents a star graph with center $i$ and $n-1$ edges. Clearly, $F_n(i)$ contains $n-1$ edges, and any two edges in $F_n(i)$ intersect at $i$, so $F_n(i) \in E_n^*$.
+        Since $F_n(i)$ determines the center $i$ uniquely for $n \ge 3$ (and for $n=2$ there is only 1 element in $\binom{E_2}{2}$ anyway), we need to check injectivity and surjectivity.
+        \begin{itemize}
+          \item For $n = 2$: $|E_2| = 2$. $F_2(1) = \{ \{1, 2\} \}$ and $F_2(2) = \{ \{1, 2\} \}$. Since $F_2(1) = F_2(2)$, $F_2$ is not injective, hence not a bijection.
+          \item For $n = 3$: $|E_3| = 3$. An element of $E_3^*$ has $n-1=2$ edges. The total number of edges in $K_3$ is $3$. Any set of 2 edges in $K_3$ forms a path (which is a star graph), so they all intersect. Thus, $|E_3^*| = \binom{3}{2} = 3$. Since $F_3$ maps $3$ elements to $3$ distinct star graphs, $F_3$ is a bijection.
+          \item For $n = 4$: An element of $E_4^*$ has $3$ edges. Any two edges must intersect. Aside from the 4 star graphs (which are in the image of $F_4$), a triangle also consists of 3 edges, and any two edges of a triangle intersect. There are $\binom{4}{3} = 4$ triangles in $K_4$. Thus, $E_4^*$ contains these triangles as well, meaning $|E_4^*| = 4 + 4 = 8$. Since $8 \neq 4$, $F_4$ is not surjective, hence not a bijection.
+          \item For $n \ge 5$: Suppose $S \in E_n^*$ is not a star graph. Then there must exist three edges that form a triangle. However, any additional edge in $S$ must intersect all three edges of the triangle. Since an edge only has 2 vertices, by the Pigeonhole Principle it is impossible for a fourth edge to intersect all three edges of a triangle without being identical to one of them. Therefore, a graph where every pair of edges intersects can have at most $3$ edges if it is not a star graph. Since $n \ge 5 \implies n-1 \ge 4$, $S$ must contain at least 4 edges, so $S$ can only be a star graph.
+          Thus, for $n \ge 5$, $E_n^*$ consists exactly of the $n$ star graphs, which means $|E_n^*| = n$ and $F_n$ is a bijection.
+        \end{itemize}
+        In conclusion, $F_n$ is a bijection if and only if $n = 3$ or $n \ge 5$.
+
+\end{enumerate}
+
+\end{document}

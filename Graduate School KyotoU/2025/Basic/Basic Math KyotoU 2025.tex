@@ -1,0 +1,348 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{bm}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item Let $f(\bm{x})$ be the function on $\mathbb{R}^2 \setminus \{\bm{0}\}$ defined by
+        \[
+          f(\bm{x}) = \int_B \frac{1}{|\bm{x} \cdot \bm{y}| + \|\bm{x}\|\|\bm{y}\|} \, d\bm{y}, \qquad B = \{ \bm{y} \in \mathbb{R}^2 \mid \|\bm{y}\| < 1 \}.
+        \]
+        Here $\bm{x} \cdot \bm{y}$ is the standard inner product of $\bm{x}, \bm{y} \in \mathbb{R}^2$ in $\mathbb{R}^2$, and $\|\bm{y}\| = \sqrt{\bm{y} \cdot \bm{y}}$. Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Show that $f(\bm{x})$ is a function depending only on $\|\bm{x}\|$.
+          \item Find $f(\bm{x})$.
+        \end{enumerate}
+
+  \item Let $\alpha$ be a complex number. Define a $3 \times 3$ matrix $A(\alpha)$ by
+        \[
+          A(\alpha) = \begin{pmatrix} 1 & \alpha & 0 \\ \alpha & \alpha & \alpha \\ -\alpha - 1 & -2\alpha & -\alpha \end{pmatrix}.
+        \]
+        Find all the eigenvalues of $A(\alpha)$. Moreover, for each eigenvalue, find the dimension of its eigenspace.
+
+  \item Let $A, B$ be complex $n \times n$ matrices. Put $X = AB - BA$. Assume that $A$ is diagonalizable and $AX = XA$. Prove that $X$ equals the zero matrix.
+
+  \item Find all real numbers $\alpha$, for which the improper integral
+        \[
+          \int_0^\infty \frac{\sin^5 x}{x^\alpha} \, dx
+        \]
+        converges.
+
+  \item Let $a, b$ be positive real numbers with $a > b > 0$. Find the value of the improper integral
+        \[
+          \int_0^\infty \frac{\log x}{(x^2 + a^2)(x^2 + b^2)} \, dx.
+        \]
+
+  \item Let $[0, 1]$ be the unit interval $\{ x \in \mathbb{R} \mid 0 \le x \le 1 \}$, and let $K$ be a closed subset of $[0, 1] \times [0, 1]$. For each $x \in [0, 1]$, we set
+        \[
+          K_x = \{ y \in [0, 1] \mid (x, y) \in K \}.
+        \]
+        We suppose that $K_x$ is a non-empty connected subset of $[0, 1]$ for every $x \in [0, 1]$. Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Prove that $K$ is a connected subset of $[0, 1] \times [0, 1]$.
+          \item Prove that there exists $x \in [0, 1]$ satisfying $x \in K_x$.
+        \end{enumerate}
+
+  \item Define a subset $D$ of $\mathbb{R}^2$ by $D = \{ (x, y) \in \mathbb{R}^2 \mid x^2 + y^2 \le 2 \}$. Define a function $f$ on $D$ by
+        \[
+          f(x, y) = x^2 + xy^2 - 2x + \frac{1}{3} y^3.
+        \]
+        Find the maximum and minimum values of the function $f$.
+
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $R$ be an arbitrary $2 \times 2$ orthogonal matrix, so $R \in O(2)$. We want to evaluate $f(R\bm{x})$. 
+          Using the definition, we have
+          \[
+            f(R\bm{x}) = \int_B \frac{1}{|R\bm{x} \cdot \bm{y}| + \|R\bm{x}\| \|\bm{y}\|} \, d\bm{y}.
+          \]
+          We apply the change of variables $\bm{y}' = R^T \bm{y}$. Since $|\det R^T| = 1$, the differential element is invariant: $d\bm{y}' = d\bm{y}$. Furthermore, the unit open disk $B$ is invariant under orthogonal transformations, so the integration domain remains $B$.
+          For the inner product, we use the property of orthogonal matrices: $R\bm{x} \cdot \bm{y} = (R\bm{x})^T \bm{y} = \bm{x}^T R^T \bm{y} = \bm{x} \cdot \bm{y}'$. 
+          Additionally, orthogonal transformations preserve lengths, so $\|R\bm{x}\| = \|\bm{x}\|$ and $\|\bm{y}'\| = \|R^T \bm{y}\| = \|\bm{y}\|$. 
+          Substituting these into the integral gives
+          \[
+            f(R\bm{x}) = \int_B \frac{1}{|\bm{x} \cdot \bm{y}'| + \|\bm{x}\| \|\bm{y}'\|} \, d\bm{y}' = f(\bm{x}).
+          \]
+          Since the orthogonal group $O(2)$ acts transitively on the set of all vectors of a given length, $f(\bm{x})$ is invariant under all rotations and reflections. Thus, $f(\bm{x})$ depends only on the length $\|\bm{x}\|$.
+          
+          \item Since $f(\bm{x})$ depends only on $r = \|\bm{x}\|$, we can assume without loss of generality that $\bm{x} = (r, 0)^T$ where $r > 0$. 
+          Then the inner product is $\bm{x} \cdot \bm{y} = r y_1$, where $\bm{y} = (y_1, y_2)^T$. The function becomes
+          \[
+            f(\bm{x}) = \int_{y_1^2 + y_2^2 < 1} \frac{1}{r |y_1| + r \sqrt{y_1^2 + y_2^2}} \, dy_1 \, dy_2.
+          \]
+          We switch to polar coordinates for $\bm{y}$: $y_1 = \rho \cos \theta$, $y_2 = \rho \sin \theta$, with $0 \le \rho < 1$ and $0 \le \theta < 2\pi$. The Jacobian determinant is $\rho$.
+          \[
+            f(\bm{x}) = \int_0^{2\pi} \int_0^1 \frac{1}{r|\rho \cos \theta| + r\rho} \rho \, d\rho \, d\theta = \int_0^{2\pi} \int_0^1 \frac{\rho}{r\rho (|\cos \theta| + 1)} \, d\rho \, d\theta.
+          \]
+          We can cancel $\rho$ in the integrand. The integral over $\rho$ from 0 to 1 simply yields 1. 
+          \[
+            f(\bm{x}) = \frac{1}{r} \int_0^{2\pi} \frac{1}{|\cos \theta| + 1} \, d\theta.
+          \]
+          Due to the symmetry of the cosine function, the integral over the four quadrants is equal:
+          \[
+            f(\bm{x}) = \frac{4}{r} \int_0^{\pi/2} \frac{1}{\cos \theta + 1} \, d\theta.
+          \]
+          Using the half-angle identity $\cos \theta + 1 = 2 \cos^2(\theta/2)$, we get
+          \[
+            f(\bm{x}) = \frac{4}{r} \int_0^{\pi/2} \frac{1}{2 \cos^2(\theta/2)} \, d\theta = \frac{2}{r} \int_0^{\pi/2} \sec^2(\theta/2) \, d\theta.
+          \]
+          Let $u = \theta/2$, so $du = \frac{1}{2} d\theta$. The limits change to $0$ and $\pi/4$:
+          \[
+            f(\bm{x}) = \frac{4}{r} \int_0^{\pi/4} \sec^2 u \, du = \frac{4}{r} [\tan u]_0^{\pi/4} = \frac{4}{r} (1 - 0) = \frac{4}{r}.
+          \]
+          Therefore, $f(\bm{x}) = \frac{4}{\|\bm{x}\|}$.
+        \end{enumerate}
+
+  \item % Solution for 2
+        To find the eigenvalues of $A(\alpha)$, we compute the characteristic polynomial $\det(\lambda I - A(\alpha))$ or analyze the properties of $A(\alpha)$. 
+        Observe the sum of the rows of $A(\alpha)$:
+        \begin{align*}
+          R_1 + R_2 + R_3 &= (1, \alpha, 0) + (\alpha, \alpha, \alpha) + (-\alpha - 1, -2\alpha, -\alpha) \\
+          &= (0, 0, 0).
+        \end{align*}
+        This means that the rows are linearly dependent, so $\det(A(\alpha)) = 0$. In fact, the vector $(1, 1, 1)$ is a left eigenvector for the eigenvalue $\lambda = 0$. 
+        Let us compute the sum of the principal minors of $A(\alpha)$ of size 2:
+        \begin{align*}
+          M_{11} &= \det \begin{pmatrix} \alpha & \alpha \\ -2\alpha & -\alpha \end{pmatrix} = -\alpha^2 - (-2\alpha^2) = \alpha^2, \\
+          M_{22} &= \det \begin{pmatrix} 1 & 0 \\ -\alpha - 1 & -\alpha \end{pmatrix} = -\alpha - 0 = -\alpha, \\
+          M_{33} &= \det \begin{pmatrix} 1 & \alpha \\ \alpha & \alpha \end{pmatrix} = \alpha - \alpha^2.
+        \end{align*}
+        The sum of the principal minors is $\alpha^2 - \alpha + \alpha - \alpha^2 = 0$. 
+        The trace of $A(\alpha)$ is $\operatorname{Tr}(A(\alpha)) = 1 + \alpha - \alpha = 1$.
+        The characteristic polynomial of a $3 \times 3$ matrix is given by:
+        \[
+          p(\lambda) = \lambda^3 - \operatorname{Tr}(A(\alpha)) \lambda^2 + (M_{11} + M_{22} + M_{33}) \lambda - \det(A(\alpha)).
+        \]
+        Substituting our values, we obtain:
+        \[
+          p(\lambda) = \lambda^3 - \lambda^2 + 0 \lambda - 0 = \lambda^2(\lambda - 1).
+        \]
+        The roots are $\lambda = 0$ (algebraic multiplicity 2) and $\lambda = 1$ (algebraic multiplicity 1). This result is independent of the complex number $\alpha$.
+        
+        Now we find the dimension of the eigenspaces. 
+        For $\lambda = 1$, the algebraic multiplicity is 1, so the geometric multiplicity (dimension of the eigenspace) is strictly bounded by $1 \le \dim(V_1) \le 1$. Thus, the dimension of the eigenspace for $\lambda = 1$ is \textbf{1}.
+        
+        For $\lambda = 0$, the dimension of the eigenspace is the nullity of $A(\alpha)$. We determine the rank of $A(\alpha)$:
+        \[
+          A(\alpha) = \begin{pmatrix} 1 & \alpha & 0 \\ \alpha & \alpha & \alpha \\ -\alpha - 1 & -2\alpha & -\alpha \end{pmatrix}.
+        \]
+        Performing the row operation $R_3 \leftarrow R_3 + R_1 + R_2$, the matrix becomes
+        \[
+          \begin{pmatrix} 1 & \alpha & 0 \\ \alpha & \alpha & \alpha \\ 0 & 0 & 0 \end{pmatrix}.
+        \]
+        The rank depends on whether the first two rows are linearly dependent. 
+        The determinant of the submatrix formed by the first and third columns is $\det \begin{pmatrix} 1 & 0 \\ \alpha & \alpha \end{pmatrix} = \alpha$.
+        If $\alpha \neq 0$, the rank of $A(\alpha)$ is 2, and by the Rank-Nullity Theorem, the dimension of the eigenspace for $\lambda = 0$ is $3 - 2 = \mathbf{1}$.
+        If $\alpha = 0$, the matrix becomes $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$, which clearly has rank 1. In this case, the dimension of the eigenspace for $\lambda = 0$ is $3 - 1 = \mathbf{2}$.
+
+  \item % Solution for 3
+        Since the matrix $A$ is diagonalizable, there exists a basis of $\mathbb{C}^n$ consisting of eigenvectors of $A$. Let this basis be $\{v_1, v_2, \dots, v_n\}$ and let $\lambda_1, \lambda_2, \dots, \lambda_n$ be the corresponding eigenvalues, so that $Av_i = \lambda_i v_i$ for each $i$.
+        We are given that $A$ and $X$ commute: $AX = XA$. Because $X$ commutes with $A$, it must leave the eigenspaces of $A$ invariant. 
+        Let $P$ be the invertible matrix whose columns are $v_1, \dots, v_n$. Then $P^{-1}AP = D$, where $D = \operatorname{diag}(\lambda_1, \dots, \lambda_n)$ is a diagonal matrix.
+        We can apply the same similarity transformation to $X$ and $B$. Let $\tilde{X} = P^{-1}XP$ and $\tilde{B} = P^{-1}BP$. 
+        Since $X = AB - BA$, we have
+        \[
+          \tilde{X} = P^{-1}(AB - BA)P = (P^{-1}AP)(P^{-1}BP) - (P^{-1}BP)(P^{-1}AP) = D\tilde{B} - \tilde{B}D.
+        \]
+        Let us look at the $(i, j)$-th entry of this matrix equation. Since $D$ is diagonal, the entries of $D\tilde{B} - \tilde{B}D$ are given by:
+        \[
+          \tilde{X}_{ij} = \lambda_i \tilde{B}_{ij} - \tilde{B}_{ij} \lambda_j = (\lambda_i - \lambda_j) \tilde{B}_{ij}.
+        \]
+        On the other hand, from $AX = XA$, we deduce that $D\tilde{X} = \tilde{X}D$. Looking at the $(i, j)$-th entry of this equation gives:
+        \[
+          \lambda_i \tilde{X}_{ij} = \tilde{X}_{ij} \lambda_j \implies (\lambda_i - \lambda_j) \tilde{X}_{ij} = 0.
+        \]
+        We now substitute $\tilde{X}_{ij} = (\lambda_i - \lambda_j) \tilde{B}_{ij}$ into the above equation:
+        \[
+          (\lambda_i - \lambda_j) [(\lambda_i - \lambda_j) \tilde{B}_{ij}] = 0 \implies (\lambda_i - \lambda_j)^2 \tilde{B}_{ij} = 0.
+        \]
+        For any pair of indices $(i, j)$, there are two possibilities:
+        \begin{itemize}
+          \item If $\lambda_i \neq \lambda_j$, then $(\lambda_i - \lambda_j)^2 \neq 0$, which forces $\tilde{B}_{ij} = 0$. Consequently, $\tilde{X}_{ij} = (\lambda_i - \lambda_j) \tilde{B}_{ij} = 0$.
+          \item If $\lambda_i = \lambda_j$, then $\lambda_i - \lambda_j = 0$, which immediately forces $\tilde{X}_{ij} = 0 \cdot \tilde{B}_{ij} = 0$.
+        \end{itemize}
+        In all cases, $\tilde{X}_{ij} = 0$. Therefore, $\tilde{X}$ is the zero matrix. Since $\tilde{X} = P^{-1}XP = 0$, we conclude that $X = 0$.
+
+  \item % Solution for 4
+        We analyze the convergence of the improper integral $I = \int_0^\infty \frac{\sin^5 x}{x^\alpha} \, dx$ by splitting it into two parts: $\int_0^1 f(x) \, dx$ and $\int_1^\infty f(x) \, dx$, where $f(x) = \frac{\sin^5 x}{x^\alpha}$.
+        
+        \textbf{Behavior as $x \to 0^+ $:}
+        Near $x = 0$, we have $\sin x \sim x$. Thus, the integrand behaves as:
+        \[
+          f(x) \sim \frac{x^5}{x^\alpha} = x^{5 - \alpha}.
+        \]
+        By the limit comparison test, the integral $\int_0^1 x^{5-\alpha} \, dx$ converges if and only if the exponent is strictly greater than $-1$:
+        \[
+          5 - \alpha > -1 \implies \alpha < 6.
+        \]
+        
+        \textbf{Behavior as $x \to \infty$:}
+        For the integral over $[1, \infty)$, we can use Dirichlet's test for improper integrals. We rewrite $\sin^5 x$ using trigonometric identities to see that its antiderivative is bounded.
+        \[
+          \sin^5 x = \left( \frac{e^{ix} - e^{-ix}}{2i} \right)^5 = \frac{1}{16} (10 \sin x - 5 \sin 3x + \sin 5x).
+        \]
+        Let $F(x) = \int_0^x \sin^5 t \, dt$. Since $F(x)$ is a finite sum of cosines, it is bounded for all $x \ge 0$.
+        Let $g(x) = \frac{1}{x^\alpha}$. For Dirichlet's test, if $g(x)$ decreases monotonically to 0 as $x \to \infty$, and $F(x)$ is bounded, then $\int_1^\infty F'(x)g(x) \, dx$ converges.
+        $g(x)$ is monotonically decreasing to 0 if and only if $\alpha > 0$. Thus, for $\alpha > 0$, the integral converges.
+        
+        If $\alpha \le 0$, we can show the integral diverges. For large $n$, consider the integral over the interval $I_n = [2n\pi + \pi/4, 2n\pi + 3\pi/4]$. On this interval, $\sin x \ge \frac{1}{\sqrt{2}}$, so $\sin^5 x \ge \left(\frac{1}{\sqrt{2}}\right)^5 = \frac{1}{4\sqrt{2}}$. 
+        The term $\frac{1}{x^\alpha} = x^{-\alpha}$ is non-decreasing since $-\alpha \ge 0$. Thus, for $x \in I_n$, $x^{-\alpha} \ge (2n\pi + \pi/4)^{-\alpha}$.
+        The integral over $I_n$ is bounded below by
+        \[
+          \int_{I_n} \frac{\sin^5 x}{x^\alpha} \, dx \ge \frac{\pi}{2} \cdot \frac{1}{4\sqrt{2}} (2n\pi + \pi/4)^{-\alpha}.
+        \]
+        Since $-\alpha \ge 0$, this lower bound does not converge to 0 as $n \to \infty$. By Cauchy's criterion, the improper integral $\int_1^\infty f(x) \, dx$ must diverge.
+        
+        Combining the two conditions, the integral converges simultaneously at 0 and at infinity if and only if:
+        \[
+          0 < \alpha < 6.
+        \]
+
+  \item % Solution for 5
+        Let the improper integral be $I(a, b) = \int_0^\infty \frac{\log x}{(x^2 + a^2)(x^2 + b^2)} \, dx$.
+        We apply partial fraction decomposition to the rational part of the integrand:
+        \[
+          \frac{1}{(x^2 + a^2)(x^2 + b^2)} = \frac{1}{a^2 - b^2} \left( \frac{1}{x^2 + b^2} - \frac{1}{x^2 + a^2} \right).
+        \]
+        This splits $I(a, b)$ into two integrals of the same form:
+        \[
+          I(a, b) = \frac{1}{a^2 - b^2} \left( \int_0^\infty \frac{\log x}{x^2 + b^2} \, dx - \int_0^\infty \frac{\log x}{x^2 + a^2} \, dx \right).
+        \]
+        Let $J(c) = \int_0^\infty \frac{\log x}{x^2 + c^2} \, dx$ for any $c > 0$. We apply the substitution $x = c y$, which gives $dx = c \, dy$:
+        \[
+          J(c) = \int_0^\infty \frac{\log(c y)}{c^2 y^2 + c^2} c \, dy = \frac{1}{c} \int_0^\infty \frac{\log c + \log y}{y^2 + 1} \, dy.
+        \]
+        We split this integral into two parts:
+        \[
+          J(c) = \frac{\log c}{c} \int_0^\infty \frac{1}{y^2 + 1} \, dy + \frac{1}{c} \int_0^\infty \frac{\log y}{y^2 + 1} \, dy.
+        \]
+        The first integral is standard: $\int_0^\infty \frac{1}{y^2 + 1} \, dy = \left[ \arctan y \right]_0^\infty = \frac{\pi}{2}$.
+        For the second integral, let $J(1) = \int_0^\infty \frac{\log y}{y^2 + 1} \, dy$. We apply the substitution $y = 1/t$, $dy = -1/t^2 dt$:
+        \[
+          J(1) = \int_\infty^0 \frac{\log(1/t)}{(1/t)^2 + 1} \left( -\frac{1}{t^2} \right) dt = \int_0^\infty \frac{-\log t}{1 + t^2} \, dt = -J(1).
+        \]
+        This implies $2J(1) = 0$, so $J(1) = 0$.
+        Thus, the expression for $J(c)$ simplifies to:
+        \[
+          J(c) = \frac{\pi \log c}{2c}.
+        \]
+        Now we substitute this back into our expression for $I(a, b)$:
+        \[
+          I(a, b) = \frac{1}{a^2 - b^2} (J(b) - J(a)) = \frac{1}{a^2 - b^2} \left( \frac{\pi \log b}{2b} - \frac{\pi \log a}{2a} \right).
+        \]
+        Bringing it over a common denominator:
+        \[
+          I(a, b) = \frac{\pi}{2(a^2 - b^2)} \left( \frac{a \log b - b \log a}{ab} \right) = \frac{\pi (a \log b - b \log a)}{2ab(a^2 - b^2)}.
+        \]
+
+  \item % Solution for 6
+        \begin{enumerate}[label=(\arabic*)]
+          \item Suppose for contradiction that $K$ is disconnected. Since $K$ is closed in the compact space $[0,1] \times [0,1]$, it is compact. Thus, $K$ can be written as the disjoint union of two non-empty closed sets $A$ and $B$.
+          For each $x \in [0, 1]$, the vertical slice $K_x = \{ y \in [0, 1] \mid (x, y) \in K \}$ is the disjoint union of $A_x = \{ y \mid (x, y) \in A \}$ and $B_x = \{ y \mid (x, y) \in B \}$.
+          Since $A$ and $B$ are closed in $[0,1]^2$, the slices $A_x$ and $B_x$ are closed in $[0,1]$. Because $K_x$ is assumed to be connected, and it is partitioned by disjoint closed sets $A_x$ and $B_x$, one of these sets must be empty.
+          This means that for every $x$, either $K_x \subset A_x$ (and $B_x$ is empty) or $K_x \subset B_x$ (and $A_x$ is empty).
+          Define the sets $U = \{ x \in [0, 1] \mid K_x \subset A \}$ and $V = \{ x \in [0, 1] \mid K_x \subset B \}$. Since $K_x$ is non-empty for all $x$, $U$ and $V$ are disjoint and $U \cup V = [0, 1]$.
+          Let $\pi_1: [0, 1]^2 \to [0, 1]$ be the projection onto the first coordinate, $\pi_1(x, y) = x$. 
+          Since $A$ is a compact subset of $[0, 1]^2$ and $\pi_1$ is continuous, the projection $\pi_1(A)$ is compact and therefore closed in $[0, 1]$. 
+          By definition, $\pi_1(A) = \{ x \in [0, 1] \mid A_x \neq \emptyset \}$. But $A_x \neq \emptyset \iff K_x \subset A \iff x \in U$. Thus, $U = \pi_1(A)$ is closed in $[0,1]$.
+          By identical reasoning for $B$, $V = \pi_1(B)$ is closed in $[0,1]$.
+          Therefore, $[0, 1] = U \cup V$ is the union of two disjoint closed sets. Since $[0, 1]$ is a connected space, one of them must be empty. Suppose $V = \emptyset$; then $B_x = \emptyset$ for all $x$, which means $B = \emptyset$, contradicting the assumption that $A$ and $B$ are non-empty. 
+          Thus, $K$ must be connected.
+          
+          \item The condition $x \in K_x$ is equivalent to $(x, x) \in K$. This means we need to show that $K$ intersects the diagonal $\Delta = \{ (x, x) \mid x \in [0, 1] \}$.
+          Suppose for contradiction that for all $x \in [0, 1]$, $x \notin K_x$.
+          For each $x$, $K_x$ is a connected and closed subset of $[0, 1]$, which implies it is a closed interval $[a(x), b(x)]$.
+          Since $x \notin K_x$, we must have either $x < a(x)$ (which implies $y > x$ for all $y \in K_x$) or $x > b(x)$ (which implies $y < x$ for all $y \in K_x$).
+          Define the sets:
+          \begin{align*}
+            U &= \{ x \in [0, 1] \mid y > x \text{ for all } y \in K_x \}, \\
+            V &= \{ x \in [0, 1] \mid y < x \text{ for all } y \in K_x \}.
+          \end{align*}
+          Since $x \notin K_x$ for all $x$, $U$ and $V$ are disjoint and partition $[0, 1]$.
+          Consider the closed region $R_V = \{ (x, y) \in [0, 1]^2 \mid y \le x \}$. The intersection $K \cap R_V$ is closed and thus compact. Its projection $\pi_1(K \cap R_V)$ is closed in $[0, 1]$.
+          Note that $x \in \pi_1(K \cap R_V)$ if and only if there is some $y \in K_x$ with $y \le x$. Since $K_x = [a(x), b(x)]$ and $x \notin K_x$, $y \le x$ occurs if and only if $b(x) < x$, which precisely defines $V$. Thus $V$ is closed.
+          Similarly, using $R_U = \{ (x, y) \in [0, 1]^2 \mid y \ge x \}$, we find that $\pi_1(K \cap R_U) = U$ is closed.
+          Because $U$ and $V$ are disjoint closed sets that cover the connected space $[0, 1]$, one must be empty.
+          However, consider $x = 0$. Since $K_0 \subset [0, 1]$ is non-empty and $0 \notin K_0$, all elements of $K_0$ are strictly positive. Thus $y > 0$ for all $y \in K_0$, which means $0 \in U$. So $U \neq \emptyset$.
+          Consider $x = 1$. Since $1 \notin K_1$, all elements of $K_1$ are strictly less than 1. Thus $1 \in V$. So $V \neq \emptyset$.
+          This contradiction means our assumption that $x \notin K_x$ for all $x$ must be false. Therefore, there exists $x \in [0, 1]$ such that $x \in K_x$.
+        \end{enumerate}
+
+  \item % Solution for 7
+        The domain $D$ is the closed disk $x^2 + y^2 \le 2$. The function is $f(x, y) = x^2 + xy^2 - 2x + \frac{1}{3}y^3$. We find the extrema by examining the interior critical points and the boundary points.
+        
+        \textbf{Interior critical points:}
+        We set the partial derivatives to zero:
+        \begin{align*}
+          \frac{\partial f}{\partial x} &= 2x + y^2 - 2 = 0 \quad \implies y^2 = 2 - 2x \\
+          \frac{\partial f}{\partial y} &= 2xy + y^2 = y(2x + y) = 0
+        \end{align*}
+        From the second equation, either $y = 0$ or $y = -2x$.
+        \begin{itemize}
+          \item Case 1: $y = 0$. Substituting into the first equation, $2x - 2 = 0 \implies x = 1$. The point $(1, 0)$ is in $D$ since $1^2 + 0^2 \le 2$.
+          Evaluating $f$: $f(1, 0) = 1 + 0 - 2 + 0 = -1$.
+          \item Case 2: $y = -2x$. Substituting into the first equation: $2x + (-2x)^2 - 2 = 0 \implies 4x^2 + 2x - 2 = 0 \implies 2x^2 + x - 1 = 0 \implies (2x - 1)(x + 1) = 0$.
+          Thus $x = 1/2$ or $x = -1$.
+          If $x = 1/2$, $y = -1$. The point $(1/2, -1)$ is in $D$ since $(1/2)^2 + (-1)^2 = 1.25 \le 2$.
+          Evaluating $f$: $f(1/2, -1) = (1/2)^2 + (1/2)(-1)^2 - 2(1/2) + \frac{1}{3}(-1)^3 = \frac{1}{4} + \frac{1}{2} - 1 - \frac{1}{3} = -\frac{7}{12}$.
+          If $x = -1$, $y = 2$. The point $(-1, 2)$ is not in $D$ since $(-1)^2 + 2^2 = 5 > 2$.
+        \end{itemize}
+        
+        \textbf{Boundary points:}
+        On the boundary $x^2 + y^2 = 2$, we can use the method of Lagrange multipliers with $L = f(x, y) - \lambda(x^2 + y^2 - 2)$.
+        \begin{align*}
+          \frac{\partial L}{\partial x} &= 2x + y^2 - 2 - 2\lambda x = 0 \\
+          \frac{\partial L}{\partial y} &= 2xy + y^2 - 2\lambda y = 0 \implies y(2x + y - 2\lambda) = 0
+        \end{align*}
+        From the second equation, either $y = 0$ or $2\lambda = 2x + y$.
+        \begin{itemize}
+          \item Case A: $y = 0$. From the constraint, $x^2 = 2 \implies x = \pm \sqrt{2}$.
+          $f(\sqrt{2}, 0) = 2 + 0 - 2\sqrt{2} + 0 = 2 - 2\sqrt{2}$.
+          $f(-\sqrt{2}, 0) = 2 + 0 + 2\sqrt{2} + 0 = 2 + 2\sqrt{2}$.
+          \item Case B: $2\lambda = 2x + y$. Substitute $2\lambda$ into the first equation:
+          \[
+            2x + y^2 - 2 - x(2x + y) = 0 \implies 2x + y^2 - 2 - 2x^2 - xy = 0.
+          \]
+          Substitute $y^2 = 2 - x^2$ from the boundary condition:
+          \[
+            2x + (2 - x^2) - 2 - 2x^2 - xy = 0 \implies 2x - 3x^2 - xy = 0 \implies x(2 - 3x - y) = 0.
+          \]
+          This gives $x = 0$ or $y = 2 - 3x$.
+          \begin{itemize}
+            \item Subcase B1: $x = 0$. From the constraint, $y^2 = 2 \implies y = \pm \sqrt{2}$.
+            $f(0, \sqrt{2}) = \frac{1}{3}(\sqrt{2})^3 = \frac{2\sqrt{2}}{3}$.
+            $f(0, -\sqrt{2}) = \frac{1}{3}(-\sqrt{2})^3 = -\frac{2\sqrt{2}}{3}$.
+            \item Subcase B2: $y = 2 - 3x$. Substitute this back into the constraint $x^2 + y^2 = 2$:
+            \[
+              x^2 + (2 - 3x)^2 = 2 \implies x^2 + 4 - 12x + 9x^2 = 2 \implies 10x^2 - 12x + 2 = 0 \implies 5x^2 - 6x + 1 = 0.
+            \]
+            Factoring gives $(5x - 1)(x - 1) = 0$, so $x = 1$ or $x = 1/5$.
+            If $x = 1$, $y = -1$. Evaluating $f$: $f(1, -1) = 1 + 1 - 2 - 1/3 = -1/3$.
+            If $x = 1/5$, $y = 7/5$. Evaluating $f$:
+            \[
+              f(1/5, 7/5) = \frac{1}{25} + \frac{49}{125} - \frac{2}{5} + \frac{343}{375} = \frac{15 + 147 - 150 + 343}{375} = \frac{355}{375} = \frac{71}{75}.
+            \]
+          \end{itemize}
+        \end{itemize}
+        
+        \textbf{Comparing all values:}
+        \begin{itemize}
+          \item $f(1, 0) = -1 = -1.0$ (Minimum)
+          \item $f(-\sqrt{2}, 0) = 2 + 2\sqrt{2} \approx 4.828$ (Maximum)
+          \item Other values for reference: $f(1/2, -1) = -7/12 \approx -0.583$, $f(\sqrt{2}, 0) = 2 - 2\sqrt{2} \approx -0.828$, $f(0, \sqrt{2}) \approx 0.943$, $f(0, -\sqrt{2}) \approx -0.943$, $f(1, -1) \approx -0.333$, $f(1/5, 7/5) = 71/75 \approx 0.946$.
+        \end{itemize}
+        Therefore, the maximum value is $2 + 2\sqrt{2}$ and the minimum value is $-1$.
+
+\end{enumerate}
+
+\end{document}

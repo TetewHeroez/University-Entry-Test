@@ -1,0 +1,593 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item Answer the following questions concerning the ring $R = \mathbb{R}[X, Y]/(X^2 + Y^2 - 1)$.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Show that $R$ is an integral domain.
+          \item Determine whether or not $R$ is a principal ideal domain (PID).
+        \end{enumerate}
+
+  \item Let $K = \mathbb{Q}(\sqrt[3]{1 + \sqrt{-3}})$. Denote by $F$ the minimal Galois extension over $\mathbb{Q}$ containing $K$. Determine the Galois group $G = \operatorname{Gal}(F/\mathbb{Q})$.
+
+  \item Let $G = \operatorname{GL}_2(\mathbb{F}_p)$ be the general linear group of degree 2 over the finite field $\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$, for $p$ an odd prime number. Find the number of subgroups $H$ of $G$ isomorphic to $(\mathbb{Z}/2\mathbb{Z})^2$.
+
+  \item We define a $C^\infty$ differential form $\varphi$ on $\mathbb{R}^2$ by
+        \[
+          \varphi = \frac{dx \wedge dy}{(1 + x^2 + y^2)^4}.
+        \]
+        We define a $C^\infty$ submanifold of $\mathbb{R}^3$ by
+        \[
+          S^2 = \{ (s, t, u) \in \mathbb{R}^3 \mid s^2 + t^2 + u^2 = 1 \}.
+        \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item We define a map $f: \mathbb{R}^2 \to S^2$ by
+                \[
+                  f(x, y) = \left( \frac{2x}{1 + x^2 + y^2}, \frac{2y}{1 + x^2 + y^2}, \frac{-1 + x^2 + y^2}{1 + x^2 + y^2} \right).
+                \]
+                Prove that there exists a unique $C^\infty$ differential form $\psi$ on $S^2$ such that $f^* \psi = \varphi$.
+          \item Let $\iota: S^2 \to \mathbb{R}^3$ denote the inclusion map. Prove that there does not exist a $C^\infty$ closed differential form $\tilde{\varphi}$ on $\mathbb{R}^3$ such that $(\iota \circ f)^* \tilde{\varphi} = \varphi$.
+        \end{enumerate}
+
+  \item We define subsets $U, V, W$ of $\mathbb{R}^3 \times \mathbb{R}^3 \times \mathbb{R}^3$ by
+        \begin{align*}
+          U &= \{ (p, q, r) \in \mathbb{R}^3 \times \mathbb{R}^3 \times \mathbb{R}^3 \mid p \neq q \}, \\
+          V &= \{ (p, q, r) \in \mathbb{R}^3 \times \mathbb{R}^3 \times \mathbb{R}^3 \mid q \neq r \}, \\
+          W &= \{ (p, q, r) \in \mathbb{R}^3 \times \mathbb{R}^3 \times \mathbb{R}^3 \mid r \neq p \}.
+        \end{align*}
+        \begin{enumerate}[label=(\arabic*)]
+          \item Compute the homology groups with integer coefficients of $X = U \cup V \cup W$.
+          \item Compute the homology groups with integer coefficients of $Y = U \cap V \cap W$.
+        \end{enumerate}
+
+  \item Let $(X, \mathcal{M}, \mu)$ be a measure space with $\mu(X) < \infty$. Let $L$ be a positive real number. Consider the following Proposition P for $\mu$-integrable, real-valued or complex-valued functions $f$ on $X$.
+
+        Proposition P. If $\left| \int_A f \, d\mu \right| \le L \mu(A)$ for every $A \in \mathcal{M}$, then it holds that
+        \[
+          |f(x)| \le L, \quad \mu\text{-a.e. } x.
+        \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item Prove Proposition P when $f$ is real-valued.
+          \item Prove Proposition P when $f$ is complex-valued.
+        \end{enumerate}
+
+  \item Let $\mathbb{D} = \{ z \in \mathbb{C} : |z| < 1 \}$. Let $H^\infty(\mathbb{D})$ be the complex Banach space of all bounded holomorphic functions over $\mathbb{D}$, and we define the norm of $f \in H^\infty(\mathbb{D})$ by
+        \[
+          \|f\|_\infty = \sup_{z \in \mathbb{D}} |f(z)|.
+        \]
+        For each $0 < r \le 1$, we define an operator $T_r: H^\infty(\mathbb{D}) \to H^\infty(\mathbb{D})$ by
+        \[
+          (T_r f)(z) = \int_0^r f(tz) \, dt.
+        \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item Fix $0 < r < s < 1$. Show that there exists a continuous function
+                \[
+                  k: [0, r] \times [0, 2\pi] \times \mathbb{D} \to \mathbb{C}
+                \]
+                satisfying the following condition (*).
+
+                (*) For every $f \in H^\infty(\mathbb{D})$ and $z \in \mathbb{D}$, we have
+                \[
+                  (T_r f)(z) = \int_0^r \int_0^{2\pi} k(t, \theta, z) f(se^{i\theta}) \, d\theta dt.
+                \]
+                Here $i$ denotes the imaginary unit.
+          \item Show that $T_1$ is a compact operator.
+        \end{enumerate}
+
+  \item Let $\Omega \subset \mathbb{R}^3$ be a bounded domain with $C^\infty$ boundary $\partial\Omega$ and let $\overline{\Omega}$ be the closure of $\Omega$. Let $\nu(x) = (\nu_1(x), \nu_2(x), \nu_3(x))$ be the outward unit normal vector of $\partial\Omega$ at $x \in \partial\Omega$. Assume that $u: \overline{\Omega} \times [0, \infty) \to \mathbb{R}$ is continuous and infinitely many times differentiable in $\Omega \times (0, \infty)$, and that each partial derivative of $u$ of any order is extendable as a bounded continuous function on $\overline{\Omega} \times [0, \infty)$. Assume in addition that $u$ satisfies the following:
+        \[
+          \begin{cases}
+            \frac{\partial u}{\partial t} - \Delta u = 0, & (x, t) \in \Omega \times (0, \infty) \\
+            \frac{\partial u}{\partial \nu} = 0, & (x, t) \in \partial\Omega \times (0, \infty) \\
+            \int_\Omega u(x, 0) \, dx \neq 0. & 
+          \end{cases}
+        \]
+        Here $\Delta u = \sum_{k=1}^3 \frac{\partial^2 u}{\partial x_k^2}$ and $\frac{\partial u}{\partial \nu} = \sum_{k=1}^3 \frac{\partial u}{\partial x_k} \nu_k$. Let us define $M(t), E(t)$ as follows:
+        \[
+          M(t) = \int_\Omega u(x, t) \, dx, \qquad E(t) = \int_\Omega |u(x, t)|^2 \, dx.
+        \]
+        Show the following (1), (2), (3), and (4).
+        \begin{enumerate}[label=(\arabic*)]
+          \item $M(t)$ is a constant function, i.e., $M(t)$ is independent of $t$.
+          \item For any $t > 0$, the inequality $E(t) \le E(0)$ holds.
+          \item Set $H(t) = \log E(t)$. Then for any $t > 0$, the inequality $\frac{d^2 H}{dt^2}(t) \ge 0$ holds.
+          \item For any $T > 0$ and $t \in (0, T)$, the inequality $E(t) \le E(0)^{1 - \frac{t}{T}} E(T)^{\frac{t}{T}}$ holds.
+        \end{enumerate}
+
+  \item Let $p: \mathbb{R} \to \mathbb{R}$ be a $C^2$ function that satisfies $p(x+1) = p(x)$ and $|p'(x)| < 1$, and consider the following ordinary differential equations for $(x(t), y(t)) \in \mathbb{R}^2$ with respect to $t \in \mathbb{R}$:
+        \[
+          \frac{dx}{dt} = y, \quad \frac{dy}{dt} = 2 - y - p'(x).
+        \]
+        Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item We consider an initial value problem with initial values $x(0) = 0$ and $y(0) = y_0$ with $y_0 \in [1, 3]$. Prove that the solution orbit in phase space $(x, y)$ intersects with $x = 1$ at exactly one point at a finite time $T$.
+          \item In light of the periodicity of $p(x)$, the above differential equations define a solution on the phase space $\mathbb{R}/\mathbb{Z} \times \mathbb{R}$. Prove that there exists a periodic orbit of period $T$ in this phase space as a solution to the initial value problem of (1).
+          \item Define $A(t)$ as follows:
+                \[
+                  A(t) = \frac{y^2(t)}{2} + p(x(t)).
+                \]
+                Prove, by using $A(0) = A(T)$ for any periodic orbit obtained in (2), that the periodic orbit is unique.
+        \end{enumerate}
+
+  \item Let us consider an incompressible magneto-hydrodynamic fluid in three-dimensional space. In cartesian coordinates $(x, y, z)$, the velocity, magnetic and pressure fields of the fluid $\boldsymbol{u}, \boldsymbol{B}$, and $p$ obey the following equations
+        \begin{align*}
+          \nabla \cdot \boldsymbol{u} &= 0, \quad \nabla \cdot \boldsymbol{B} = 0, \\
+          \frac{\partial \boldsymbol{u}}{\partial t} + \boldsymbol{u} \cdot \nabla \boldsymbol{u} &= -\nabla \left( p + \frac{|\boldsymbol{B}|^2}{2} \right) + \boldsymbol{B} \cdot \nabla \boldsymbol{B}, \\
+          \frac{\partial \boldsymbol{B}}{\partial t} + \boldsymbol{u} \cdot \nabla \boldsymbol{B} - \boldsymbol{B} \cdot \nabla \boldsymbol{u} &= \beta \nabla^2 \boldsymbol{B},
+        \end{align*}
+        where $\beta > 0$ is the constant magnetic diffusivity.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Derive the partial differential equation for $b(x,t)$ by assuming $\boldsymbol{u} = (0, v(x,t), 0)$, $\boldsymbol{B} = (1, b(x,t), 0)$ and $p = p(x,t)$.
+          \item Let us consider $b(x,t)$ for $x > 0$ when $b(0,t) = e^{-it}$ is given at $x = 0$. Assuming that $b = \hat{b}(x)e^{-it}$, and $|\hat{b}|$ is bounded as $x \to \infty$, describe $\hat{b}(x)$ and $b(x,t)$ by using the complex number $\alpha$ defined as follows:
+                \[
+                  \alpha^2 = \frac{1}{1 - i\beta}, \quad \operatorname{Im} \alpha > 0,
+                \]
+                where $i$ denotes the imaginary unit.
+          \item Calculate $f = -\frac{1}{|b|^2} \frac{d|b|^2}{dx}$, where $b$ is as in (2).
+          \item Let us consider the function $f$ obtained in (3) as a function of $\beta$. Find the maximum of $f(\beta)$ for $0 < \beta < \infty$, and describe the behavior of $f(\beta)$.
+        \end{enumerate}
+
+  \item Consider the set $\mathsf{Term}$ of terms generated by the following grammar:
+        \[
+          \mathsf{Term} \ni M ::= \mathbf{K} \mid \mathbf{W} \mid (M \, M).
+        \]
+        That is, $\mathsf{Term}$ is the smallest set such that
+        (i) $\mathbf{K}$ and $\mathbf{W}$ are elements of the set, and
+        (ii) whenever $M_1$ and $M_2$ are elements of the set, so is $(M_1 \, M_2)$.
+
+        Let the evaluation relation $(\_) \Downarrow (\_) \subseteq \mathsf{Term} \times \mathsf{Term}$ be the smallest binary relation on $\mathsf{Term}$ satisfying the following six rules:
+        \[
+          \frac{}{\mathbf{K} \Downarrow \mathbf{K}} \qquad \frac{}{\mathbf{W} \Downarrow \mathbf{W}} \qquad \frac{M \Downarrow \mathbf{K}}{(M \, N) \Downarrow (\mathbf{K} \, N)} \qquad \frac{M \Downarrow \mathbf{W}}{(M \, N) \Downarrow (\mathbf{W} \, N)}
+        \]
+        \[
+          \frac{M \Downarrow (\mathbf{K} \, L) \quad L \Downarrow V}{(M \, N) \Downarrow V} \qquad \frac{M \Downarrow (\mathbf{W} \, L) \quad ((L \, N) \, N) \Downarrow V}{(M \, N) \Downarrow V},
+        \]
+        where the rule
+        \[
+          \frac{A_1 \quad \dots \quad A_n}{B}
+        \]
+        ($n \ge 0$) means that $B$ holds whenever $A_1, \dots, A_n$ hold. Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Give a term $I \in \mathsf{Term}$ such that, for any terms $M, V \in \mathsf{Term}$, $M \Downarrow V$ holds if and only if $(I \, M) \Downarrow V$ holds.
+          \item Give a term $M \in \mathsf{Term}$ such that there is no $V \in \mathsf{Term}$ satisfying $M \Downarrow V$.
+          \item Let $M, V_1, V_2 \in \mathsf{Term}$. Show that, if both $M \Downarrow V_1$ and $M \Downarrow V_2$ hold, then $V_1$ and $V_2$ are the same term.
+        \end{enumerate}
+
+  \item Let $G = (V, E)$ be a directed graph with finite vertex set $V$ and edge set $E$, and let $w: E \to \mathbb{R}_{>0}$ be an edge weight, where $\mathbb{R}_{>0}$ is the set of all positive real numbers. Show that the following conditions (I) and (II) are equivalent.
+        \begin{enumerate}[label=(\Roman*)]
+          \item For any simple directed cycle $C$ in $G$, $\prod_{e \in E(C)} w(e) \le 1$ holds, where $E(C)$ is the set of edges in $C$.
+          \item There exists a function $p: V \to \mathbb{R}_{>0}$ such that $p(u)w(e) \le p(v)$ holds for any edge $e = (u, v) \in E$.
+        \end{enumerate}
+
+  \item Consider a quantum mechanical system whose Hamiltonian $H$ is bounded. Suppose that its Hilbert space $\mathcal{H}$ has a complete orthonormal system given by energy eigenstates $\{ |n\rangle \}_{n=0}^\infty$. We denote by $E_n$ the energy eigenvalue corresponding to the eigenstate $|n\rangle$. Let $A$ be a bounded self-adjoint operator on $\mathcal{H}$. Find a self-adjoint operator $B$ on $\mathcal{H}$ given in terms of $A$ and $H$ satisfying
+        \[
+          \sum_{n=0}^\infty (E_n - E_k) |\langle k | A | n \rangle|^2 = \langle k | B | k \rangle
+        \]
+        for all non-negative integers $k$.
+
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        \begin{enumerate}[label=(\arabic*)]
+          \item We define the ring $R = \mathbb{R}[X, Y]/(X^2 + Y^2 - 1)$. The polynomial $f(X, Y) = X^2 + Y^2 - 1$ is an element of $\mathbb{R}[X, Y]$. We can view $f$ as a quadratic polynomial in $Y$ with coefficients in $\mathbb{R}[X]$, namely $Y^2 + (X^2 - 1)$. By Eisenstein's criterion using the prime ideal $(X - 1)$ in the unique factorization domain $\mathbb{R}[X]$, $X^2 - 1 = (X - 1)(X + 1)$ is divisible by $X - 1$, but not by $(X - 1)^2$. Therefore, $f(X, Y)$ is irreducible in $\mathbb{R}[X, Y]$. Since $\mathbb{R}[X, Y]$ is a UFD, the ideal $(X^2 + Y^2 - 1)$ generated by an irreducible element is prime. Consequently, the quotient ring $R$ is an integral domain.
+          \item Consider the ideal $I = (x - 1, y)$ in $R$, where $x, y$ are the images of $X, Y$ in $R$. This ideal corresponds to the maximal ideal of polynomials vanishing at the point $(1, 0)$ on the circle $X^2 + Y^2 = 1$. Suppose for contradiction that $R$ is a principal ideal domain. Then $I$ must be generated by a single element $g \in R$, so $I = (g)$. Since $I$ is a maximal ideal, $g$ must be an irreducible element that vanishes only at $(1, 0)$ on the unit circle. 
+          Furthermore, since $g$ generates $(x - 1, y)$, there exist $A, B \in \mathbb{R}[X, Y]$ such that $X - 1 \equiv A g \pmod{X^2 + Y^2 - 1}$ and $Y \equiv B g \pmod{X^2 + Y^2 - 1}$. 
+          Passing to the complexification $\mathbb{C}[X, Y]/(X^2 + Y^2 - 1)$, the coordinate ring of the circle can be parameterized by $X = \cos \theta, Y = \sin \theta$. The condition that $g$ vanishes only at $(1, 0)$ implies that $g(\theta)$ has a zero only at $\theta = 0$ (modulo $2\pi$). Since $X - 1 = \cos \theta - 1$ has a zero of order 2 at $\theta = 0$, and $Y = \sin \theta$ has a zero of order 1 at $\theta = 0$, $g$ must have a zero of order exactly 1 at $\theta = 0$ to divide $Y$. 
+          However, any continuous real-valued function on the circle that has exactly one simple zero must change sign exactly once, which is topologically impossible on $S^1$ (the Intermediate Value Theorem would force a second root). Thus, a polynomial $g$ with exactly one simple root on the real circle cannot exist. Therefore, $I$ is not principal, and $R$ is not a PID.
+        \end{enumerate}
+
+  \item % Solution for 2
+        Let $\alpha = 1 + \sqrt{-3}$ and $\beta = \sqrt[3]{\alpha} = \sqrt[3]{1 + \sqrt{-3}}$. 
+        First, we express $\alpha$ in polar form: $\alpha = 1 + i\sqrt{3} = 2 e^{i\pi/3}$. 
+        The roots of $X^3 = \alpha$ are $\beta_k = \sqrt[3]{2} e^{i(\pi/3 + 2k\pi)/3} = \sqrt[3]{2} e^{i(\pi/9 + 2k\pi/3)}$ for $k = 0, 1, 2$. 
+        Thus, $\beta_0 = \sqrt[3]{2} e^{i\pi/9}$. 
+        Since $\alpha^3 = (2 e^{i\pi/3})^3 = 8 e^{i\pi} = -8$, $\alpha$ is a root of $X^2 - 2X + 4$, and $\beta$ is a root of the polynomial $f(X) = X^6 - 2X^3 + 4$.
+        The splitting field $F$ of $f(X)$ over $\mathbb{Q}$ contains $\beta_0$ and the primitive cube root of unity $\omega = e^{2\pi i/3}$.
+        Since the roots of $f(X)$ are precisely $\sqrt[3]{2} e^{\pm i\pi/9} \omega^j$, $F$ must contain $\beta_0 \overline{\beta_0} = \sqrt[3]{4}$, and thus $\sqrt[3]{2}$? Actually, $\beta_0^3 = \alpha = 1 + \sqrt{-3} = 1 + 2\omega$, so $\omega \in F$. 
+        The field $F$ is generated by $\sqrt[3]{2}$ and $\zeta_9 = e^{2\pi i/9}$, since $\beta_0 = \sqrt[3]{2} \zeta_9^{1/2} = \sqrt[3]{2} \zeta_9^5$. Thus $F = \mathbb{Q}(\sqrt[3]{2}, \zeta_9)$.
+        The degree of the extension is $[F:\mathbb{Q}] = [\mathbb{Q}(\sqrt[3]{2}, \zeta_9) : \mathbb{Q}(\zeta_9)] [\mathbb{Q}(\zeta_9) : \mathbb{Q}] = 3 \times \phi(9) = 3 \times 6 = 18$.
+        The Galois group $G = \operatorname{Gal}(F/\mathbb{Q})$ has order 18. It is generated by two automorphisms:
+        \begin{itemize}
+          \item $\sigma$, which generates $\operatorname{Gal}(\mathbb{Q}(\zeta_9)/\mathbb{Q}) \cong (\mathbb{Z}/9\mathbb{Z})^\times \cong \mathbb{Z}/6\mathbb{Z}$. We can choose $\sigma$ such that $\sigma(\zeta_9) = \zeta_9^2$ and $\sigma(\sqrt[3]{2}) = \sqrt[3]{2}$. Note $\sigma^6 = \operatorname{id}$.
+          \item $\tau$, which generates the relative Galois group of $X^3 - 2 = 0$ over $\mathbb{Q}(\zeta_9)$. Thus $\tau(\sqrt[3]{2}) = \omega \sqrt[3]{2} = \zeta_9^3 \sqrt[3]{2}$ and $\tau(\zeta_9) = \zeta_9$. Note $\tau^3 = \operatorname{id}$.
+        \end{itemize}
+        We compute the conjugation of $\tau$ by $\sigma$:
+        \[
+          \sigma \tau \sigma^{-1}(\sqrt[3]{2}) = \sigma(\tau(\sqrt[3]{2})) = \sigma(\zeta_9^3 \sqrt[3]{2}) = \sigma(\zeta_9)^3 \sigma(\sqrt[3]{2}) = (\zeta_9^2)^3 \sqrt[3]{2} = \zeta_9^6 \sqrt[3]{2} = \tau^2(\sqrt[3]{2}).
+        \]
+        Since $\sigma \tau \sigma^{-1}(\zeta_9) = \zeta_9 = \tau^2(\zeta_9)$, we have $\sigma \tau \sigma^{-1} = \tau^2$.
+        Therefore, $G$ is isomorphic to the semidirect product $\mathbb{Z}/3\mathbb{Z} \rtimes \mathbb{Z}/6\mathbb{Z}$, with the presentation $\langle \sigma, \tau \mid \sigma^6 = 1, \tau^3 = 1, \sigma \tau \sigma^{-1} = \tau^2 \rangle$.
+
+  \item % Solution for 3
+        An element of order 2 in $G = \operatorname{GL}_2(\mathbb{F}_p)$ must be a root of the polynomial $X^2 - I = 0$, so its minimal polynomial divides $(X-1)(X+1)$. Thus, its eigenvalues are chosen from $\{1, -1\}$. 
+        Since $p$ is odd, $1 \neq -1$. The only element of order 2 with eigenvalues $\{-1, -1\}$ is the central element $-I$. The elements with eigenvalues $\{1, -1\}$ are reflections. 
+        A subgroup $H \cong (\mathbb{Z}/2\mathbb{Z})^2$ contains the identity and exactly three elements of order 2, which commute with each other. 
+        If $H$ contains $-I$, the other two elements of order 2, say $A$ and $B$, must satisfy $AB = -I$, which implies $B = -A$. Since $A$ is a reflection, $-A$ is also a reflection (its eigenvalues are $-1$ and $1$). Every reflection $A$ determines exactly one such subgroup $H = \{I, -I, A, -A\}$.
+        Since a reflection is uniquely determined by its 1-dimensional $+1$ eigenspace and its 1-dimensional $-1$ eigenspace, the number of reflections is the number of ways to choose an ordered pair of distinct 1-dimensional subspaces in $\mathbb{F}_p^2$. The number of 1-dimensional subspaces is $\frac{p^2-1}{p-1} = p+1$. Thus, there are $(p+1)p$ reflections. 
+        Since each subgroup $\{I, -I, A, -A\}$ contains exactly two reflections, there are $\frac{1}{2} p(p+1)$ such subgroups.
+        
+        Now suppose there exists a subgroup $H \cong (\mathbb{Z}/2\mathbb{Z})^2$ that does not contain $-I$. Then its three elements of order 2 must all be reflections, say $A, B, C$. Since $A$ and $B$ commute, they are simultaneously diagonalizable. In the basis where they are diagonal, $A = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$. Their product is $AB = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$, which implies $-I \in H$, a contradiction.
+        Thus, every subgroup $H \cong (\mathbb{Z}/2\mathbb{Z})^2$ must contain $-I$. 
+        Therefore, the number of such subgroups is exactly $\frac{p(p+1)}{2}$.
+
+  \item % Solution for 4
+        \begin{enumerate}[label=(\arabic*)]
+          \item The given map $f: \mathbb{R}^2 \to S^2$ is the inverse of the stereographic projection from the South pole $(-1, 0, 0)$? No, the standard projection from the North pole $(0, 0, 1)$. Here the $z$-coordinate is $u = \frac{-1+x^2+y^2}{1+x^2+y^2}$. At the origin $x=y=0$, we have $u = -1$ (South pole). As $x^2+y^2 \to \infty$, $u \to 1$ (North pole). The map $f$ is a diffeomorphism from $\mathbb{R}^2$ to $S^2 \setminus \{N\}$, where $N = (0, 0, 1)$.
+          We want to find a $C^\infty$ form $\psi$ on $S^2$ such that $f^* \psi = \varphi$. Since $f$ is a diffeomorphism onto $S^2 \setminus \{N\}$, the form $\psi$ is uniquely determined on $S^2 \setminus \{N\}$ by $\psi = (f^{-1})^* \varphi$. We only need to check if this $\psi$ extends smoothly to the North pole $N$.
+          Let's express $\varphi$ in terms of the standard area form on $S^2$. The standard area form is $\omega = s \, dt \wedge du + t \, du \wedge ds + u \, ds \wedge dt$. 
+          Pulling back $\omega$ via $f$, a standard computation for stereographic projection gives $f^* \omega = \frac{4}{(1+x^2+y^2)^2} dx \wedge dy$. 
+          The given form is $\varphi = \frac{dx \wedge dy}{(1+x^2+y^2)^4}$. Thus, $\varphi = \frac{1}{4(1+x^2+y^2)^2} f^* \omega$.
+          Notice that $1 - u = 1 - \frac{-1+x^2+y^2}{1+x^2+y^2} = \frac{2}{1+x^2+y^2}$. 
+          So $\frac{1}{1+x^2+y^2} = \frac{1-u}{2}$. 
+          Then $\frac{1}{4(1+x^2+y^2)^2} = \frac{1}{4} \left( \frac{1-u}{2} \right)^2 = \frac{(1-u)^2}{16}$.
+          Therefore, $\varphi = f^* \left( \frac{(1-u)^2}{16} \omega \right)$. 
+          We can define $\psi = \frac{(1-u)^2}{16} \omega$. Since $u$ is the third coordinate function on $\mathbb{R}^3$, it is smooth on $S^2$, and $\omega$ is a smooth 2-form on $S^2$. Thus $\psi$ is a $C^\infty$ differential form on the entirety of $S^2$, and it satisfies $f^* \psi = \varphi$. Since $S^2 \setminus \{N\}$ is dense in $S^2$, $\psi$ is unique.
+          
+          \item Suppose for contradiction that there exists a $C^\infty$ closed differential form $\tilde{\varphi}$ on $\mathbb{R}^3$ such that $(\iota \circ f)^* \tilde{\varphi} = \varphi$, where $\iota: S^2 \to \mathbb{R}^3$ is the inclusion.
+          Since $\mathbb{R}^3$ is contractible, every closed form on $\mathbb{R}^3$ is exact by the Poincaré Lemma. Thus, there exists a 1-form $\alpha$ on $\mathbb{R}^3$ such that $\tilde{\varphi} = d\alpha$.
+          Then $\psi = \iota^* \tilde{\varphi} = \iota^* d\alpha = d(\iota^* \alpha)$. 
+          This means that $\psi$ must be an exact form on $S^2$.
+          However, by Stokes' theorem, the integral of any exact form over the closed manifold $S^2$ is zero: $\int_{S^2} \psi = \int_{S^2} d(\iota^* \alpha) = \int_{\partial S^2} \iota^* \alpha = 0$.
+          But we can compute the integral directly: $\int_{S^2} \psi = \int_{\mathbb{R}^2} f^* \psi = \int_{\mathbb{R}^2} \varphi = \int_{\mathbb{R}^2} \frac{dx \, dy}{(1+x^2+y^2)^4}$.
+          Switching to polar coordinates: $\int_0^{2\pi} \int_0^\infty \frac{r \, dr \, d\theta}{(1+r^2)^4} = 2\pi \left[ -\frac{1}{6(1+r^2)^3} \right]_0^\infty = \frac{\pi}{3} > 0$.
+          Since the integral is strictly positive, $\psi$ cannot be exact, which contradicts the assumption that $\tilde{\varphi}$ exists. Therefore, no such $\tilde{\varphi}$ exists.
+        \end{enumerate}
+
+  \item % Solution for 5
+        \begin{enumerate}[label=(\arabic*)]
+          \item The set $X = U \cup V \cup W$ consists of all triples $(p, q, r) \in (\mathbb{R}^3)^3$ such that they are not all equal, i.e., $p \neq q$ or $q \neq r$ or $r \neq p$. 
+          The complement of $X$ in $(\mathbb{R}^3)^3 = \mathbb{R}^9$ is the main diagonal $\Delta = \{ (p, p, p) \mid p \in \mathbb{R}^3 \}$, which is a 3-dimensional linear subspace isomorphic to $\mathbb{R}^3$.
+          Thus, $X = \mathbb{R}^9 \setminus \Delta$. By translating and applying an orthogonal transformation, $\mathbb{R}^9 \setminus \Delta$ is homeomorphic to $\mathbb{R}^3 \times (\mathbb{R}^6 \setminus \{0\})$.
+          Since $\mathbb{R}^6 \setminus \{0\}$ deformation retracts onto the sphere $S^5$, $X$ is homotopy equivalent to $S^5$.
+          The homology groups of $S^5$ are well known. Therefore, the homology groups of $X$ with integer coefficients are:
+          \[
+            H_0(X) = \mathbb{Z}, \quad H_5(X) = \mathbb{Z}, \quad H_i(X) = 0 \text{ for } i \neq 0, 5.
+          \]
+          \item The set $Y = U \cap V \cap W$ consists of all triples $(p, q, r)$ such that $p, q, r$ are pairwise distinct. This is the ordered configuration space of 3 points in $\mathbb{R}^3$, denoted $\operatorname{Conf}_3(\mathbb{R}^3)$.
+          By fixing the first point at the origin (via translation), we have $\operatorname{Conf}_3(\mathbb{R}^3) \cong \mathbb{R}^3 \times \operatorname{Conf}_2(\mathbb{R}^3 \setminus \{0\})$.
+          The space $\operatorname{Conf}_2(\mathbb{R}^3 \setminus \{0\})$ consists of pairs $(q, r)$ of non-zero distinct points in $\mathbb{R}^3$. It fits into the Fadell-Neuwirth fibration:
+          \[
+            \mathbb{R}^3 \setminus \{p, q\} \hookrightarrow \operatorname{Conf}_3(\mathbb{R}^3) \to \operatorname{Conf}_2(\mathbb{R}^3).
+          \]
+          The base space $\operatorname{Conf}_2(\mathbb{R}^3)$ is homeomorphic to $\mathbb{R}^3 \times (\mathbb{R}^3 \setminus \{0\}) \simeq S^2$.
+          The fiber $\mathbb{R}^3 \setminus \{p, q\}$ is homotopy equivalent to the wedge sum of two spheres, $S^2 \vee S^2$.
+          We have a fibration $S^2 \vee S^2 \to Y \to S^2$. We can compute the homology using the Serre spectral sequence. 
+          The base $B \simeq S^2$ is simply connected, so the local system of homology groups of the fiber is trivial.
+          The $E^2$ page is given by $E^2_{p, q} = H_p(S^2; H_q(S^2 \vee S^2))$.
+          The non-zero entries are at $(p, q) \in \{ (0, 0), (2, 0), (0, 2), (2, 2) \}$. 
+          Specifically, $E^2_{0,0} = \mathbb{Z}$, $E^2_{2,0} = \mathbb{Z}$, $E^2_{0,2} = \mathbb{Z}^2$, and $E^2_{2,2} = \mathbb{Z}^2$.
+          Since all non-zero entries lie in even total degree $p+q$, all differentials $d_r$ for $r \ge 2$ must be zero, because they change the total degree by $-1$.
+          Thus, the spectral sequence collapses at $E^2$, and there are no extension problems since all groups are free abelian.
+          Summing along the diagonals $p+q = k$, we obtain the homology groups of $Y$:
+          \begin{align*}
+            H_0(Y) &= E^2_{0,0} = \mathbb{Z}, \\
+            H_2(Y) &= E^2_{2,0} \oplus E^2_{0,2} = \mathbb{Z} \oplus \mathbb{Z}^2 = \mathbb{Z}^3, \\
+            H_4(Y) &= E^2_{2,2} = \mathbb{Z}^2, \\
+            H_i(Y) &= 0 \text{ otherwise}.
+          \end{align*}
+        \end{enumerate}
+
+  \item % Solution for 6
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $f$ be a real-valued $\mu$-integrable function. For any $\epsilon > 0$, define the measurable set $A = \{ x \in X \mid f(x) > L + \epsilon \}$. 
+          Suppose for contradiction that $\mu(A) > 0$. Then by the definition of $A$, we have
+          \[
+            \int_A f \, d\mu \ge \int_A (L + \epsilon) \, d\mu = (L + \epsilon)\mu(A) > L\mu(A).
+          \]
+          This strictly violates the hypothesis $\left| \int_A f \, d\mu \right| \le L\mu(A)$. Therefore, we must have $\mu(A) = 0$ for all $\epsilon > 0$, which implies $f(x) \le L$ for $\mu$-a.e. $x$.
+          Similarly, define $B = \{ x \in X \mid f(x) < -(L + \epsilon) \}$. If $\mu(B) > 0$, then
+          \[
+            \int_B f \, d\mu \le \int_B -(L + \epsilon) \, d\mu = -(L + \epsilon)\mu(B).
+          \]
+          This implies $\left| \int_B f \, d\mu \right| \ge (L + \epsilon)\mu(B) > L\mu(B)$, which again contradicts the hypothesis. Thus $\mu(B) = 0$ for all $\epsilon > 0$, meaning $f(x) \ge -L$ for $\mu$-a.e. $x$.
+          Combining these, we have $-L \le f(x) \le L$ for $\mu$-a.e. $x$, so $|f(x)| \le L$ for $\mu$-a.e. $x$.
+          \item Let $f$ be a complex-valued $\mu$-integrable function. For almost every $x$, we can write $f(x) = |f(x)|e^{i\theta(x)}$ for some measurable real-valued function $\theta(x)$.
+          Suppose for contradiction that there exists a set of positive measure where $|f(x)| > L$. Then there exists some $\epsilon > 0$ such that the set $E = \{ x \in X \mid |f(x)| > L + \epsilon \}$ has $\mu(E) > 0$.
+          We can partition the complex plane (or the circle of phases) into finitely many sectors. Specifically, there must exist an angle $\alpha \in [0, 2\pi)$ and a sufficiently small $\delta > 0$ such that the set
+          \[
+            A = \{ x \in E \mid |\theta(x) - \alpha| \le \delta \}
+          \]
+          has strictly positive measure, $\mu(A) > 0$. We choose $\delta$ small enough so that $\cos \delta > \frac{L}{L+\epsilon}$.
+          On the set $A$, we can consider the real part of $e^{-i\alpha} f(x)$:
+          \[
+            \operatorname{Re}(e^{-i\alpha} f(x)) = |f(x)| \cos(\theta(x) - \alpha) \ge (L + \epsilon) \cos \delta > L.
+          \]
+          Now, integrate $e^{-i\alpha} f(x)$ over $A$ and take the real part:
+          \[
+            \operatorname{Re} \left( e^{-i\alpha} \int_A f \, d\mu \right) = \int_A \operatorname{Re}(e^{-i\alpha} f(x)) \, d\mu \ge \int_A (L+\epsilon) \cos \delta \, d\mu = (L+\epsilon) \cos \delta \cdot \mu(A) > L\mu(A).
+          \]
+          However, by the properties of complex numbers and the integral,
+          \[
+            \operatorname{Re} \left( e^{-i\alpha} \int_A f \, d\mu \right) \le \left| e^{-i\alpha} \int_A f \, d\mu \right| = \left| \int_A f \, d\mu \right|.
+          \]
+          This gives $\left| \int_A f \, d\mu \right| > L\mu(A)$, which contradicts the hypothesis of Proposition P. Therefore, the set where $|f(x)| > L$ must have measure zero, so $|f(x)| \le L$ for $\mu$-a.e. $x$.
+        \end{enumerate}
+
+  \item % Solution for 7
+        \begin{enumerate}[label=(\arabic*)]
+          \item For any $f \in H^\infty(\mathbb{D})$ and any $\zeta$ in the open disk of radius $s$ ($|\zeta| < s$), Cauchy's integral formula gives
+          \[
+            f(\zeta) = \frac{1}{2\pi i} \oint_{|w|=s} \frac{f(w)}{w - \zeta} \, dw.
+          \]
+          Since we are evaluating $f(tz)$ for $t \in [0, r]$, $z \in \mathbb{D}$, we have $|tz| \le r \cdot 1 = r < s$. Thus, $\zeta = tz$ is strictly inside the circle $|w|=s$. 
+          Letting $w = s e^{i\theta}$, we have $dw = i s e^{i\theta} d\theta$. Substituting this into Cauchy's formula:
+          \[
+            f(tz) = \frac{1}{2\pi i} \int_0^{2\pi} \frac{f(s e^{i\theta})}{s e^{i\theta} - tz} i s e^{i\theta} \, d\theta = \int_0^{2\pi} \frac{1}{2\pi} \frac{s e^{i\theta}}{s e^{i\theta} - tz} f(s e^{i\theta}) \, d\theta.
+          \]
+          Now, integrating with respect to $t$ from $0$ to $r$, we find
+          \[
+            (T_r f)(z) = \int_0^r f(tz) \, dt = \int_0^r \int_0^{2\pi} \left( \frac{1}{2\pi} \frac{s e^{i\theta}}{s e^{i\theta} - tz} \right) f(s e^{i\theta}) \, d\theta dt.
+          \]
+          Let $k(t, \theta, z) = \frac{1}{2\pi} \frac{s e^{i\theta}}{s e^{i\theta} - tz}$. Since $|tz| \le r < s = |s e^{i\theta}|$, the denominator is never zero. Thus, $k$ is a continuous function on the compact set $[0, r] \times [0, 2\pi] \times \overline{\mathbb{D}}$, and condition (*) is satisfied.
+          \item First, we show that $T_r$ is a compact operator for any $0 < r < 1$. We can choose $s$ such that $r < s < 1$. Then, as shown in (1), $T_r$ factors through the restriction map to the closed disk of radius $s$. The set $\{ f \in H^\infty(\mathbb{D}) \mid \|f\|_\infty \le 1 \}$ is a uniformly bounded family of holomorphic functions. By Montel's Theorem, this family is relatively compact in the topology of uniform convergence on compact subsets of $\mathbb{D}$. Since the closed disk of radius $s$ is a compact subset of $\mathbb{D}$, any sequence in the unit ball of $H^\infty(\mathbb{D})$ has a subsequence that converges uniformly on $|z| \le s$. The integration operator mapping this continuous function on $|z| \le s$ to $H^\infty(\mathbb{D})$ preserves this uniform convergence. Thus, $T_r$ maps the unit ball to a relatively compact set, so $T_r$ is a compact operator.
+          
+          Next, we show that $T_r \to T_1$ in the operator norm as $r \to 1$. For any $f \in H^\infty(\mathbb{D})$ with $\|f\|_\infty \le 1$, we have
+          \[
+            |((T_1 - T_r)f)(z)| = \left| \int_r^1 f(tz) \, dt \right| \le \int_r^1 |f(tz)| \, dt \le \int_r^1 \|f\|_\infty \, dt = 1 - r.
+          \]
+          Taking the supremum over $z \in \mathbb{D}$ and over $f$ in the unit ball gives $\|T_1 - T_r\| \le 1 - r$. 
+          As $r \to 1$, $\|T_1 - T_r\| \to 0$. Since the space of compact operators on a Banach space is closed in the operator norm topology, and $T_1$ is the uniform limit of the compact operators $T_r$, it follows that $T_1$ is a compact operator.
+        \end{enumerate}
+
+  \item % Solution for 8
+        \begin{enumerate}[label=(\arabic*)]
+          \item To show $M(t)$ is constant, we take the derivative with respect to $t$:
+          \[
+            M'(t) = \frac{d}{dt} \int_\Omega u(x, t) \, dx = \int_\Omega \frac{\partial u}{\partial t} \, dx.
+          \]
+          Using the given differential equation $\frac{\partial u}{\partial t} = \Delta u$, we have
+          \[
+            M'(t) = \int_\Omega \Delta u \, dx = \int_{\partial \Omega} \frac{\partial u}{\partial \nu} \, dS,
+          \]
+          by the Divergence Theorem. The Neumann boundary condition states that $\frac{\partial u}{\partial \nu} = 0$ on $\partial \Omega$. Thus, $M'(t) = 0$ for all $t > 0$, meaning $M(t)$ is a constant function independent of $t$.
+          
+          \item We compute the derivative of $E(t)$ with respect to $t$:
+          \[
+            E'(t) = \frac{d}{dt} \int_\Omega u^2 \, dx = 2 \int_\Omega u \frac{\partial u}{\partial t} \, dx = 2 \int_\Omega u \Delta u \, dx.
+          \]
+          Using integration by parts (Green's first identity) and the Neumann boundary condition:
+          \[
+            E'(t) = 2 \left( \int_{\partial \Omega} u \frac{\partial u}{\partial \nu} \, dS - \int_\Omega |\nabla u|^2 \, dx \right) = -2 \int_\Omega |\nabla u|^2 \, dx \le 0.
+          \]
+          Since $E'(t) \le 0$ for all $t > 0$, the function $E(t)$ is non-increasing. Therefore, $E(t) \le E(0)$ for any $t > 0$.
+          
+          \item We compute the first and second derivatives of $H(t) = \log E(t)$:
+          \[
+            H'(t) = \frac{E'(t)}{E(t)}, \quad H''(t) = \frac{E''(t) E(t) - (E'(t))^2}{(E(t))^2}.
+          \]
+          We already established $E'(t) = -2 \int_\Omega |\nabla u|^2 \, dx = 2 \int_\Omega u \Delta u \, dx$. We now compute $E''(t)$:
+          \[
+            E''(t) = -4 \int_\Omega \nabla u \cdot \nabla \left(\frac{\partial u}{\partial t}\right) \, dx = -4 \int_\Omega \nabla u \cdot \nabla (\Delta u) \, dx.
+          \]
+          Using integration by parts again:
+          \[
+            E''(t) = -4 \left( \int_{\partial \Omega} \Delta u \frac{\partial u}{\partial \nu} \, dS - \int_\Omega \Delta u \Delta u \, dx \right) = 4 \int_\Omega (\Delta u)^2 \, dx.
+          \]
+          To show $H''(t) \ge 0$, we must show $(E'(t))^2 \le E(t) E''(t)$. Substituting the integrals, this inequality is:
+          \[
+            \left( 2 \int_\Omega u \Delta u \, dx \right)^2 \le \left( \int_\Omega u^2 \, dx \right) \left( 4 \int_\Omega (\Delta u)^2 \, dx \right).
+          \]
+          Dividing by 4, this is exactly the Cauchy-Schwarz inequality for the functions $u$ and $\Delta u$ over the domain $\Omega$:
+          \[
+            \left( \int_\Omega u \Delta u \, dx \right)^2 \le \left( \int_\Omega u^2 \, dx \right) \left( \int_\Omega (\Delta u)^2 \, dx \right).
+          \]
+          Since this is always true, $H''(t) \ge 0$.
+          
+          \item Since $H''(t) \ge 0$, the function $H(t) = \log E(t)$ is a convex function of $t$. By the definition of convexity, the value of $H(t)$ for any $t \in (0, T)$ is bounded above by the secant line connecting $(0, H(0))$ and $(T, H(T))$:
+          \[
+            H(t) \le \left( 1 - \frac{t}{T} \right) H(0) + \frac{t}{T} H(T).
+          \]
+          Since the exponential function is monotonically increasing, we can exponentiate both sides:
+          \[
+            e^{H(t)} \le \exp\left( \left( 1 - \frac{t}{T} \right) \log E(0) + \frac{t}{T} \log E(T) \right).
+          \]
+          Simplifying the right side yields:
+          \[
+            E(t) \le E(0)^{1 - \frac{t}{T}} E(T)^{\frac{t}{T}}.
+          \]
+        \end{enumerate}
+
+  \item % Solution for 9
+        \begin{enumerate}[label=(\arabic*)]
+          \item Since $|p'(x)| < 1$, we have $1 < 2 - p'(x) < 3$. 
+          The differential equation for $y$ is $\frac{dy}{dt} = 2 - y - p'(x)$. 
+          Consider the region $1 \le y \le 3$. On the boundary $y=3$, we have $\frac{dy}{dt} = 2 - 3 - p'(x) = -1 - p'(x) < 0$. Thus, the vector field points strictly inward (downward).
+          On the boundary $y=1$, we have $\frac{dy}{dt} = 2 - 1 - p'(x) = 1 - p'(x) > 0$. Thus, the vector field points strictly inward (upward).
+          This implies that any solution starting with $y(0) = y_0 \in [1, 3]$ will remain in the region $y(t) \in (1, 3)$ for all $t > 0$ (or $[1, 3]$ if starting on the boundary).
+          Since $y(t) \ge 1$ for all $t \ge 0$, the equation $\frac{dx}{dt} = y$ implies $\frac{dx}{dt} \ge 1$. 
+          Consequently, $x(t)$ is strictly monotonically increasing and satisfies $x(t) \ge x(0) + t = t$. 
+          Thus, $x(t)$ will definitely reach the value $x=1$ at some finite time $T \le 1$. Because $x(t)$ is strictly increasing, it intersects $x=1$ at exactly one point.
+          \item Since the differential equations are autonomous and smooth, solutions depend continuously on initial conditions. 
+          Define the Poincaré return map $P: [1, 3] \to [1, 3]$ by $P(y_0) = y(T)$, where $T$ is the finite time required for the trajectory starting at $(0, y_0)$ to reach $x=1$. 
+          As established in (1), $y(T)$ is guaranteed to be in $[1, 3]$. Thus $P$ is a continuous map from the compact interval $[1, 3]$ to itself.
+          By Brouwer's Fixed Point Theorem (or the Intermediate Value Theorem), there exists at least one fixed point $y^* \in [1, 3]$ such that $P(y^*) = y^*$.
+          Since $p(x)$ is periodic with period 1, $p'(x)$ is also periodic with period 1. The vector field is invariant under the spatial translation $x \mapsto x+1$.
+          Therefore, the trajectory starting at $(0, y^*)$ reaches $(1, y^*)$ at time $T$. On the phase space $\mathbb{R}/\mathbb{Z} \times \mathbb{R}$, the points $(0, y^*)$ and $(1, y^*)$ are identified, meaning the trajectory forms a closed loop. This corresponds to a periodic orbit of period $T$.
+          \item We define $A(t) = \frac{y^2(t)}{2} + p(x(t))$. The time derivative of $A$ along a trajectory is:
+          \[
+            \frac{dA}{dt} = y \frac{dy}{dt} + p'(x) \frac{dx}{dt} = y (2 - y - p'(x)) + p'(x) y = y(2 - y).
+          \]
+          For any periodic orbit on the cylinder, the state after one period $T$ is identical to the initial state, so $A(T) = A(0)$. 
+          We can rewrite the total change in $A$ over one period by integrating with respect to $x$ instead of $t$, since $dx = y \, dt$:
+          \[
+            0 = A(T) - A(0) = \int_0^T y(2-y) \, dt = \int_0^1 (2-y) \, dx = 2 - \int_0^1 y(x) \, dx.
+          \]
+          This implies that for \textit{any} periodic orbit, the integral $\int_0^1 y(x) \, dx$ must equal exactly 2.
+          Suppose for contradiction that there are two distinct periodic orbits, represented as curves $y_1(x)$ and $y_2(x)$ for $x \in [0, 1]$. 
+          Since the vector field is smooth and single-valued on the cylinder, trajectories cannot cross. Therefore, one orbit must lie strictly above the other, say $y_1(x) > y_2(x)$ for all $x \in [0, 1]$.
+          This strictly implies $\int_0^1 y_1(x) \, dx > \int_0^1 y_2(x) \, dx$.
+          However, we just proved that both integrals must equal 2, which leads to $2 > 2$, a contradiction.
+          Thus, there cannot be two distinct periodic orbits, proving that the periodic orbit is unique.
+        \end{enumerate}
+
+  \item % Solution for 10
+        \begin{enumerate}[label=(\arabic*)]
+          \item We substitute the assumed forms into the governing equations. 
+          $\nabla \cdot \boldsymbol{u} = \partial_y v = 0$, so $v$ is independent of $y$. Similarly, $\nabla \cdot \boldsymbol{B} = \partial_x (1) + \partial_y b = 0$, so $b$ is independent of $y$. Both are consistent since they only depend on $x$ and $t$.
+          From the induction equation:
+          \[
+            \frac{\partial \boldsymbol{B}}{\partial t} + (\boldsymbol{u} \cdot \nabla) \boldsymbol{B} - (\boldsymbol{B} \cdot \nabla) \boldsymbol{u} = \beta \nabla^2 \boldsymbol{B}
+          \]
+          \[
+            \partial_t \begin{pmatrix} 1 \\ b \\ 0 \end{pmatrix} + \left(v \partial_y\right) \begin{pmatrix} 1 \\ b \\ 0 \end{pmatrix} - \left(1 \partial_x + b \partial_y\right) \begin{pmatrix} 0 \\ v \\ 0 \end{pmatrix} = \beta \partial_{xx} \begin{pmatrix} 1 \\ b \\ 0 \end{pmatrix}
+          \]
+          Since $\partial_y b = 0$ and $\partial_y v = 0$, the second component yields $\partial_t b - \partial_x v = \beta \partial_{xx} b$.
+          From the momentum equation:
+          \[
+            \frac{\partial \boldsymbol{u}}{\partial t} + (\boldsymbol{u} \cdot \nabla) \boldsymbol{u} = -\nabla \left( p + \frac{1+b^2}{2} \right) + (\boldsymbol{B} \cdot \nabla) \boldsymbol{B}
+          \]
+          \[
+            \partial_t \begin{pmatrix} 0 \\ v \\ 0 \end{pmatrix} + 0 = -\nabla \left( p + \frac{1+b^2}{2} \right) + \left(1 \partial_x + b \partial_y\right) \begin{pmatrix} 1 \\ b \\ 0 \end{pmatrix}
+          \]
+          The $y$-component yields $\partial_t v = -\partial_y \left( p + \frac{1+b^2}{2} \right) + \partial_x b$. Assuming $p = p(x,t)$, the $y$-derivative of pressure vanishes, yielding $\partial_t v = \partial_x b$.
+          To eliminate $v$, we take the time derivative of the induction equation and substitute $\partial_t v = \partial_x b$:
+          \[
+            \partial_{tt} b - \partial_x (\partial_t v) = \beta \partial_{xxt} b \implies \partial_{tt} b - \partial_{xx} b = \beta \partial_{xxt} b.
+          \]
+          This is the partial differential equation for $b(x, t)$.
+          \item Substituting $b(x,t) = \hat{b}(x)e^{-it}$ into the PDE:
+          \[
+            -(-1)\hat{b} e^{-it} - \hat{b}'' e^{-it} = \beta(-i \hat{b}'' e^{-it}) \implies -\hat{b} - \hat{b}'' = -i\beta \hat{b}'' \implies \hat{b}'' = -\frac{1}{1 - i\beta} \hat{b} = -\alpha^2 \hat{b}.
+          \]
+          The general solution to $\hat{b}'' + \alpha^2 \hat{b} = 0$ is $\hat{b}(x) = C_1 e^{i\alpha x} + C_2 e^{-i\alpha x}$.
+          Since $\operatorname{Im} \alpha > 0$, the term $e^{-i\alpha x} = e^{-i(\operatorname{Re}\alpha + i\operatorname{Im}\alpha)x} = e^{\operatorname{Im}\alpha x} e^{-i\operatorname{Re}\alpha x}$ grows exponentially as $x \to \infty$. 
+          Because $|\hat{b}|$ must be bounded as $x \to \infty$, we require $C_2 = 0$. 
+          The boundary condition $b(0, t) = e^{-it}$ implies $\hat{b}(0) = 1$, so $C_1 = 1$.
+          Thus, $\hat{b}(x) = e^{i\alpha x}$, and $b(x, t) = e^{i\alpha x - it}$.
+          \item We calculate $f = -\frac{1}{|\hat{b}|^2} \frac{d|\hat{b}|^2}{dx}$.
+          Since $\hat{b}(x) = e^{i\alpha x} = e^{i(\operatorname{Re}\alpha)x} e^{-(\operatorname{Im}\alpha)x}$, we have $|\hat{b}|^2 = e^{-2\operatorname{Im}\alpha \cdot x}$.
+          Then $\frac{d|\hat{b}|^2}{dx} = -2\operatorname{Im}\alpha \, e^{-2\operatorname{Im}\alpha \cdot x} = -2\operatorname{Im}\alpha |\hat{b}|^2$.
+          Substituting this into $f$, we obtain:
+          \[
+            f = -\frac{-2\operatorname{Im}\alpha |\hat{b}|^2}{|\hat{b}|^2} = 2\operatorname{Im}\alpha.
+          \]
+          We can find $\operatorname{Im}\alpha$ explicitly from $\alpha^2 = \frac{1}{1-i\beta} = \frac{1+i\beta}{1+\beta^2}$.
+          Let $\alpha = x + iy$ with $y > 0$. We have $x^2 - y^2 = \frac{1}{1+\beta^2}$ and $2xy = \frac{\beta}{1+\beta^2}$.
+          Using $(x^2+y^2)^2 = (x^2-y^2)^2 + (2xy)^2 = \frac{1+\beta^2}{(1+\beta^2)^2} = \frac{1}{1+\beta^2}$, we find $x^2+y^2 = \frac{1}{\sqrt{1+\beta^2}}$.
+          Then $2y^2 = (x^2+y^2) - (x^2-y^2) = \frac{1}{\sqrt{1+\beta^2}} - \frac{1}{1+\beta^2}$.
+          Thus, $f(\beta) = 2y = \sqrt{2 \left( \frac{1}{\sqrt{1+\beta^2}} - \frac{1}{1+\beta^2} \right)}$.
+          \item Let $z = \frac{1}{\sqrt{1+\beta^2}}$. As $\beta$ ranges from $0$ to $\infty$, $z$ ranges from $1$ to $0$.
+          We have $f(\beta) = \sqrt{2(z - z^2)}$.
+          The maximum of the quadratic $z - z^2$ on $(0, 1)$ occurs at $z = 1/2$, where its value is $1/4$.
+          The corresponding value of $\beta$ is found from $\frac{1}{\sqrt{1+\beta^2}} = \frac{1}{2}$, which gives $1+\beta^2 = 4 \implies \beta = \sqrt{3}$.
+          At this maximum, $f(\sqrt{3}) = \sqrt{2(1/4)} = \frac{1}{\sqrt{2}}$.
+          Behavior of $f(\beta)$: 
+          As $\beta \to 0$, $z \to 1$, so $f(\beta) \to 0$. As $\beta \to \infty$, $z \to 0$, so $f(\beta) \to 0$.
+          $f(\beta)$ starts at 0, increases monotonically to its maximum value $\frac{1}{\sqrt{2}}$ at $\beta = \sqrt{3}$, and then decreases asymptotically towards 0 as $\beta \to \infty$.
+        \end{enumerate}
+
+  \item % Solution for 11
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $I = ( \mathbf{W} \, \mathbf{K} ) $. 
+          We verify that $(I \, M) \Downarrow V$ holds if and only if $M \Downarrow V$ holds. 
+          To evaluate $(I \, M) = ((\mathbf{W} \, \mathbf{K}) \, M)$, we first need to evaluate the left side, $(\mathbf{W} \, \mathbf{K})$. 
+          Since $\mathbf{W} \Downarrow \mathbf{W}$ (rule 2), we can apply rule 4 to get $(\mathbf{W} \, \mathbf{K}) \Downarrow (\mathbf{W} \, \mathbf{K})$.
+          Now that the left side of $((\mathbf{W} \, \mathbf{K}) \, M)$ evaluates to $(\mathbf{W} \, L)$ where $L = \mathbf{K}$, we must use rule 6. Rule 6 states that $((\mathbf{W} \, \mathbf{K}) \, M) \Downarrow V$ holds if and only if $((\mathbf{K} \, M) \, M) \Downarrow V$ holds.
+          To evaluate $((\mathbf{K} \, M) \, M)$, we evaluate the left side $(\mathbf{K} \, M)$. Since $\mathbf{K} \Downarrow \mathbf{K}$ (rule 1), rule 3 implies $(\mathbf{K} \, M) \Downarrow (\mathbf{K} \, M)$.
+          Now the left side of $((\mathbf{K} \, M) \, M)$ evaluates to $(\mathbf{K} \, L')$ where $L' = M$. By rule 5, this evaluates to $V$ if and only if $M \Downarrow V$.
+          Tracing the evaluation steps backwards, we see all conditions are "if and only if" because the rules are deterministic. Therefore, $(I \, M) \Downarrow V \iff M \Downarrow V$.
+          
+          \item Let $M = ((\mathbf{W} \, \mathbf{W}) \, \mathbf{W})$. 
+          Suppose for contradiction that there exists a term $V$ such that $M \Downarrow V$. 
+          By the definition of the evaluation relation, there must be a finite derivation tree for this statement.
+          To evaluate $M = (M_1 \, \mathbf{W})$ with $M_1 = (\mathbf{W} \, \mathbf{W})$, we first evaluate $M_1$. 
+          Since $\mathbf{W} \Downarrow \mathbf{W}$, rule 4 gives $M_1 \Downarrow (\mathbf{W} \, \mathbf{W})$.
+          Now that $M_1 \Downarrow (\mathbf{W} \, L)$ with $L = \mathbf{W}$, we must apply rule 6 to evaluate $M$. 
+          Rule 6 requires the premise $((L \, \mathbf{W}) \, \mathbf{W}) \Downarrow V$ to hold.
+          Substituting $L = \mathbf{W}$, the premise becomes $((\mathbf{W} \, \mathbf{W}) \, \mathbf{W}) \Downarrow V$.
+          This is exactly the statement $M \Downarrow V$ we started with! 
+          This means any derivation tree for $M \Downarrow V$ must contain a strictly smaller sub-derivation of the exact same statement $M \Downarrow V$. This implies the derivation tree must be infinite, which is impossible since derivations are finite by definition (it is the \emph{smallest} relation satisfying the rules). 
+          Thus, no such $V$ exists.
+          
+          \item We prove this by structural induction on the derivation tree of $M \Downarrow V_1$. 
+          Assume that for any sub-derivation $M' \Downarrow V'$, if $M' \Downarrow V''$ holds, then $V' = V''$. We examine the last rule used in the derivation of $M \Downarrow V_1$:
+          \begin{itemize}
+            \item \textbf{Rule 1} ($M = \mathbf{K}, V_1 = \mathbf{K}$): The only rule applicable to $M = \mathbf{K}$ is rule 1. Thus $M \Downarrow V_2$ implies $V_2 = \mathbf{K} = V_1$.
+            \item \textbf{Rule 2} ($M = \mathbf{W}, V_1 = \mathbf{W}$): The only rule applicable to $M = \mathbf{W}$ is rule 2. Thus $V_2 = \mathbf{W} = V_1$.
+            \item \textbf{Rule 3} ($M = (M_1 \, M_2), V_1 = (\mathbf{K} \, M_2)$): This rule applies when $M_1 \Downarrow \mathbf{K}$. By the inductive hypothesis, any evaluation of $M_1$ must result in $\mathbf{K}$. This means rules 4, 5, and 6 cannot apply to $M$ because they require $M_1 \Downarrow \mathbf{W}$, $M_1 \Downarrow (\mathbf{K} \, L)$, and $M_1 \Downarrow (\mathbf{W} \, L)$, respectively, which contradict $M_1 \Downarrow \mathbf{K}$. Thus, the only rule applicable for $M \Downarrow V_2$ is rule 3, giving $V_2 = (\mathbf{K} \, M_2) = V_1$.
+            \item \textbf{Rule 4} ($M = (M_1 \, M_2), V_1 = (\mathbf{W} \, M_2)$): Similar to rule 3, $M_1 \Downarrow \mathbf{W}$. By the inductive hypothesis, $M_1$ uniquely evaluates to $\mathbf{W}$. Thus, only rule 4 applies for $M \Downarrow V_2$, yielding $V_2 = (\mathbf{W} \, M_2) = V_1$.
+            \item \textbf{Rule 5} ($M = (M_1 \, M_2)$): The premises are $M_1 \Downarrow (\mathbf{K} \, L)$ and $L \Downarrow V_1$. By the inductive hypothesis, $M_1$ uniquely evaluates to $(\mathbf{K} \, L)$, so rules 3, 4, and 6 cannot apply to $M$. Thus, any derivation of $M \Downarrow V_2$ must use rule 5, which means $L \Downarrow V_2$ must hold. By the inductive hypothesis applied to the derivation $L \Downarrow V_1$, we have $V_1 = V_2$.
+            \item \textbf{Rule 6} ($M = (M_1 \, M_2)$): The premises are $M_1 \Downarrow (\mathbf{W} \, L)$ and $((L \, M_2) \, M_2) \Downarrow V_1$. By the inductive hypothesis, $M_1$ uniquely evaluates to $(\mathbf{W} \, L)$, so only rule 6 can apply to $M$. Thus, any derivation of $M \Downarrow V_2$ requires $((L \, M_2) \, M_2) \Downarrow V_2$. By the inductive hypothesis applied to the derivation of $((L \, M_2) \, M_2) \Downarrow V_1$, we conclude $V_1 = V_2$.
+          \end{itemize}
+          In all cases, we find $V_1 = V_2$, completing the proof.
+        \end{enumerate}
+
+  \item % Solution for 12
+        To show the equivalence of (I) and (II):
+        \begin{itemize}
+          \item \textbf{(II) $\implies$ (I):} Suppose there exists $p: V \to \mathbb{R}_{>0}$ such that $p(u)w(e) \le p(v)$ for any edge $e = (u,v)$.
+          For any simple directed cycle $C = v_0, v_1, \dots, v_k = v_0$, we can apply the condition to each edge $(v_i, v_{i+1})$:
+          \[
+            w(v_i, v_{i+1}) \le \frac{p(v_{i+1})}{p(v_i)}.
+          \]
+          Multiplying these inequalities along the cycle yields:
+          \[
+            \prod_{e \in E(C)} w(e) \le \prod_{i=0}^{k-1} \frac{p(v_{i+1})}{p(v_i)} = \frac{p(v_1)}{p(v_0)} \frac{p(v_2)}{p(v_1)} \cdots \frac{p(v_k)}{p(v_{k-1})} = \frac{p(v_k)}{p(v_0)} = 1.
+          \]
+          Thus, condition (I) holds.
+          
+          \item \textbf{(I) $\implies$ (II):} Suppose condition (I) holds. We define edge costs $c(e) = -\log w(e)$. 
+          Condition (I) implies that for any cycle $C$, $\sum_{e \in E(C)} c(e) = -\log \left( \prod_{e \in E(C)} w(e) \right) \ge -\log 1 = 0$.
+          This means there are no negative-weight cycles in $G$ with respect to the cost function $c$.
+          We can add a dummy vertex $S$ to $V$ and add directed edges from $S$ to every $v \in V$ with cost $c(S, v) = 0$. Since $S$ has no incoming edges, no new cycles are created, so there are still no negative cycles.
+          Therefore, the single-source shortest path distances $d(v)$ from $S$ to all $v \in V$ are well-defined and finite.
+          By the triangle inequality for shortest paths, for any edge $e = (u, v) \in E$, we have
+          \[
+            d(v) \le d(u) + c(u, v) \implies d(v) - d(u) \le -\log w(e).
+          \]
+          Define $p: V \to \mathbb{R}_{>0}$ by $p(v) = \exp(-d(v))$. The inequality becomes:
+          \[
+            -\log p(v) + \log p(u) \le -\log w(e) \implies \log(p(u) w(e)) \le \log p(v).
+          \]
+          Exponentiating both sides yields $p(u) w(e) \le p(v)$. Thus, condition (II) holds.
+        \end{itemize}
+
+  \item % Solution for 13
+        We want to find a bounded self-adjoint operator $B$ such that $\sum_{n=0}^\infty (E_n - E_k) |\langle k | A | n \rangle|^2 = \langle k | B | k \rangle$.
+        First, we rewrite the absolute value square using the fact that $A$ is self-adjoint, which implies $\langle k | A | n \rangle^* = \langle n | A^* | k \rangle = \langle n | A | k \rangle$. Thus:
+        \[
+          |\langle k | A | n \rangle|^2 = \langle k | A | n \rangle \langle n | A | k \rangle.
+        \]
+        The term $E_n - E_k$ can be generated by commuting $A$ with the Hamiltonian $H$. 
+        We compute the matrix element of the commutator $[H, A] = HA - AH$:
+        \[
+          \langle n | [H, A] | k \rangle = \langle n | H A | k \rangle - \langle n | A H | k \rangle = E_n \langle n | A | k \rangle - E_k \langle n | A | k \rangle = (E_n - E_k) \langle n | A | k \rangle.
+        \]
+        Substituting this back into the sum, we get:
+        \[
+          \sum_{n=0}^\infty \langle k | A | n \rangle \langle n | [H, A] | k \rangle.
+        \]
+        By the completeness relation of the orthonormal basis, $\sum_{n=0}^\infty |n\rangle \langle n| = I$, we can collapse the sum:
+        \[
+          \langle k | A [H, A] | k \rangle.
+        \]
+        Alternatively, we could have paired the energy difference with the first matrix element:
+        \[
+          (E_n - E_k) \langle k | A | n \rangle = \langle k | [A, H] | n \rangle.
+        \]
+        Then the sum becomes $\sum_{n=0}^\infty \langle k | [A, H] | n \rangle \langle n | A | k \rangle = \langle k | [A, H] A | k \rangle$.
+        Since the left hand side of the original equation is clearly real (as it is a sum of real numbers), its value must equal its complex conjugate. We can take the average of the two operator expressions to make the operator explicitly self-adjoint:
+        \[
+          B = \frac{1}{2} \left( [A, H] A + A [H, A] \right) = \frac{1}{2} \left( (AH - HA)A + A(HA - AH) \right) = AHA - \frac{1}{2} (HA^2 + A^2H).
+        \]
+        This operator $B$ can also be expressed concisely as a double commutator:
+        \[
+          B = -\frac{1}{2} [[H, A], A].
+        \]
+        To verify that $B$ is self-adjoint, we take its adjoint:
+        \[
+          B^* = (AHA)^* - \frac{1}{2} (HA^2 + A^2H)^* = A^*H^*A^* - \frac{1}{2} ((A^2)^*H^* + H^*(A^2)^*) = AHA - \frac{1}{2} (A^2H + HA^2) = B.
+        \]
+        Since $H$ and $A$ are bounded operators, their products and linear combinations are also bounded. Therefore, $B = -\frac{1}{2} [[H, A], A]$ is the required bounded self-adjoint operator on $\mathcal{H}$.
+\end{enumerate}
+
+\end{document}

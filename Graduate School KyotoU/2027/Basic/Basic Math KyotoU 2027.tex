@@ -1,0 +1,221 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item Let $\alpha$ be a real number satisfying $\alpha < \frac{3}{2}$. For $D = \{ (x, y) \in \mathbb{R}^2 \mid 0 < x^2 + y^2 < x + y \}$, find the value of the improper integral
+        \[
+          \iint_D \frac{|x - y|}{(x^2 + y^2)^\alpha} dx dy.
+        \]
+
+  \item Determine the real numbers $a$ such that the $3 \times 3$ matrix
+        \[
+          \begin{pmatrix} 2 & 1 & 1 \\ -2a & 1 & 2 \\ 3a & 3 & 2 \end{pmatrix}
+        \]
+        is diagonalizable over $\mathbb{R}$. Here, a real $n \times n$ matrix $A$ is said to be diagonalizable over $\mathbb{R}$ if there exists a real $n \times n$ regular matrix $P$ such that $P^{-1}AP$ is a diagonal matrix.
+
+  \item Let $V$ be a finite-dimensional complex vector space and let $f : V \to V$ be a linear map such that
+        \[
+          \operatorname{Ker}(f^2) = \operatorname{Im}(f).
+        \]
+        Show that the dimension of $V$ is divisible by 3.
+
+  \item Let $f$ be a real-valued continuous function on the open interval $(0, \infty)$ that satisfies the following condition $(\ast)$. Show that $x f(x)$ is a constant function.
+
+        $(\ast)$ For any positive integer $n$, let $f_n(x) = nf(nx)$. Then there exists a real-valued function $g$ on $(0, \infty)$ such that the sequence of functions $\{f_n\}_{n=1}^\infty$ converges to $g$ uniformly on $(0, \infty)$.
+
+  \item Find the value of the improper integral
+        \[
+          \int_{-\infty}^\infty \frac{\cos^2 \pi x}{x^4 - 6x^2 + 25} dx.
+        \]
+
+  \item Let $f : S^1 \to \mathbb{R}^3$ and $g : S^1 \to \mathbb{R}^3$ be the maps given by
+        \begin{align*}
+          f(\cos \theta, \sin \theta) & = (\cos \theta, \sin \theta, 0),    \\
+          g(\cos \theta, \sin \theta) & = (1 + \cos \theta, 0, \sin \theta)
+        \end{align*}
+        respectively for $0 \le \theta < 2\pi$. Define the map $\phi : S^1 \times S^1 \to S^2$ by
+        \[
+          \phi(\boldsymbol{x}, \boldsymbol{y}) = \frac{g(\boldsymbol{y}) - f(\boldsymbol{x})}{\|g(\boldsymbol{y}) - f(\boldsymbol{x})\|}
+        \]
+        for $\boldsymbol{x}, \boldsymbol{y} \in S^1$. Show that the point $(1, 0, 0) \in S^2$ is a regular value of $\phi$. Here, $S^1$ denotes the unit circle in $\mathbb{R}^2$ with the center $(0, 0)$, $S^2$ denotes the unit sphere in $\mathbb{R}^3$ with the center $(0, 0, 0)$, and we set
+        \[
+          \|(x_1, x_2, x_3)\| = \sqrt{x_1^2 + x_2^2 + x_3^2}
+        \]
+        for $(x_1, x_2, x_3) \in \mathbb{R}^3$.
+
+  \item Define a subset $X$ of $\mathbb{R}$ by
+        \[
+          X = \left\{ \sum_{i=1}^\infty \frac{x_i}{3^i} \in \mathbb{R} \;\middle|\; x_i \in \{0, 2\} \text{ for every } i \ge 1 \right\}.
+        \]
+        We regard $X$ as a topological space by the Euclidean distance of $\mathbb{R}$. Moreover, let $n$ be a positive integer, and let $a_1, \dots, a_n$ be elements of the set $\{0, 2\}$. Define a subset $A$ of $X$ by
+        \[
+          A = \left\{ \sum_{i=1}^\infty \frac{x_i}{3^i} \in \mathbb{R} \;\middle|\; (x_1, \dots, x_n) = (a_1, \dots, a_n),\; x_i \in \{0, 2\} \text{ for every } i > n \right\}.
+        \]
+        Show that the subset $A$ of $X$ is open and closed.
+
+\end{enumerate}
+
+\newpage
+
+% Solutions
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        Use polar coordinates $x = r \cos \theta, y = r \sin \theta$. The domain $D$ is given by $0 < r^2 < r(\cos \theta + \sin \theta)$, which simplifies to $0 < r < \cos \theta + \sin \theta$.
+        For $r > 0$, we must have $\cos \theta + \sin \theta > 0$, which is equivalent to $\sqrt{2} \sin(\theta + \frac{\pi}{4}) > 0$, so $\theta \in \left(-\frac{\pi}{4}, \frac{3\pi}{4}\right)$.
+        The integral becomes:
+        \[
+          I = \int_{-\pi/4}^{3\pi/4} \int_0^{\cos \theta + \sin \theta} \frac{|r \cos \theta - r \sin \theta|}{(r^2)^\alpha} r \, dr \, d\theta = \int_{-\pi/4}^{3\pi/4} |\cos \theta - \sin \theta| \left( \int_0^{\cos \theta + \sin \theta} r^{2-2\alpha} \, dr \right) d\theta.
+        \]
+        Since $\alpha < \frac{3}{2}$, the inner integral converges and evaluates to $\frac{1}{3-2\alpha} (\cos \theta + \sin \theta)^{3-2\alpha}$. Thus,
+        \[
+          I = \frac{1}{3-2\alpha} \int_{-\pi/4}^{3\pi/4} |\cos \theta - \sin \theta| (\cos \theta + \sin \theta)^{3-2\alpha} \, d\theta.
+        \]
+        We split the outer integral at $\theta = \frac{\pi}{4}$ where $\cos \theta - \sin \theta$ changes sign. Let $u = \cos \theta + \sin \theta$, then $du = (\cos \theta - \sin \theta) \, d\theta$.
+        For $\theta \in \left(-\frac{\pi}{4}, \frac{\pi}{4}\right)$, $\cos \theta - \sin \theta > 0$. The limits for $u$ are $0$ to $\sqrt{2}$.
+        For $\theta \in \left(\frac{\pi}{4}, \frac{3\pi}{4}\right)$, $\cos \theta - \sin \theta < 0$, so $|\cos \theta - \sin \theta| \, d\theta = -du$. The limits for $u$ are $\sqrt{2}$ to $0$.
+        Evaluating both parts yields the same value:
+        \[
+          \int_0^{\sqrt{2}} u^{3-2\alpha} \, du + \int_{\sqrt{2}}^0 -u^{3-2\alpha} \, du = 2 \int_0^{\sqrt{2}} u^{3-2\alpha} \, du = 2 \left[ \frac{u^{4-2\alpha}}{4-2\alpha} \right]_0^{\sqrt{2}} = \frac{2 \cdot (\sqrt{2})^{4-2\alpha}}{4-2\alpha} = \frac{2^{3-\alpha}}{4-2\alpha}.
+        \]
+        Therefore, $I = \frac{1}{3-2\alpha} \cdot \frac{2^{3-\alpha}}{2(2-\alpha)} = \frac{2^{2-\alpha}}{(3-2\alpha)(2-\alpha)}$.
+
+  \item % Solution for 2
+        The characteristic polynomial of $A$ is given by $P(\lambda) = \det(A - \lambda I)$:
+        \begin{align*}
+          P(\lambda) &= \begin{vmatrix} 2-\lambda & 1 & 1 \\ -2a & 1-\lambda & 2 \\ 3a & 3 & 2-\lambda \end{vmatrix} \\
+                     &= (2-\lambda)[(1-\lambda)(2-\lambda) - 6] - 1[-2a(2-\lambda) - 6a] + 1[-6a - 3a(1-\lambda)] \\
+                     &= (2-\lambda)(\lambda^2 - 3\lambda - 4) + (2a\lambda - 10a) - (3a\lambda - 9a) \\
+                     &= -(\lambda+1)(\lambda-2)(\lambda-4) - a(\lambda+1) \\
+                     &= -(\lambda+1)(\lambda^2 - 6\lambda + 8 - a).
+        \end{align*}
+        The eigenvalues are $\lambda_1 = -1$ and the roots of $Q(\lambda) = \lambda^2 - 6\lambda + 8 - a = 0$.
+        For $A$ to be diagonalizable over $\mathbb{R}$, all roots must be real, which requires the discriminant $\Delta = 36 - 4(8-a) = 4 + 4a \ge 0$, so $a \ge -1$.
+        The roots are $\lambda_{2,3} = 3 \pm \sqrt{1+a}$. $A$ is diagonalizable if all eigenvalues are distinct, which happens when $a > -1$ and $\lambda_2, \lambda_3 \neq -1$.
+        If $\lambda_3 = 3 - \sqrt{1+a} = -1$, then $\sqrt{1+a} = 4 \implies a = 15$. Thus, for $a \in (-1, 15) \cup (15, \infty)$, $A$ has 3 distinct real eigenvalues and is diagonalizable.
+        We must check the cases with repeated eigenvalues: $a = -1$ and $a = 15$.
+        For $a = -1$, the eigenvalues are $-1, 3, 3$. The geometric multiplicity of $\lambda = 3$ is $3 - \text{rank}(A - 3I)$.
+        \[
+          A - 3I = \begin{pmatrix} -1 & 1 & 1 \\ 2 & -2 & 2 \\ -3 & 3 & -1 \end{pmatrix} \sim \begin{pmatrix} -1 & 1 & 1 \\ 0 & 0 & 4 \\ 0 & 0 & -4 \end{pmatrix}.
+        \]
+        The rank is $2$, so the geometric multiplicity is $1 \neq 2$. Thus, $A$ is not diagonalizable for $a = -1$.
+        For $a = 15$, the eigenvalues are $-1, -1, 7$. The geometric multiplicity of $\lambda = -1$ is $3 - \text{rank}(A + I)$.
+        \[
+          A + I = \begin{pmatrix} 3 & 1 & 1 \\ -30 & 2 & 2 \\ 45 & 3 & 3 \end{pmatrix} \sim \begin{pmatrix} 3 & 1 & 1 \\ 0 & 12 & 12 \\ 0 & -12 & -12 \end{pmatrix}.
+        \]
+        The rank is $2$, so the geometric multiplicity is $1 \neq 2$. Thus, $A$ is not diagonalizable for $a = 15$.
+        Therefore, $A$ is diagonalizable over $\mathbb{R}$ if and only if $a \in (-1, 15) \cup (15, \infty)$.
+
+  \item % Solution for 3
+        Let $n = \dim V$. By the Rank-Nullity Theorem applied to $f : V \to V$, we have $\dim \operatorname{Ker}(f) + \dim \operatorname{Im}(f) = n$.
+        Similarly, for $f^2 : V \to V$, we have $\dim \operatorname{Ker}(f^2) + \dim \operatorname{Im}(f^2) = n$.
+        Since $\operatorname{Ker}(f^2) = \operatorname{Im}(f)$, it follows that $\dim \operatorname{Ker}(f^2) = \dim \operatorname{Im}(f)$.
+        Substituting this into the second equation yields $\dim \operatorname{Im}(f) + \dim \operatorname{Im}(f^2) = n$.
+        Now consider the restriction of $f$ to its image, $f|_{\operatorname{Im}(f)} : \operatorname{Im}(f) \to V$.
+        The image of this restricted map is $f(\operatorname{Im}(f)) = \operatorname{Im}(f^2)$.
+        The kernel is $\operatorname{Ker}(f) \cap \operatorname{Im}(f)$. Because $\operatorname{Ker}(f) \subseteq \operatorname{Ker}(f^2)$ and $\operatorname{Ker}(f^2) = \operatorname{Im}(f)$, we have $\operatorname{Ker}(f) \subseteq \operatorname{Im}(f)$. Hence, $\operatorname{Ker}(f) \cap \operatorname{Im}(f) = \operatorname{Ker}(f)$.
+        Applying the Rank-Nullity Theorem to $f|_{\operatorname{Im}(f)}$ gives:
+        \[
+          \dim \operatorname{Im}(f) = \dim \operatorname{Ker}(f) + \dim \operatorname{Im}(f^2).
+        \]
+        From earlier, we know $\dim \operatorname{Ker}(f) = n - \dim \operatorname{Im}(f)$ and $\dim \operatorname{Im}(f^2) = n - \dim \operatorname{Im}(f)$.
+        Substituting these into the equation, we get:
+        \[
+          \dim \operatorname{Im}(f) = (n - \dim \operatorname{Im}(f)) + (n - \dim \operatorname{Im}(f)) \implies 3 \dim \operatorname{Im}(f) = 2n.
+        \]
+        Since $\dim \operatorname{Im}(f)$ is an integer, $2n$ must be divisible by 3. Because 2 and 3 are coprime, $n = \dim V$ must be divisible by 3.
+
+  \item % Solution for 4
+        Since $f_n(x) \to g(x)$ uniformly on $(0, \infty)$ and each $f_n$ is continuous, the limit function $g$ is continuous on $(0, \infty)$.
+        Note that $f_{mn}(x) = mn f(mnx) = m (n f(n(mx))) = m f_n(mx)$. Thus, $f_n(mx) = \frac{1}{m} f_{mn}(x)$.
+        Taking the limit as $n \to \infty$ on both sides, we get $g(mx) = \frac{1}{m} g(x)$ for any positive integer $m$ and $x > 0$.
+        This implies $g(x) = g\left(m \frac{x}{m}\right) = \frac{1}{m} g\left(\frac{x}{m}\right)$, so $g\left(\frac{x}{m}\right) = m g(x)$.
+        For any positive rational $q = \frac{m}{k}$, $g(qx) = g\left(m \frac{x}{k}\right) = \frac{1}{m} g\left(\frac{x}{k}\right) = \frac{k}{m} g(x) = \frac{1}{q} g(x)$.
+        Because $g$ is continuous, $g(cx) = \frac{1}{c} g(x)$ holds for all real $c > 0$.
+        Let $x = 1$ and $A = g(1)$, then $g(c) = \frac{A}{c}$, meaning $g(x) = \frac{A}{x}$ for all $x > 0$.
+        Now, the uniform convergence $\sup_{x > 0} \left|nf(nx) - \frac{A}{x}\right| \to 0$ as $n \to \infty$ means that if we let $y = nx$, then
+        \[
+          \sup_{y > 0} \left|n f(y) - \frac{nA}{y}\right| = n \sup_{y > 0} \left|f(y) - \frac{A}{y}\right| \to 0 \text{ as } n \to \infty.
+        \]
+        Let $S = \sup_{y > 0} \left|f(y) - \frac{A}{y}\right|$. Since $nS \to 0$ as $n \to \infty$, we must have $S = 0$.
+        Therefore, $f(y) = \frac{A}{y}$ for all $y > 0$, which means $y f(y) = A$. Thus, $xf(x)$ is a constant function.
+
+  \item % Solution for 5
+        We can rewrite the integral using $\cos^2 \pi x = \frac{1 + \cos 2\pi x}{2}$:
+        \[
+          I = \frac{1}{2} \int_{-\infty}^\infty \frac{1}{x^4 - 6x^2 + 25} \, dx + \frac{1}{2} \int_{-\infty}^\infty \frac{\cos 2\pi x}{x^4 - 6x^2 + 25} \, dx = \frac{1}{2} I_1 + \frac{1}{2} I_2.
+        \]
+        Let $P(z) = z^4 - 6z^2 + 25$. Its roots satisfy $z^2 = \frac{6 \pm \sqrt{36 - 100}}{2} = 3 \pm 4i$.
+        The roots in the upper half-plane are $z_1 = 2+i$ and $z_2 = -2+i$.
+        The derivative is $P'(z) = 4z^3 - 12z = 4z(z^2 - 3)$.
+        For $z_1 = 2+i$, $z_1^2 = 3+4i$, so $P'(z_1) = 4(2+i)(4i) = -16 + 32i$.
+        For $z_2 = -2+i$, $z_2^2 = 3-4i$, so $P'(z_2) = 4(-2+i)(-4i) = 16 + 32i$.
+        By the residue theorem, $I_1 = 2\pi i (\operatorname{Res}(f, z_1) + \operatorname{Res}(f, z_2))$ where $f(z) = \frac{1}{P(z)}$.
+        \begin{align*}
+          \operatorname{Res}(f, z_1) &= \frac{1}{-16+32i} = \frac{-16-32i}{16^2+32^2} = \frac{-1-2i}{80}, \\
+          \operatorname{Res}(f, z_2) &= \frac{1}{16+32i} = \frac{16-32i}{1280} = \frac{1-2i}{80}.
+        \end{align*}
+        Sum of residues for $I_1$ is $\frac{-2i}{80} + \frac{-2i}{80} = \frac{-4i}{80} = -\frac{i}{20}$. Thus $I_1 = 2\pi i \left(-\frac{i}{20}\right) = \frac{\pi}{10}$.
+        For $I_2$, we evaluate the contour integral of $g(z) = \frac{e^{2\pi i z}}{P(z)}$.
+        \begin{align*}
+          \operatorname{Res}(g, z_1) &= \frac{e^{2\pi i (2+i)}}{-16+32i} = \frac{e^{-2\pi} e^{4\pi i}}{16(-1+2i)} = \frac{e^{-2\pi}}{16} \frac{-1-2i}{5} = e^{-2\pi} \frac{-1-2i}{80}, \\
+          \operatorname{Res}(g, z_2) &= \frac{e^{2\pi i (-2+i)}}{16+32i} = \frac{e^{-2\pi} e^{-4\pi i}}{16(1+2i)} = \frac{e^{-2\pi}}{16} \frac{1-2i}{5} = e^{-2\pi} \frac{1-2i}{80}.
+        \end{align*}
+        Sum of residues for $I_2$ is $e^{-2\pi} \left(-\frac{i}{20}\right)$. Thus $I_2 = 2\pi i \left(-e^{-2\pi}\frac{i}{20}\right) = \frac{\pi e^{-2\pi}}{10}$.
+        Finally, $I = \frac{1}{2} \left(\frac{\pi}{10}\right) + \frac{1}{2} \left(\frac{\pi e^{-2\pi}}{10}\right) = \frac{\pi}{20}(1 + e^{-2\pi})$.
+
+  \item % Solution for 6
+        To show that $p = (1, 0, 0)$ is a regular value, we must show that at every preimage $(\boldsymbol{x}, \boldsymbol{y}) \in \phi^{-1}(p)$, the differential $d\phi$ is surjective.
+        Setting $\phi(\boldsymbol{x}, \boldsymbol{y}) = p \implies g(\boldsymbol{y}) - f(\boldsymbol{x}) = (c, 0, 0)$ for some $c > 0$.
+        Let $\boldsymbol{x} = (\cos \alpha, \sin \alpha)$ and $\boldsymbol{y} = (\cos \beta, \sin \beta)$. Then $F(\alpha, \beta) = g(\boldsymbol{y}) - f(\boldsymbol{x}) = (1+\cos\beta-\cos\alpha, -\sin\alpha, \sin\beta)$.
+        We require $F(\alpha, \beta) = (c, 0, 0)$. This implies $-\sin\alpha = 0$ and $\sin\beta = 0$, so $\alpha, \beta \in \{0, \pi\}$.
+        The possible values for $c = 1+\cos\beta-\cos\alpha$ are:
+        \begin{itemize}
+          \item $\alpha = 0, \beta = 0 \implies c = 1 > 0$
+          \item $\alpha = 0, \beta = \pi \implies c = -1 < 0$ (invalid)
+          \item $\alpha = \pi, \beta = 0 \implies c = 3 > 0$
+          \item $\alpha = \pi, \beta = \pi \implies c = 1 > 0$
+        \end{itemize}
+        So there are three preimages in $S^1 \times S^1$.
+        The map $\phi$ is given by $\frac{F}{\|F\|}$. At a preimage where $F = (c, 0, 0)$, the tangent space to $S^2$ at $p = (1, 0, 0)$ is spanned by the $y$ and $z$ directions.
+        The differential $d\phi$ at these points maps tangent vectors to $d\phi = \frac{1}{c} P_{p^\perp} dF$. Thus, $d\phi$ is surjective if and only if the $y$ and $z$ components of $dF$ span $\mathbb{R}^2$.
+        The Jacobian matrix of the $y$ and $z$ components of $F$ with respect to $\alpha, \beta$ is:
+        \[
+          J = \begin{pmatrix} \frac{\partial F_2}{\partial \alpha} & \frac{\partial F_2}{\partial \beta} \\ \frac{\partial F_3}{\partial \alpha} & \frac{\partial F_3}{\partial \beta} \end{pmatrix} = \begin{pmatrix} -\cos\alpha & 0 \\ 0 & \cos\beta \end{pmatrix}.
+        \]
+        The determinant is $\det J = -\cos\alpha \cos\beta$.
+        Since $\alpha, \beta \in \{0, \pi\}$, $\cos\alpha, \cos\beta \in \{-1, 1\}$, so $\det J = \pm 1 \neq 0$.
+        Because the Jacobian matrix is invertible at all preimages, $d\phi$ is surjective at all preimages.
+        Therefore, $(1, 0, 0)$ is a regular value of $\phi$.
+
+  \item % Solution for 7
+        Let $y = \sum_{i=1}^n \frac{a_i}{3^i}$. The set $A$ consists of elements in $X$ that share the first $n$ digits with $y$.
+        The minimum element in $A$ is when $x_i = 0$ for all $i > n$, which is $y$.
+        The maximum element in $A$ is when $x_i = 2$ for all $i > n$, which is $y + \sum_{i=n+1}^\infty \frac{2}{3^i} = y + \frac{2/3^{n+1}}{1 - 1/3} = y + 3^{-n}$.
+        Thus, $A \subseteq X \cap [y, y + 3^{-n}]$. In fact, $A = X \cap [y, y + 3^{-n}]$.
+        To see this, suppose $x = \sum_{i=1}^\infty \frac{x_i}{3^i} \in X \setminus A$. Let $k \le n$ be the first index where $x_k \neq a_k$.
+        Case 1: $x_k = 0$ and $a_k = 2$.
+        The maximum possible value for $x$ is when $x_i = 2$ for all $i > k$, so $x \le \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 0 + \sum_{i=k+1}^\infty \frac{2}{3^i} = \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 3^{-k}$.
+        The minimum possible value for $y$ is when $a_i = 0$ for all $i > k$, so $y \ge \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 2 \cdot 3^{-k}$.
+        Therefore, $y - x \ge 3^{-k} \ge 3^{-n}$. Hence, $x \le y - 3^{-n} < y$.
+        Case 2: $x_k = 2$ and $a_k = 0$.
+        The minimum possible value for $x$ is when $x_i = 0$ for all $i > k$, so $x \ge \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 2 \cdot 3^{-k}$.
+        The maximum possible value for $y$ is when $a_i = 2$ for all $i > k$ up to $n$, so $y + 3^{-n} = \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 0 + \sum_{i=k+1}^n \frac{a_i}{3^i} + 3^{-n} \le \sum_{i=1}^{k-1} \frac{a_i}{3^i} + \sum_{i=k+1}^n \frac{2}{3^i} + 3^{-n} = \sum_{i=1}^{k-1} \frac{a_i}{3^i} + 3^{-k}$.
+        Therefore, $x - (y + 3^{-n}) \ge 3^{-k} \ge 3^{-n}$. Hence, $x \ge y + 2 \cdot 3^{-n} > y + 3^{-n}$.
+        In both cases, $x \notin [y, y + 3^{-n}]$. Thus, $A = X \cap [y, y + 3^{-n}]$.
+        Since $[y, y + 3^{-n}]$ is closed in $\mathbb{R}$, $A$ is closed in the subspace topology of $X$.
+        Furthermore, let $U$ be the open interval $(y - 3^{-n-1}, y + 3^{-n} + 3^{-n-1})$.
+        From the inequalities above, if $x \in X \setminus A$, then either $x \le y - 3^{-n} < y - 3^{-n-1}$ or $x \ge y + 2 \cdot 3^{-n} > y + 3^{-n} + 3^{-n-1}$.
+        This means no element of $X \setminus A$ falls inside $U$, so $A = X \cap U$.
+        Since $U$ is open in $\mathbb{R}$, $A$ is open in the subspace topology of $X$.
+        Hence, $A$ is both open and closed.
+
+\end{enumerate}
+
+\end{document}

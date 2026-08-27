@@ -1,0 +1,779 @@
+\documentclass{article}
+\usepackage[
+  margin = 1in,
+]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{bm}
+
+\begin{document}
+\section*{Problem}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Problem 1
+        If $\Gamma$ is a finite group, then we denote the order of $\Gamma$ by $|\Gamma|$ and the automorphism group of $\Gamma$ by $\operatorname{Aut}(\Gamma)$. Given a finite group $\Gamma$, we consider the following condition:
+        
+        ($*_\Gamma$) For any two subgroups $H_1, H_2 \subseteq \Gamma$ such that $|H_1| = |H_2|$, there exists $\alpha \in \operatorname{Aut}(\Gamma)$ such that $\alpha(H_1) = H_2$.
+        
+        Let $p$ be a prime number, $G$ a finite $p$-group that satisfies the condition $(*_G)$. Answer the following questions.
+        \begin{enumerate}[label=(\roman*)]
+          \item Suppose that $G$ is an abelian group which is not a cyclic group. Then show that the order of every non-identity element of $G$ is $p$.
+          \item Show that the center $Z(G)$ of $G$ satisfies the condition $(*_{Z(G)})$.
+          \item Suppose that $G$ is not an abelian group. Then show that there exists a unique subgroup of $G$ of order $p$.
+        \end{enumerate}
+
+  \item % Problem 2
+        Let $n$ be a positive integer. Find a pair $(A, \mathfrak{m})$ of a subring $A$ of the ring $\mathbb{C}[[t]]$ of formal power series in $t$ over the field of complex numbers and a maximal ideal $\mathfrak{m}$ of $A$ such that the following conditions hold.
+        \begin{enumerate}[label=(\alph*)]
+          \item $A$ contains $\mathbb{C}$ and $\dim_\mathbb{C}(\mathbb{C}[[t]]/A) < \infty$.
+          \item The integral closure of $A$ in its quotient field is equal to $\mathbb{C}[[t]]$.
+          \item $\dim_\mathbb{C}(\mathfrak{m}/\mathfrak{m}^2) = n$.
+        \end{enumerate}
+
+  \item % Problem 3
+        Let $k$ be a positive integer, $f(X) = X^6 + kX^3 + 27$ a polynomial with rational coefficients in a single variable $X$. Find all positive integers $k$ that satisfy the following condition:
+        
+        ($*$) For every complex number $\alpha$ that satisfies $f(\alpha) = 0$, $\mathbb{Q}(\alpha)/\mathbb{Q}$ is a Galois extension of degree 6.
+
+  \item % Problem 4
+        Let $X$ be a 3-dimensional, compact and connected $C^\infty$ manifold. Suppose that there exist $C^\infty$ vector fields $V_1, V_2, V_3$ on $X$ satisfying the following two conditions (A) and (B).
+        
+        (A) The tangent vectors $V_{1,p}, V_{2,p}, V_{3,p}$ are linearly independent at every point $p \in X$.
+        
+        (B) There exist $C^\infty$ functions $f, g, h$ on $X$ satisfying
+        \[
+          [V_1, V_2] = fV_3, \quad [V_1, V_3] = gV_3, \quad [V_2, V_3] = hV_3.
+        \]
+        Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Suppose that a $C^\infty$ 1-form $\theta$ on $X$ satisfies
+          \[
+            \theta(V_1) = 1, \quad \theta(V_2) = \theta(V_3) = 0.
+          \]
+          Prove that $\theta$ is a closed form.
+          \item Let $H^1(X)$ be the first de Rham cohomology group of $X$. Prove that $\dim H^1(X) \ge 2$.
+          \item Prove that there exists a point $p \in X$ satisfying $h(p) = 0$.
+        \end{enumerate}
+
+  \item % Problem 5
+        Let $S^2 = \{ (x_1, x_2, x_3) \in \mathbb{R}^3 \mid x_1^2 + x_2^2 + x_3^2 = 1 \}$. Define a map $f: S^2 \times S^2 \to \mathbb{R}$ by
+        \[
+          f((x_1, x_2, x_3), (y_1, y_2, y_3)) = x_3 + y_3.
+        \]
+        Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Compute the homology groups of $f^{-1}(0)$ with integer coefficients.
+          \item Compute the homology groups of $f^{-1}(1)$ with integer coefficients.
+        \end{enumerate}
+
+  \item % Problem 6
+        Let $\Phi$ be a continuous and non-decreasing convex function on the interval $[0, \infty)$. Suppose further that $\Phi(0) = 0$ and $\Phi(t) \ge t$ for every $t \in [0, \infty)$. Let $\mathcal{L}$ be defined as
+        \[
+          \mathcal{L} = \left\{ f \;\middle|\; \begin{aligned} &\text{$f$ is a real-valued Lebesgue measurable function on $\mathbb{R}$ and} \\ &\text{there exists $\lambda > 0$ such that $\int_{\mathbb{R}} \Phi\left( \frac{|f(x)|}{\lambda} \right) dx \le 1$} \end{aligned} \right\}.
+        \]
+        For $f \in \mathcal{L}$, let $\|f\|$ be defined as
+        \[
+          \|f\| = \inf \left\{ \lambda > 0 \;\middle|\; \int_{\mathbb{R}} \Phi\left( \frac{|f(x)|}{\lambda} \right) dx \le 1 \right\}.
+        \]
+        Answer the following questions.
+        \begin{enumerate}[label=(\arabic*)]
+          \item Show that $\int_{\mathbb{R}} |f(x)| dx \le \|f\|$ for any $f \in \mathcal{L}$.
+          \item Let $f, g \in \mathcal{L}$. Show that $f - g \in \mathcal{L}$ and $\|f - g\| \le \|f\| + \|g\|$.
+          \item Suppose that a sequence $\{f_m\}_{m=1}^\infty$ in $\mathcal{L}$ satisfies the following property:
+          
+          For every $\varepsilon > 0$, there exists a positive integer $N$ such that, for any $m \ge N$ and $n \ge N$, $\|f_m - f_n\| < \varepsilon$ holds.
+          
+          Show that there exists an element $f$ of $\mathcal{L}$ such that $\lim_{m \to \infty} \|f_m - f\| = 0$.
+        \end{enumerate}
+
+  \item % Problem 7
+        Let $H$ be a Hilbert space, and let $H_1, H_2, \dots$ be mutually orthogonal finite dimensional subspaces of $H$ satisfying
+        \[
+          \left( \bigcup_{n=1}^\infty H_n \right)^\perp = \{0\}.
+        \]
+        For a positive integer $n$, we denote by $P_n$ the orthogonal projection from $H$ onto $H_n$. For an integer $n \le 0$, we set $P_n = 0$.
+        Let $T: H \to H$ be a bounded linear operator satisfying the following conditions:
+        
+        (i) $\lim_{n \to \infty} \|TP_n\| = 0$.
+        
+        (ii) Letting $a_n = \sup_{k \ge 1} \|P_{n+k} T P_k\|$, we have $\sum_{n \in \mathbb{Z}} a_n < \infty$.
+        
+        Here for an operator $A$, we denote by $\|A\|$ the operator norm of $A$.
+        For $n \in \mathbb{Z}$, we define $S_n : H \to H$ by
+        \[
+          S_n x = \sum_{k=1}^\infty P_{n+k} T P_k x, \quad x \in H.
+        \]
+        \begin{enumerate}[label=(\arabic*)]
+          \item Show that $\|S_n\| \le a_n$ holds.
+          \item Show that $S_n$ is a compact operator.
+          \item Show that $T$ is a compact operator.
+        \end{enumerate}
+
+  \item % Problem 8
+        Let $u: [0, \infty) \times \mathbb{R} \to \mathbb{R}$ be a $C^4$ function satisfying the equation
+        \[
+          \frac{\partial u}{\partial t}(t, x) + \frac{\partial^4 u}{\partial x^4}(t, x) = 0
+        \]
+        on $(0, \infty) \times \mathbb{R}$. In addition, assume the following (i), (ii).
+        
+        (i) For $t \ge 0$, $\sup_{x \in \mathbb{R}} (1+x^2) |u(t, x)|$, $\sup_{x \in \mathbb{R}} (1+x^2) \left|\frac{\partial^j u}{\partial x^j}(t, x)\right|$ ($j=1,2,3,4$), and $\sup_{x \in \mathbb{R}} (1+x^2) \left|\frac{\partial u}{\partial t}(t, x)\right|$ are finite and continuous with respect to $t$.
+        
+        (ii) $\int_{\mathbb{R}} u(0, x) dx \neq 0$.
+        
+        Prove that there exist positive real numbers $C_1, C_2$ such that for all $t \ge 1$ we have
+        \[
+          C_1 t^{-1/4} \le \sup_{x \in \mathbb{R}} |u(t, x)| \le C_2 t^{-1/4}.
+        \]
+
+  \item % Problem 9
+        Let $\varepsilon \ge 0$, and let the function $H: \mathbb{R}^2 \to \mathbb{R}$ be defined by
+        \[
+          H(x, y) = (x+y+1)(x+y-1)(x-y+1)(x-y-1).
+        \]
+        Let $D \subset \mathbb{R}^2$ denote the domain enclosed by the square with vertices $(1,0), (0,1), (-1,0)$ and $(0,-1)$. We consider the following differential equations on $\mathbb{R}^2$.
+        \begin{equation}
+          \begin{cases} \frac{dx}{dt} = \frac{\partial H}{\partial y}(x, y) - \varepsilon \frac{\partial H}{\partial x}(x, y) H(x, y), \\ \frac{dy}{dt} = -\frac{\partial H}{\partial x}(x, y) - \varepsilon \frac{\partial H}{\partial y}(x, y) H(x, y). \end{cases} \tag{$*$}
+        \end{equation}
+        Answer the following questions:
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $\varepsilon = 0$. Show that if $(x(t), y(t))$ is a solution of ($*$) then $(-x(-t), y(-t))$ and $(x(-t), -y(-t))$ are also solutions of ($*$).
+          \item Let $\varepsilon = 0$, and choose $0 < x_0 < 1$. Show that the solution of ($*$) is periodic for $(x(0), y(0)) = (x_0, 0)$.
+          \item Let $\varepsilon > 0$, and choose $(x_0, y_0) \in D$. Describe the asymptotic behavior of the solution of ($*$) as $t \to \infty$ for $(x(0), y(0)) = (x_0, y_0)$.
+        \end{enumerate}
+  \item % Problem 10
+        Let us consider an incompressible fluid in the upper plane $\mathbb{H} = \{(x, y) \mid y > 0\}$. Fluid motion is driven by oscillation of the boundary at $y = 0$ in the $x$ direction. Let a point on the boundary located at $(x, y) = (a, 0)$ at the initial time $t = 0$ be located at $(X(a, t), 0)$ for $t > 0$. Velocity and pressure, $\bm{u} = (u(x, y, t), v(x, y, t))$ and $p(x, y, t)$, satisfy the following Stokes equations,
+        \begin{align*}
+          \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right) &= \frac{\partial p}{\partial x}, \\
+          \mu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right) &= \frac{\partial p}{\partial y}, \\
+          \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0,
+        \end{align*}
+        and the boundary condition at $y = 0$,
+        \[
+          u(x, 0, t) = \left. \frac{\partial X(a, t)}{\partial t} \right|_{a = a(x, t)}, \quad v(x, 0, t) = 0,
+        \]
+        where viscosity $\mu$ is a positive constant, and $a(x, t)$ is given as the inverse function of $x = X(a, t)$.
+        
+        Answer the following questions (1)-(4).
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let us introduce the stream function $\psi(x, y, t)$ as a real-valued function defined by
+          \[
+            u = -\frac{\partial \psi}{\partial y}, \quad v = \frac{\partial \psi}{\partial x}.
+          \]
+          Show that the stream function satisfies the following equation
+          \[
+            \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right)^2 \psi = 0.
+          \]
+          \item Let the motion of the boundary at $y = 0$ be given by
+          \[
+            X(a, t) = a + \epsilon \sin(ka - \omega t),
+          \]
+          where the constants $\epsilon, k$, and $\omega$ are the amplitude, wavenumber and frequency, respectively. Express $\left. \frac{\partial X(a, t)}{\partial t} \right|_{a = a(x, t)}$ in terms of $x$ and $t$ up to the order of $\epsilon^2$.
+          \item Let us expand the stream function $\psi$ in a power function of $\epsilon$ as,
+          \[
+            \psi = \epsilon \psi_1 + \epsilon^2 \psi_2 + \cdots.
+          \]
+          Then, obtain $\psi_1$ by assuming the form of
+          \[
+            \psi_1 = \Psi(y) \cos(kx - \omega t).
+          \]
+          \item Evaluate the time-averaged velocity
+          \[
+            \langle u \rangle = \frac{1}{T} \int_0^T u \, dt
+          \]
+          up to the order of $\epsilon^2$ by calculating $\psi_2$. Here, $T = \frac{2\pi}{\omega}$ is the period of the oscillation.
+        \end{enumerate}
+
+  \item % Problem 11
+        Let $a_0, a_1$ be integers, and $c_1, c_2, \dots$ an infinite sequence of integers. For any integers $i$ and $j$, define $\delta_{ij} = \begin{cases} 1 & (i=j) \\ 0 & (i \neq j) \end{cases}$.
+        
+        Consider the program shown below. In the program, the expression $X \leftarrow e$ means a substitution that assigns the value of $e$ to $X$.
+        \begin{verbatim}
+        Z <- 1; M <- 0;
+        while M < 2 do
+          if M = 0 then
+            if c_{Z+M} = a_0 then M <- M + 1 else Z <- Z + 1 endif
+          else if c_{Z+M} = a_1 then
+            M <- M + 1
+          else
+            Z <- Z + 1 + \delta_{a_0 a_1}; M <- 0
+          endif
+        done
+        \end{verbatim}
+        For this program, give a condition $I$ which satisfies the following properties (A) and (B).
+        
+        (A) $I$ is a loop invariant for the while loop in this program.
+        
+        (B) Whenever $I \wedge \neg(M < 2)$,
+        \[
+          (c_Z = a_0) \wedge (c_{Z+1} = a_1) \wedge \forall i.\left( 1 \le i < Z \Rightarrow (c_i \neq a_0 \vee c_{i+1} \neq a_1) \right)
+        \]
+        holds.
+
+  \item % Problem 12
+        Let $G = (V, E)$ be a finite undirected graph with $r \in V$ and let $k$ be a positive integer. Suppose that $E$ can be partitioned into $k$ edge sets $E_1, \dots, E_k$ such that each $E_i$ is the edge set of a spanning tree in $G$. Let $D = (V, A)$ be a directed graph that is obtained from $G$ by replacing each undirected edge $\{u, v\} \in E$ with a directed edge $(u, v)$ or $(v, u)$. Show that the following are equivalent.
+        \begin{enumerate}[label=(\arabic*)]
+          \item For any nonempty $X \subseteq V \setminus \{r\}$, $D$ contains at least $k$ directed edges from $V \setminus X$ to $X$.
+          \item In $D$, the indegree of $r$ is $0$ and, for any $v \in V \setminus \{r\}$, the indegree of $v$ is $k$.
+        \end{enumerate}
+
+  \item % Problem 13
+        Answer the following questions.
+        \begin{enumerate}[label=(\roman*)]
+          \item Consider a one-dimensional unit-mass harmonic oscillator with its angular frequency $\omega(t) > 0$ depending on time $t \in \mathbb{R}$. The Hamiltonian in classical mechanics of the oscillator is given by $\mathcal{H}(t) = \frac{1}{2} (p^2 + \omega(t)^2 q^2)$, $(p, q) \in \mathbb{R}^2$, where $p$ and $q$ represent momentum and position respectively. Suppose that a solution $(p(t), q(t))$ to Hamilton's canonical equations and a real solution $\xi(t)$ to the auxiliary differential equation
+          \[
+            \ddot{\xi}(t) + \omega(t)^2 \xi(t) = \frac{1}{\xi(t)^3}
+          \]
+          are given. Then, show that
+          \[
+            \mathcal{I}(t) = \frac{1}{2} \left\{ \left( \xi(t) p(t) - \dot{\xi}(t) q(t) \right)^2 + \left( \frac{q(t)}{\xi(t)} \right)^2 \right\}
+          \]
+          is conserved, namely, $\dot{\mathcal{I}}(t) = 0$.
+          \item Now we study the quantum version of the above. The momentum operator $P$ and the position operator $Q$ satisfy the canonical commutation relation $[Q, P] = i$ where we set $\hbar = 1$ and $i = \sqrt{-1}$. The Hamiltonian can be expressed as $H(t) = \frac{1}{2} (P^2 + \omega(t)^2 Q^2)$. The unitary time-evolution operator $U(t)$ satisfies
+          \[
+            \dot{U}(t) = -i H(t) U(t), \quad U(0) = I.
+          \]
+          Put $P(t) = U(t)^\dagger P(0) U(t)$, $Q(t) = U(t)^\dagger Q(0) U(t)$, $P(0) = P$, $Q(0) = Q$ and let $I(t)$ be the operator obtained from $\mathcal{I}(t)$ by replacing $p(t)$ by $P(t)$ and $q(t)$ by $Q(t)$. Furthermore, let
+          \[
+            A_\pm(t) = \frac{1}{\sqrt{2}} \left\{ \frac{Q(t)}{\xi(t)} \mp i \left( \xi(t) P(t) - \dot{\xi}(t) Q(t) \right) \right\}.
+          \]
+          Verify the commutation relation $[A_-(t), A_+(t)] = 1$. Prove that $I(t) = A_+(t)A_-(t) + 1/2$ is a conserved quantity.
+        \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section*{Solution}
+\begin{enumerate}[label=\fbox{\arabic*}]
+  \item % Solution for 1
+        \begin{enumerate}[label=(\roman*)]
+          \item Let $G$ be an abelian $p$-group that is not cyclic. By the fundamental theorem of finite abelian groups, $G \cong \mathbb{Z}_{p^{a_1}} \times \dots \times \mathbb{Z}_{p^{a_r}}$ with $a_1 \ge a_2 \ge \dots \ge a_r \ge 1$ and $r \ge 2$.
+          Suppose for contradiction that $G$ has an element of order $p^2$. Then $a_1 \ge 2$. Since $r \ge 2$, we also have $a_2 \ge 1$.
+          This implies $G$ contains a subgroup $H_1 \cong \mathbb{Z}_{p^2}$ (generated by an element of order $p^2$ in the first factor) and another subgroup $H_2 \cong \mathbb{Z}_p \times \mathbb{Z}_p$ (generated by elements of order $p$ in the first two factors).
+          Both $H_1$ and $H_2$ have order $p^2$. By the condition $(*_{G})$, there must exist an automorphism $\alpha \in \operatorname{Aut}(G)$ mapping $H_1$ to $H_2$. However, automorphisms preserve the isomorphism class of subgroups, and $\mathbb{Z}_{p^2} \not\cong \mathbb{Z}_p \times \mathbb{Z}_p$.
+          This contradiction shows that $a_1 \le 1$. Thus, $G \cong (\mathbb{Z}_p)^r$, meaning every non-identity element of $G$ has order $p$.
+
+          \item Let $Z(G)$ be the center of $G$. Let $H_1, H_2 \le Z(G)$ be two subgroups such that $|H_1| = |H_2|$.
+          Since $H_1, H_2$ are also subgroups of $G$ with the same order, the condition $(*_{G})$ ensures the existence of an automorphism $\alpha \in \operatorname{Aut}(G)$ such that $\alpha(H_1) = H_2$.
+          By definition, any automorphism of $G$ preserves its center. Thus, the restriction of $\alpha$ to $Z(G)$ gives an automorphism $\alpha|_{Z(G)} \in \operatorname{Aut}(Z(G))$.
+          Since $\alpha|_{Z(G)}(H_1) = \alpha(H_1) = H_2$, the condition $(*_{Z(G)})$ holds.
+
+          \item Suppose $G$ is non-abelian. Because $G$ is a $p$-group, its center $Z(G)$ is non-trivial, so it contains at least one subgroup of order $p$.
+          Let $H$ be any subgroup of $G$ of order $p$. Let $H_1$ be a subgroup of order $p$ contained in $Z(G)$.
+          By $(*_{G})$, there is an $\alpha \in \operatorname{Aut}(G)$ such that $\alpha(H_1) = H$.
+          Since $\alpha$ preserves the center, $H = \alpha(H_1) \le \alpha(Z(G)) = Z(G)$. Therefore, \textit{every} subgroup of $G$ of order $p$ is contained in $Z(G)$.
+          
+          If $G$ had multiple subgroups of order $p$, then $Z(G)$ would have multiple subgroups of order $p$, meaning $Z(G)$ is not cyclic. By part (ii) and (i), $Z(G)$ would be an elementary abelian $p$-group, meaning all non-identity elements in $Z(G)$ have order $p$.
+          Since $G$ is non-abelian, $G \neq Z(G)$. Let $x \in G \setminus Z(G)$.
+          Since all elements of order $p$ are in $Z(G)$, $x$ cannot have order $p$. Thus, $|x| = p^k$ with $k \ge 2$.
+          This means $G$ contains a cyclic subgroup of order $p^2$ (generated by $x^{p^{k-2}}$).
+          However, because $Z(G)$ is non-cyclic elementary abelian, it contains a subgroup isomorphic to $\mathbb{Z}_p \times \mathbb{Z}_p$ (which also has order $p^2$).
+          By $(*_{G})$, there must be an automorphism mapping the cyclic subgroup of order $p^2$ to the non-cyclic subgroup of order $p^2$, which is impossible.
+          This contradiction proves that $G$ cannot have multiple subgroups of order $p$. Hence, $G$ contains a unique subgroup of order $p$.
+        \end{enumerate}
+
+  \item % Solution for 2
+        We set $A = \mathbb{C} + t^n \mathbb{C}[[t]]$ and $\mathfrak{m} = t^n \mathbb{C}[[t]]$. We verify the three conditions:
+        \begin{enumerate}[label=(\alph*)]
+          \item $A$ trivially contains $\mathbb{C}$. The quotient space $\mathbb{C}[[t]]/A$ has a basis consisting of $\{t, t^2, \dots, t^{n-1}\}$ over $\mathbb{C}$.
+          Thus, $\dim_{\mathbb{C}}(\mathbb{C}[[t]]/A) = n - 1 < \infty$.
+          \item The quotient field of $A$ is $\mathbb{C}((t))$ (the field of formal Laurent series). The integral closure of $A$ in $\mathbb{C}((t))$ is exactly $\mathbb{C}[[t]]$, because $\mathbb{C}[[t]]$ is integrally closed and any element in $\mathbb{C}[[t]]$ is integral over $A$ (specifically, $t$ satisfies the monic polynomial $X^n - t^n = 0$ with coefficients in $A$).
+          \item The ideal $\mathfrak{m}$ consists of power series with no terms of degree less than $n$. 
+          Therefore, $\mathfrak{m}^2 = (t^n \mathbb{C}[[t]])^2 = t^{2n} \mathbb{C}[[t]]$.
+          The quotient $\mathfrak{m}/\mathfrak{m}^2$ is spanned by $\{t^n, t^{n+1}, \dots, t^{2n-1}\}$.
+          The dimension of this space over $\mathbb{C}$ is exactly $2n - n = n$.
+        \end{enumerate}
+        Thus, the pair $(A, \mathfrak{m}) = (\mathbb{C} + t^n \mathbb{C}[[t]], t^n \mathbb{C}[[t]])$ satisfies all conditions.
+
+  \item % Solution for 3
+        The polynomial is $f(X) = X^6 + kX^3 + 27$.
+        Setting $Y = X^3$, the roots of $Y^2 + kY + 27 = 0$ are $\beta_1, \beta_2 = \frac{-k \pm \sqrt{k^2 - 108}}{2}$.
+        Notice that $\beta_1 \beta_2 = 27$. For any root $\alpha$ of $f(X)$, we have $\alpha^3 = \beta_1$ (without loss of generality). Then the six roots of $f(X)$ are:
+        \[
+          \alpha, \alpha\omega, \alpha\omega^2, \quad \frac{3}{\alpha}, \frac{3\omega}{\alpha}, \frac{3\omega^2}{\alpha}
+        \]
+        where $\omega = e^{2\pi i/3} = \frac{-1+i\sqrt{3}}{2}$.
+        The splitting field of $f(X)$ over $\mathbb{Q}$ is $\mathbb{Q}(\alpha, \omega)$. 
+        We are given that $\mathbb{Q}(\alpha)$ is a Galois extension of degree 6. This implies two things:
+        1. $f(X)$ is irreducible over $\mathbb{Q}$, so $[\mathbb{Q}(\alpha) : \mathbb{Q}] = 6$.
+        2. $\mathbb{Q}(\alpha)$ is its own splitting field, which implies $\omega \in \mathbb{Q}(\alpha)$.
+
+        Since $[\mathbb{Q}(\alpha) : \mathbb{Q}] = 6$ and $\mathbb{Q}(\alpha)$ contains $\mathbb{Q}(\omega)$, the unique quadratic subfield of $\mathbb{Q}(\alpha)$ must be $\mathbb{Q}(\omega) = \mathbb{Q}(\sqrt{-3})$.
+        On the other hand, since $\alpha^3 = \beta_1 \in \mathbb{Q}(\alpha)$, we have $\mathbb{Q}(\beta_1) = \mathbb{Q}(\sqrt{k^2 - 108}) \subseteq \mathbb{Q}(\alpha)$.
+        For $k \ge 11$, $k^2 - 108 > 0$, making $\mathbb{Q}(\beta_1)$ a real quadratic field, which cannot be $\mathbb{Q}(\sqrt{-3})$. Thus $k \le 10$.
+        Since $\mathbb{Q}(\alpha)$ has a unique quadratic subfield (the Galois group $C_6$ or $S_3$ has a unique subgroup of index 2), we must have:
+        \[
+          \mathbb{Q}(\sqrt{k^2 - 108}) = \mathbb{Q}(\sqrt{-3}).
+        \]
+        This requires $108 - k^2 = 3m^2$ for some integer $m$.
+        Testing $k \in \{1, 2, \dots, 10\}$:
+        Only $k = 9$ gives $108 - 9^2 = 108 - 81 = 27 = 3(3^2)$, so $m = 3$.
+        
+        Let us verify $k = 9$. Then $f(X) = X^6 + 9X^3 + 27$.
+        The roots of $Y^2 + 9Y + 27 = 0$ are $\beta_1, \beta_2 = \frac{-9 \pm 3i\sqrt{3}}{2} = 9\omega, 9\omega^2$.
+        Choosing $\alpha$ such that $\alpha^3 = 9\omega$, we find $\omega = \frac{\alpha^3}{9} \in \mathbb{Q}(\alpha)$.
+        This ensures all six roots (which are multiples of $\alpha$ and $3/\alpha$ by powers of $\omega$) lie in $\mathbb{Q}(\alpha)$.
+        Furthermore, $X^3 - 9\omega$ is irreducible over $\mathbb{Q}(\omega)$ (as $9\omega$ is not a perfect cube in $\mathbb{Q}(\omega)$), meaning $[\mathbb{Q}(\alpha) : \mathbb{Q}(\omega)] = 3$.
+        Thus, $[\mathbb{Q}(\alpha) : \mathbb{Q}] = 6$, confirming that $\mathbb{Q}(\alpha)$ is Galois of degree 6.
+        The only positive integer is $k = 9$.
+
+  \item % Solution for 4
+        \begin{enumerate}[label=(\arabic*)]
+          \item Using Cartan's formula for the exterior derivative of a 1-form evaluated on vector fields:
+          \[
+            d\theta(X, Y) = X(\theta(Y)) - Y(\theta(X)) - \theta([X, Y]).
+          \]
+          We evaluate $d\theta$ on the basis $\{V_1, V_2, V_3\}$:
+          \begin{align*}
+            d\theta(V_1, V_2) &= V_1(0) - V_2(1) - \theta(fV_3) = 0 - 0 - f\theta(V_3) = 0, \\
+            d\theta(V_1, V_3) &= V_1(0) - V_3(1) - \theta(gV_3) = 0 - 0 - g\theta(V_3) = 0, \\
+            d\theta(V_2, V_3) &= V_2(0) - V_3(0) - \theta(hV_3) = 0 - 0 - h\theta(V_3) = 0.
+          \end{align*}
+          Since $d\theta$ evaluates to 0 on all pairs of basis vectors, we have $d\theta = 0$. Thus, $\theta$ is a closed form.
+
+          \item Let $\theta_1 = \theta$. Since $\{V_1, V_2, V_3\}$ is a global basis for the tangent bundle, there exists a unique dual basis of 1-forms $\{\theta_1, \theta_2, \theta_3\}$ such that $\theta_i(V_j) = \delta_{ij}$.
+          We compute $d\theta_2$ using the same formula:
+          \begin{align*}
+            d\theta_2(V_i, V_j) &= V_i(\theta_2(V_j)) - V_j(\theta_2(V_i)) - \theta_2([V_i, V_j]) = 0 - 0 - \theta_2([V_i, V_j]).
+          \end{align*}
+          Since all commutators $[V_i, V_j]$ are multiples of $V_3$, their evaluation under $\theta_2$ is always 0.
+          Thus, $d\theta_2 = 0$, meaning $\theta_2$ is also a closed form.
+          
+          We now show that $[\theta_1]$ and $[\theta_2]$ are non-zero and linearly independent in $H^1(X)$. 
+          Suppose $c_1 \theta_1 + c_2 \theta_2 = d\phi$ for some $C^\infty$ function $\phi$ on $X$ and constants $c_1, c_2$.
+          Since $X$ is compact, $\phi$ attains a global maximum at some point $p \in X$.
+          At this point, the differential vanishes: $d\phi_p = 0$.
+          Evaluating both sides at $p$:
+          \[
+            (c_1 \theta_1 + c_2 \theta_2)_p = 0 \implies c_1 \theta_{1,p} + c_2 \theta_{2,p} = 0.
+          \]
+          Because $\{\theta_{1,p}, \theta_{2,p}, \theta_{3,p}\}$ forms a basis for the cotangent space at $p$, we must have $c_1 = c_2 = 0$.
+          This proves that $[\theta_1]$ and $[\theta_2]$ span a 2-dimensional subspace in $H^1(X)$, so $\dim H^1(X) \ge 2$.
+
+          \item We compute $d\theta_3$:
+          \begin{align*}
+            d\theta_3(V_1, V_2) &= -\theta_3([V_1, V_2]) = -f, \\
+            d\theta_3(V_1, V_3) &= -\theta_3([V_1, V_3]) = -g, \\
+            d\theta_3(V_2, V_3) &= -\theta_3([V_2, V_3]) = -h.
+          \end{align*}
+          Thus, $d\theta_3 = -f \theta_1 \wedge \theta_2 - g \theta_1 \wedge \theta_3 - h \theta_2 \wedge \theta_3$.
+          Now consider the exterior derivative of the 2-form $\theta_1 \wedge \theta_3$. Using the product rule and $d\theta_1 = 0$:
+          \[
+            d(\theta_1 \wedge \theta_3) = d\theta_1 \wedge \theta_3 - \theta_1 \wedge d\theta_3 = -\theta_1 \wedge (-f \theta_1 \wedge \theta_2 - g \theta_1 \wedge \theta_3 - h \theta_2 \wedge \theta_3).
+          \]
+          Since $\theta_1 \wedge \theta_1 = 0$, we get:
+          \[
+            d(\theta_1 \wedge \theta_3) = h \, \theta_1 \wedge \theta_2 \wedge \theta_3.
+          \]
+          Because $X$ is a compact manifold without boundary, Stokes' Theorem dictates that the integral of any exact form over $X$ must be zero:
+          \[
+            \int_X d(\theta_1 \wedge \theta_3) = \int_X h \, \theta_1 \wedge \theta_2 \wedge \theta_3 = 0.
+          \]
+          Since $V_1, V_2, V_3$ are everywhere linearly independent, $\Omega = \theta_1 \wedge \theta_2 \wedge \theta_3$ is a nowhere-vanishing volume form, preserving its sign everywhere.
+          For the integral of $h \Omega$ to be zero, the continuous function $h$ must change sign, or be identically zero. In either case, there must exist some point $p \in X$ such that $h(p) = 0$.
+        \end{enumerate}
+
+  \item % Solution for 5
+        \begin{enumerate}[label=(\arabic*)]
+          \item The space is $M_0 = f^{-1}(0) = \{ (x, y) \in S^2 \times S^2 \mid y_3 = -x_3 \}$.
+          We can parameterize $M_0$ by selecting $x_3 = z \in [-1, 1]$. Then $y_3 = -z$.
+          For a fixed $z$, the coordinates $(x_1, x_2)$ form a circle $S^1$ of radius $\sqrt{1-z^2}$, and $(y_1, y_2)$ form another circle $S^1$ of radius $\sqrt{1-z^2}$.
+          When $z \in (-1, 1)$, the fiber is $S^1 \times S^1$.
+          When $z = 1$ or $z = -1$, the radius is $0$, and the fiber collapses to a single point.
+          This structure describes exactly the (unreduced) suspension of the torus $S^1 \times S^1$, so $M_0 \cong \Sigma(S^1 \times S^1)$.
+          The homology of a suspension $\Sigma X$ is given by $H_k(\Sigma X) \cong H_{k-1}(X)$ for $k \ge 2$, $H_1(\Sigma X) = 0$, and $H_0(\Sigma X) = \mathbb{Z}$.
+          Using the homology of the torus $H_*(S^1 \times S^1) = (\mathbb{Z}, \mathbb{Z}^2, \mathbb{Z})$, we obtain:
+          \begin{align*}
+            H_0(f^{-1}(0)) &= \mathbb{Z}, \\
+            H_1(f^{-1}(0)) &= 0, \\
+            H_2(f^{-1}(0)) &= \mathbb{Z}^2, \\
+            H_3(f^{-1}(0)) &= \mathbb{Z}, \\
+            H_k(f^{-1}(0)) &= 0 \quad \text{for } k \ge 4.
+          \end{align*}
+
+          \item The space is $M_1 = f^{-1}(1) = \{ (x, y) \in S^2 \times S^2 \mid y_3 = 1 - x_3 \}$.
+          Since $x_3, y_3 \in [-1, 1]$, the condition $x_3 + y_3 = 1$ implies $x_3 \in [0, 1]$ (and $y_3 \in [0, 1]$).
+          For a fixed $x_3 = z \in (0, 1)$, the fiber is again a product of two circles $S^1 \times S^1$.
+          At $z = 0$, $y_3 = 1$. The second circle collapses to a point, so the fiber is $S^1 \times \{\text{pt}\} \cong S^1$.
+          At $z = 1$, $y_3 = 0$. The first circle collapses to a point, so the fiber is $\{\text{pt}\} \times S^1 \cong S^1$.
+          This topology—a cylinder $S^1 \times S^1 \times [0,1]$ with the first factor collapsed at one end and the second factor collapsed at the other—is precisely the topological join of two circles, $S^1 * S^1$.
+          It is a standard result that the join of two spheres $S^p * S^q$ is homeomorphic to $S^{p+q+1}$.
+          Thus, $M_1 \cong S^1 * S^1 \cong S^3$.
+          The homology groups are those of the 3-sphere:
+          \begin{align*}
+            H_0(f^{-1}(1)) &= \mathbb{Z}, \\
+            H_3(f^{-1}(1)) &= \mathbb{Z}, \\
+            H_k(f^{-1}(1)) &= 0 \quad \text{for all other } k.
+          \end{align*}
+        \end{enumerate}
+
+  \item % Solution for 6
+        \begin{enumerate}[label=(\arabic*)]
+          \item Let $f \in \mathcal{L}$. By the definition of the norm, for any $\lambda > \|f\|$, we have:
+          \[
+            \int_{\mathbb{R}} \Phi\left( \frac{|f(x)|}{\lambda} \right) \, dx \le 1.
+          \]
+          Since $\Phi(t) \ge t$ for all $t \ge 0$, we apply this to get:
+          \[
+            \int_{\mathbb{R}} \frac{|f(x)|}{\lambda} \, dx \le \int_{\mathbb{R}} \Phi\left( \frac{|f(x)|}{\lambda} \right) \, dx \le 1 \implies \int_{\mathbb{R}} |f(x)| \, dx \le \lambda.
+          \]
+          Taking the infimum over all $\lambda > \|f\|$, we obtain $\int_{\mathbb{R}} |f(x)| \, dx \le \|f\|$.
+
+          \item Let $f, g \in \mathcal{L}$. Let $\lambda > \|f\|$ and $\mu > \|g\|$, so that $\int \Phi(|f|/\lambda) dx \le 1$ and $\int \Phi(|g|/\mu) dx \le 1$.
+          Consider $\gamma = \lambda + \mu$. By the triangle inequality, $\frac{|f-g|}{\gamma} \le \frac{|f|+|g|}{\lambda+\mu}$.
+          We rewrite this as a convex combination:
+          \[
+            \frac{|f|+|g|}{\lambda+\mu} = \frac{\lambda}{\lambda+\mu} \frac{|f|}{\lambda} + \frac{\mu}{\lambda+\mu} \frac{|g|}{\mu}.
+          \]
+          Since $\Phi$ is non-decreasing and convex, we have:
+          \begin{align*}
+            \Phi\left( \frac{|f-g|}{\lambda+\mu} \right) &\le \Phi\left( \frac{\lambda}{\lambda+\mu} \frac{|f|}{\lambda} + \frac{\mu}{\lambda+\mu} \frac{|g|}{\mu} \right) \\
+            &\le \frac{\lambda}{\lambda+\mu} \Phi\left( \frac{|f|}{\lambda} \right) + \frac{\mu}{\lambda+\mu} \Phi\left( \frac{|g|}{\mu} \right).
+          \end{align*}
+          Integrating both sides yields:
+          \[
+            \int_{\mathbb{R}} \Phi\left( \frac{|f-g|}{\lambda+\mu} \right) dx \le \frac{\lambda}{\lambda+\mu}(1) + \frac{\mu}{\lambda+\mu}(1) = 1.
+          \]
+          This shows that there exists a scaling factor $(\lambda+\mu)$ making the integral $\le 1$, meaning $f-g \in \mathcal{L}$. Furthermore, by the definition of the norm, $\|f-g\| \le \lambda + \mu$.
+          Taking the infimum over all $\lambda > \|f\|$ and $\mu > \|g\|$ yields $\|f-g\| \le \|f\| + \|g\|$.
+
+          \item The given condition means that $\{f_m\}$ is a Cauchy sequence in $\mathcal{L}$.
+          By part (1), $\|f_m - f_n\|_{L^1} \le \|f_m - f_n\|_{\mathcal{L}}$. Thus, $\{f_m\}$ is also a Cauchy sequence in $L^1(\mathbb{R})$.
+          Since $L^1(\mathbb{R})$ is a Banach space, there exists a limit function $f \in L^1(\mathbb{R})$ such that $f_m \to f$ in $L^1$.
+          By extracting a subsequence if necessary, we can assume that $f_m(x) \to f(x)$ pointwise almost everywhere.
+          Let $\varepsilon > 0$. By the Cauchy property in $\mathcal{L}$, there exists $N$ such that for all $m, n \ge N$, $\|f_m - f_n\| < \varepsilon$.
+          This means that for any $\lambda > \varepsilon$ and $m, n \ge N$,
+          \[
+            \int_{\mathbb{R}} \Phi\left( \frac{|f_m(x) - f_n(x)|}{\lambda} \right) \, dx \le 1.
+          \]
+          Fix $m \ge N$ and $\lambda > \varepsilon$. Since $\Phi$ is non-negative and continuous, we can apply Fatou's Lemma as $n \to \infty$:
+          \[
+            \int_{\mathbb{R}} \Phi\left( \frac{|f_m(x) - f(x)|}{\lambda} \right) \, dx \le \liminf_{n \to \infty} \int_{\mathbb{R}} \Phi\left( \frac{|f_m(x) - f_n(x)|}{\lambda} \right) \, dx \le 1.
+          \]
+          This implies that for $m \ge N$, $f_m - f \in \mathcal{L}$ and $\|f_m - f\| \le \lambda$.
+          Since this holds for any $\lambda > \varepsilon$, we conclude that $\|f_m - f\| \le \varepsilon$ for all $m \ge N$.
+          Thus, $\lim_{m \to \infty} \|f_m - f\| = 0$. Finally, since $f_N \in \mathcal{L}$ and $f - f_N \in \mathcal{L}$, by part (2) their sum $f = f_N + (f - f_N) \in \mathcal{L}$.
+        \end{enumerate}
+
+  \item % Solution for 7
+        \begin{enumerate}[label=(\arabic*)]
+          \item For any $x \in H$, $S_n x = \sum_{k=1}^\infty P_{n+k} T P_k x$.
+          Notice that the vectors $P_{n+k} T P_k x$ belong to mutually orthogonal subspaces $H_{n+k}$. Therefore, we can use the Pythagorean theorem:
+          \[
+            \|S_n x\|^2 = \sum_{k=1}^\infty \|P_{n+k} T P_k x\|^2.
+          \]
+          By the definition of $a_n$, the operator norm $\|P_{n+k} T P_k\| \le a_n$ for all $k \ge 1$. Thus:
+          \[
+            \|P_{n+k} T P_k x\|^2 \le a_n^2 \|P_k x\|^2.
+          \]
+          Summing these inequalities gives:
+          \[
+            \|S_n x\|^2 \le a_n^2 \sum_{k=1}^\infty \|P_k x\|^2.
+          \]
+          Because $P_k x$ are orthogonal projections of $x$ onto mutually orthogonal subspaces, Bessel's inequality gives $\sum_{k=1}^\infty \|P_k x\|^2 \le \|x\|^2$.
+          Hence, $\|S_n x\|^2 \le a_n^2 \|x\|^2$, which implies the operator norm satisfies $\|S_n\| \le a_n$.
+
+          \item Define the truncated operator $S_{n, M} = \sum_{k=1}^M P_{n+k} T P_k$.
+          Since each $H_k$ is finite-dimensional, the projection $P_k$ has finite rank, which means $P_{n+k} T P_k$ is a finite-rank operator. 
+          As a finite sum of finite-rank operators, $S_{n, M}$ is a finite-rank operator, and therefore is compact.
+          We examine the convergence of $S_{n, M}$ to $S_n$ in the operator norm topology:
+          \[
+            \| (S_n - S_{n, M}) x \|^2 = \sum_{k=M+1}^\infty \|P_{n+k} T P_k x\|^2.
+          \]
+          Using $\|P_{n+k} T P_k\| \le \|P_{n+k}\| \|T P_k\| \le \|T P_k\|$, we define $\epsilon_M = \sup_{k > M} \|T P_k\|$.
+          By condition (i), $\lim_{k \to \infty} \|T P_k\| = 0$, so $\epsilon_M \to 0$ as $M \to \infty$. We bound the error:
+          \[
+            \| (S_n - S_{n, M}) x \|^2 \le \epsilon_M^2 \sum_{k=M+1}^\infty \|P_k x\|^2 \le \epsilon_M^2 \|x\|^2 \implies \|S_n - S_{n, M}\| \le \epsilon_M.
+          \]
+          Thus, $S_{n, M} \to S_n$ uniformly in operator norm. The norm limit of compact operators is compact, so $S_n$ is a compact operator.
+
+          \item We claim that $T = \sum_{n \in \mathbb{Z}} S_n$.
+          First, note that the series $\sum_{n \in \mathbb{Z}} S_n$ converges absolutely in operator norm because $\sum_{n \in \mathbb{Z}} \|S_n\| \le \sum_{n \in \mathbb{Z}} a_n < \infty$ by condition (ii).
+          Since each $S_n$ is compact and the limit is uniform, the resulting operator $\sum_{n \in \mathbb{Z}} S_n$ is compact.
+          To show equality, we evaluate the sum on $x \in H$:
+          \[
+            \sum_{n \in \mathbb{Z}} S_n x = \sum_{n \in \mathbb{Z}} \sum_{k=1}^\infty P_{n+k} T P_k x.
+          \]
+          Let $j = n+k$. For a fixed $k \ge 1$, as $n$ ranges over $\mathbb{Z}$, $j$ also ranges over $\mathbb{Z}$. Exchanging the order of summation yields:
+          \[
+            \sum_{k=1}^\infty \left( \sum_{j \in \mathbb{Z}} P_j \right) T P_k x.
+          \]
+          By definition, $P_j = 0$ for $j \le 0$. Because the subspaces $H_j$ ($j \ge 1$) are mutually orthogonal and span $H$ ($\left(\bigcup_{j=1}^\infty H_j\right)^\perp = \{0\}$), the strong operator limit is $\sum_{j=1}^\infty P_j = I$.
+          Thus, the inner sum simplifies to $I$:
+          \[
+            \sum_{k=1}^\infty I \, T P_k x = T \left( \sum_{k=1}^\infty P_k x \right) = T (I x) = Tx.
+          \]
+          Therefore, $T = \sum_{n \in \mathbb{Z}} S_n$, proving that $T$ is a compact operator.
+        \end{enumerate}
+
+  \item % Solution for 8
+        We apply the Fourier transform with respect to spatial variable $x$:
+        \[
+          \hat{u}(t, \xi) = \int_{\mathbb{R}} u(t, x) e^{-ix\xi} \, dx.
+        \]
+        The PDE $\frac{\partial u}{\partial t} + \frac{\partial^4 u}{\partial x^4} = 0$ transforms into $\frac{\partial \hat{u}}{\partial t} + \xi^4 \hat{u} = 0$.
+        Solving this ordinary differential equation gives:
+        \[
+          \hat{u}(t, \xi) = \hat{u}(0, \xi) e^{-t \xi^4}.
+        \]
+        The decay assumptions in (i) ensure that $u(0, x) \in L^1(\mathbb{R})$, so $\hat{u}(0, \xi)$ is bounded and continuous. Condition (ii) means that $\hat{u}(0, 0) = \int_{\mathbb{R}} u(0, x) \, dx = A \neq 0$.
+        We recover $u(t, x)$ via the inverse Fourier transform:
+        \[
+          u(t, x) = \frac{1}{2\pi} \int_{\mathbb{R}} \hat{u}(0, \xi) e^{-t \xi^4} e^{ix\xi} \, d\xi.
+        \]
+        Applying the substitution $\eta = t^{1/4} \xi \implies d\xi = t^{-1/4} d\eta$, the integral becomes:
+        \[
+          u(t, x) = \frac{t^{-1/4}}{2\pi} \int_{\mathbb{R}} \hat{u}(0, t^{-1/4} \eta) e^{-\eta^4} e^{ix t^{-1/4} \eta} \, d\eta = t^{-1/4} G(t, x),
+        \]
+        where $G(t, x) = \frac{1}{2\pi} \int_{\mathbb{R}} \hat{u}(0, t^{-1/4} \eta) e^{-\eta^4} e^{ix t^{-1/4} \eta} \, d\eta$. We want to show $C_1 \le \sup_x |G(t, x)| \le C_2$ for $t \ge 1$.
+        
+        \textbf{Upper bound}: Since $|\hat{u}(0, \xi)| \le M$ for some constant $M$, we have:
+        \[
+          |G(t, x)| \le \frac{M}{2\pi} \int_{\mathbb{R}} e^{-\eta^4} \, d\eta = C_2.
+        \]
+        Thus, $\sup_x |u(t, x)| \le C_2 t^{-1/4}$ for all $t$.
+        
+        \textbf{Lower bound}: We evaluate $G(t, x)$ at $x = 0$:
+        \[
+          G(t, 0) = \frac{1}{2\pi} \int_{\mathbb{R}} \hat{u}(0, t^{-1/4} \eta) e^{-\eta^4} \, d\eta.
+        \]
+        As $t \to \infty$, $t^{-1/4} \eta \to 0$, so by continuity $\hat{u}(0, t^{-1/4} \eta) \to \hat{u}(0, 0) = A \neq 0$.
+        By the Dominated Convergence Theorem (since the integrand is bounded by $M e^{-\eta^4} \in L^1$), we have:
+        \[
+          \lim_{t \to \infty} G(t, 0) = \frac{A}{2\pi} \int_{\mathbb{R}} e^{-\eta^4} \, d\eta \neq 0.
+        \]
+        Since the limit is a non-zero constant, there exists $T_0 \ge 1$ and $C_1' > 0$ such that $|G(t, 0)| \ge C_1'$ for all $t \ge T_0$.
+        For $t \in [1, T_0]$, the function $t \mapsto \sup_x |G(t, x)|$ is continuous and strictly positive (if it were zero, then $u(t, x) = 0$ everywhere, implying $\hat{u}(0, 0) = 0$, a contradiction).
+        Since it is strictly positive on a compact interval, it attains a minimum $C_1'' > 0$.
+        Choosing $C_1 = \min(C_1', C_1'') > 0$, we establish $C_1 t^{-1/4} \le \sup_x |u(t, x)|$ for all $t \ge 1$.
+
+  \item % Solution for 9
+        Note that $H(x, y)$ can be expanded as $H(x, y) = (x^2+y^2-1)^2 - 4x^2y^2$. 
+        We have $H=0$ on the boundary $\partial D$ (the four lines $x \pm y \pm 1 = 0$), and $H > 0$ strictly inside $D$.
+        \begin{enumerate}[label=(\arabic*)]
+          \item For $\varepsilon = 0$, the system is Hamiltonian: $\frac{dx}{dt} = H_y$, $\frac{dy}{dt} = -H_x$.
+          Observe that $H(-x, y) = H(x, y)$. Differentiating this relation gives:
+          \[
+            H_y(-x, y) = H_y(x, y) \quad \text{and} \quad -H_x(-x, y) = H_x(x, y) \implies H_x(-x, y) = -H_x(x, y).
+          \]
+          Let $x_1(t) = -x(-t)$ and $y_1(t) = y(-t)$. Differentiating with respect to $t$:
+          \begin{align*}
+            \frac{dx_1}{dt} &= x'(-t) = H_y(x(-t), y(-t)) = H_y(-x_1(t), y_1(t)) = H_y(x_1(t), y_1(t)). \\
+            \frac{dy_1}{dt} &= -y'(-t) = -(-H_x(x(-t), y(-t))) = H_x(-x_1(t), y_1(t)) = -H_x(x_1(t), y_1(t)).
+          \end{align*}
+          This shows $(x_1, y_1) = (-x(-t), y(-t))$ is a solution.
+          Similarly, $H(x, -y) = H(x, y)$, leading to $H_y(x, -y) = -H_y(x, y)$ and $H_x(x, -y) = H_x(x, y)$.
+          For $x_2(t) = x(-t)$ and $y_2(t) = -y(-t)$:
+          \begin{align*}
+            \frac{dx_2}{dt} &= -x'(-t) = -H_y(x(-t), y(-t)) = -H_y(x_2, -y_2) = H_y(x_2, y_2). \\
+            \frac{dy_2}{dt} &= y'(-t) = -H_x(x(-t), y(-t)) = -H_x(x_2, -y_2) = -H_x(x_2, y_2).
+          \end{align*}
+          Thus, $(x(-t), -y(-t))$ is also a solution.
+
+          \item When $\varepsilon = 0$, the system is Hamiltonian, so the function $H(x, y)$ is conserved along trajectories:
+          \[
+            \frac{dH}{dt} = H_x \frac{dx}{dt} + H_y \frac{dy}{dt} = H_x H_y - H_y H_x = 0.
+          \]
+          The initial condition is $(x_0, 0)$ with $0 < x_0 < 1$. The value of the Hamiltonian is $c = H(x_0, 0) = (x_0^2-1)^2$. Since $0 < x_0 < 1$, we have $0 < c < 1$.
+          The level set $H(x, y) = c$ within $D$ is a closed curve containing the origin. 
+          To ensure it is a regular periodic orbit, we check for critical points inside $D$.
+          Critical points require $H_x = 4x(x^2-y^2-1) = 0$ and $H_y = 4y(y^2-x^2-1) = 0$.
+          Since $|x| + |y| < 1$ inside the interior of $D$, we have $x^2 - y^2 - 1 < 0$ and $y^2 - x^2 - 1 < 0$.
+          Thus, the only critical point inside $D$ is the origin $(0, 0)$. 
+          Since $c \neq H(0, 0) = 1$, the connected component of $H=c$ containing $(x_0, 0)$ is a simple closed curve without any critical points. By the Poincaré-Bendixson theorem, the solution must be periodic.
+
+          \item When $\varepsilon > 0$, we calculate the rate of change of $H$ along a trajectory:
+          \begin{align*}
+            \frac{dH}{dt} &= H_x \frac{dx}{dt} + H_y \frac{dy}{dt} = H_x (H_y - \varepsilon H_x H) + H_y (-H_x - \varepsilon H_y H) = -\varepsilon H (H_x^2 + H_y^2).
+          \end{align*}
+          Inside $D$, we know $H > 0$. Except at the origin (where $H_x = H_y = 0$), $H_x^2 + H_y^2 > 0$.
+          Thus, $\frac{dH}{dt} < 0$ everywhere in $D \setminus \{(0, 0)\}$. The Hamiltonian $H(x(t), y(t))$ strictly decreases and is bounded below by 0, so $H(x(t), y(t)) \to 0$ as $t \to \infty$.
+          Because $H = 0$ is precisely the boundary $\partial D$, the trajectory approaches the boundary of the square.
+          On $\partial D$, $H=0$, meaning the $\varepsilon$-terms vanish, and the vector field matches the Hamiltonian flow, which travels along the edges of the square.
+          The four corners of the square, $(\pm 1, 0)$ and $(0, \pm 1)$, are critical points of the vector field (e.g., at $(1, 0)$, $H_x = 0$ and $H_y = 0$). 
+          The edges of the square form a heteroclinic cycle connecting these four saddle points.
+          As $t \to \infty$, the $\omega$-limit set of the trajectory is this entire heteroclinic cycle $\partial D$.
+          Asymptotically, the solution spirals outwards from $(x_0, y_0)$ towards the boundary of the square, spending increasingly longer periods of time near the four corners in succession.
+        \end{enumerate}
+  \item % Solution for 10
+        \begin{enumerate}[label=(\arabic*)]
+          \item From the definition of the stream function $u = -\frac{\partial \psi}{\partial y}$ and $v = \frac{\partial \psi}{\partial x}$, the continuity equation $\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = -\frac{\partial^2 \psi}{\partial x \partial y} + \frac{\partial^2 \psi}{\partial y \partial x} = 0$ is automatically satisfied. Substituting these into the Stokes equations:
+          \begin{align*}
+            \mu \left( -\frac{\partial^3 \psi}{\partial x^2 \partial y} - \frac{\partial^3 \psi}{\partial y^3} \right) &= \frac{\partial p}{\partial x}, \\
+            \mu \left( \frac{\partial^3 \psi}{\partial x^3} + \frac{\partial^3 \psi}{\partial x \partial y^2} \right) &= \frac{\partial p}{\partial y}.
+          \end{align*}
+          Differentiating the first equation with respect to $y$, the second with respect to $x$, and subtracting them to eliminate the pressure $p$ (since $p_{xy} = p_{yx}$):
+          \[
+            \mu \left( \frac{\partial^4 \psi}{\partial x^4} + 2\frac{\partial^4 \psi}{\partial x^2 \partial y^2} + \frac{\partial^4 \psi}{\partial y^4} \right) = 0 \implies \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right)^2 \psi = 0.
+          \]
+          
+          \item We have $X(a, t) = a + \epsilon \sin(ka - \omega t)$. We seek the inverse function $a(x, t)$ such that $x = a + \epsilon \sin(ka - \omega t)$. Expanding $a(x, t)$ in powers of $\epsilon$: $a(x, t) = x + \epsilon a_1 + \epsilon^2 a_2 + \mathcal{O}(\epsilon^3)$.
+          Substituting this into the equation:
+          \begin{align*}
+            x &= x + \epsilon a_1 + \epsilon^2 a_2 + \epsilon \sin(k(x + \epsilon a_1) - \omega t) + \mathcal{O}(\epsilon^3) \\
+            &= x + \epsilon a_1 + \epsilon^2 a_2 + \epsilon [ \sin(kx - \omega t) + k\epsilon a_1 \cos(kx - \omega t) ] + \mathcal{O}(\epsilon^3).
+          \end{align*}
+          Equating terms order by order yields $a_1 = -\sin(kx - \omega t)$ and $a_2 = -ka_1 \cos(kx - \omega t) = k \sin(kx - \omega t) \cos(kx - \omega t)$.
+          Now we evaluate the velocity of the boundary:
+          \[
+            \frac{\partial X(a, t)}{\partial t} = -\epsilon \omega \cos(ka - \omega t).
+          \]
+          Substituting $a = x - \epsilon \sin(kx - \omega t) + \mathcal{O}(\epsilon^2)$ into this expression:
+          \begin{align*}
+            \left. \frac{\partial X(a, t)}{\partial t} \right|_{a = a(x, t)} &= -\epsilon \omega \cos(k(x - \epsilon \sin(kx - \omega t)) - \omega t) + \mathcal{O}(\epsilon^3) \\
+            &= -\epsilon \omega [ \cos(kx - \omega t) \cos(\epsilon k \sin(kx - \omega t)) + \sin(kx - \omega t) \sin(\epsilon k \sin(kx - \omega t)) ] \\
+            &= -\epsilon \omega [ \cos(kx - \omega t) \cdot 1 + \sin(kx - \omega t) \cdot \epsilon k \sin(kx - \omega t) ] + \mathcal{O}(\epsilon^3) \\
+            &= -\epsilon \omega \cos(kx - \omega t) - \epsilon^2 \omega k \sin^2(kx - \omega t) + \mathcal{O}(\epsilon^3).
+          \end{align*}
+          
+          \item Expanding $\psi = \epsilon \psi_1 + \epsilon^2 \psi_2 + \cdots$, we evaluate the boundary conditions at $y = 0$ for order $\epsilon$:
+          \[
+            u_1(x, 0, t) = -\left. \frac{\partial \psi_1}{\partial y} \right|_{y=0} = -\omega \cos(kx - \omega t), \quad v_1(x, 0, t) = \left. \frac{\partial \psi_1}{\partial x} \right|_{y=0} = 0.
+          \]
+          Assuming $\psi_1(x, y, t) = \Psi(y) \cos(kx - \omega t)$, the biharmonic equation $\Delta^2 \psi_1 = 0$ becomes an ODE for $\Psi$:
+          \[
+            \left( \frac{d^2}{dy^2} - k^2 \right)^2 \Psi(y) = 0 \implies \Psi''''(y) - 2k^2 \Psi''(y) + k^4 \Psi(y) = 0.
+          \]
+          The characteristic roots are $\pm k$, each with multiplicity 2. Assuming $k > 0$ and requiring the velocity to remain bounded as $y \to \infty$, we must discard the exponentially growing solutions. Thus, $\Psi(y) = (A + By)e^{-ky}$.
+          Applying the boundary conditions at $y=0$:
+          \begin{align*}
+            \psi_1(x, 0, t) = 0 &\implies \Psi(0) = 0 \implies A = 0, \\
+            \frac{\partial \psi_1}{\partial y}(x, 0, t) = \omega \cos(kx - \omega t) &\implies \Psi'(0) = \omega.
+          \end{align*}
+          Since $\Psi(y) = By e^{-ky}$, we have $\Psi'(y) = B(1-ky)e^{-ky}$, giving $\Psi'(0) = B = \omega$.
+          Therefore, $\Psi(y) = \omega y e^{-ky}$, which means $\psi_1 = \omega y e^{-ky} \cos(kx - \omega t)$.
+          
+          \item The time-averaged Eulerian velocity is $\langle u \rangle = -\left\langle \frac{\partial \psi}{\partial y} \right\rangle$.
+          Since $\langle u_1 \rangle = \frac{1}{T} \int_0^T -\omega(1-ky)e^{-ky} \cos(kx-\omega t) dt = 0$, the $\mathcal{O}(\epsilon)$ contribution vanishes, and $\langle u \rangle = \epsilon^2 \langle u_2 \rangle + \mathcal{O}(\epsilon^3)$.
+          From the boundary condition derived in (2), at order $\epsilon^2$ we have:
+          \[
+            -\left. \frac{\partial \psi_2}{\partial y} \right|_{y=0} = -\omega k \sin^2(kx - \omega t).
+          \]
+          Taking the time average of this boundary condition gives $\langle u_2(x, 0) \rangle = -\omega k \langle \sin^2(kx - \omega t) \rangle = -\frac{\omega k}{2}$.
+          The time-averaged stream function $\psi_{20}(y) = \langle \psi_2 \rangle$ must satisfy the steady biharmonic equation $\frac{d^4 \psi_{20}}{dy^4} = 0$.
+          Thus, $\psi_{20}(y) = C_0 + C_1 y + C_2 y^2 + C_3 y^3$.
+          The corresponding velocity is $\langle u_2(y) \rangle = -\psi_{20}'(y) = -C_1 - 2C_2 y - 3C_3 y^2$.
+          For the velocity to be bounded as $y \to \infty$, we must have $C_2 = C_3 = 0$.
+          Therefore, $\langle u_2(y) \rangle = -C_1$ is a constant for all $y \ge 0$.
+          Matching with the boundary condition at $y = 0$, we find $\langle u_2(y) \rangle = -\frac{\omega k}{2}$.
+          Hence, the time-averaged velocity up to $\mathcal{O}(\epsilon^2)$ is the uniform steady streaming drift:
+          \[
+            \langle u \rangle = -\epsilon^2 \frac{\omega k}{2}.
+          \]
+        \end{enumerate}
+
+  \item % Solution for 11
+        The program implements a string matching algorithm that searches for the 2-element pattern $(a_0, a_1)$ in the sequence $c_1, c_2, \dots$. The variable $Z$ denotes the current candidate starting position, and $M \in \{0, 1, 2\}$ tracks the number of characters in the pattern that have been successfully matched starting from index $Z$.
+        
+        The loop invariant $I$ must encapsulate the fact that no match has been found starting at any index prior to $Z$, and that the current $M$ characters from index $Z$ match the prefix of the pattern. We define the loop invariant $I$ as the conjunction of the following logical clauses:
+        \begin{align*}
+          I \equiv {} & (M \in \{0, 1, 2\}) \wedge (Z \ge 1) \\
+          & \wedge \left( \forall i \in \{1, 2, \dots, Z-1\}, (c_i \neq a_0 \vee c_{i+1} \neq a_1) \right) \\
+          & \wedge \left( M \ge 1 \implies c_Z = a_0 \right) \\
+          & \wedge \left( M = 2 \implies c_{Z+1} = a_1 \right).
+        \end{align*}
+        
+        Let us verify that this satisfies properties (A) and (B):
+        \begin{itemize}
+          \item \textbf{(A) $I$ is a loop invariant:} 
+          Initially $Z=1, M=0$. The $\forall i < Z$ condition is vacuously true, $M \in \{0, 1, 2\}$ and $Z \ge 1$ hold, and the implications for $M \ge 1$ are vacuously true.
+          Assuming $I$ holds at the start of a loop iteration where $M < 2$, we consider the transitions:
+          \begin{itemize}
+            \item If $M = 0$ and $c_Z = a_0$: $M$ becomes $1$, $Z$ remains unchanged. The invariant easily carries over since $c_Z = a_0$ satisfies the $M \ge 1$ implication.
+            \item If $M = 0$ and $c_Z \neq a_0$: $M$ stays $0$, $Z$ becomes $Z+1$. Since $c_Z \neq a_0$, no match can start at $Z$, extending the non-existence of matches up to $Z+1$.
+            \item If $M = 1$ and $c_{Z+1} = a_1$: $M$ becomes $2$, $Z$ remains unchanged. This directly satisfies the $M=2$ implication since $c_Z=a_0$ is maintained.
+            \item If $M = 1$ and $c_{Z+1} \neq a_1$: No match occurs at $Z$. Furthermore, if $a_0 = a_1$, then $c_{Z+1} \neq a_0$, meaning no match can start at $Z+1$ either, thus it is safe to skip to $Z+2$ (using $\delta_{a_0 a_1} = 1$). If $a_0 \neq a_1$, we can only definitively rule out $Z$, so we test $Z+1$ next ($\delta = 0$). In both subcases, the condition that no match occurred prior to the updated $Z$ holds.
+          \end{itemize}
+          \item \textbf{(B) Verification of implication:} 
+          Assume $I \wedge \neg(M < 2)$ holds. Since $I$ enforces $M \in \{0, 1, 2\}$, we must have exactly $M = 2$.
+          From $I$, the condition $M = 2$ directly implies $c_Z = a_0$ (since $M \ge 1$) and $c_{Z+1} = a_1$.
+          The universal quantifier $\forall i \in \{1, 2, \dots, Z-1\}, (c_i \neq a_0 \vee c_{i+1} \neq a_1)$ is explicitly present within $I$.
+          Thus, all terms in the consequent of (B) are identically satisfied.
+        \end{itemize}
+
+  \item % Solution for 12
+        We must prove the equivalence of the two properties regarding the directed graph $D = (V, A)$.
+        Note that since the underlying undirected graph $G$ is partitioned into $k$ spanning trees $E_1, \dots, E_k$, the total number of edges is exactly $|A| = |E| = k(|V|-1)$.
+        Furthermore, for any subset of vertices $X \subseteq V$, the maximum number of edges from any single spanning tree with both endpoints in $X$ is $|X|-1$. 
+        Thus, the total number of edges with both endpoints in $X$, denoted $A(X, X)$, satisfies $A(X, X) \le k(|X|-1)$.
+
+        \textbf{(2) $\implies$ (1)}:
+        Assume property (2) holds. Let $X \subseteq V \setminus \{r\}$ be a nonempty subset of vertices.
+        The sum of the indegrees of all vertices in $X$ is exactly $k|X|$, because every vertex $v \in X$ has an indegree of $k$ (since $r \notin X$).
+        The incoming edges to $X$ can originate either from within $X$ itself or from outside $X$. Thus:
+        \[
+          A(X, X) + A(V \setminus X, X) = \sum_{v \in X} \text{indegree}(v) = k|X|.
+        \]
+        Using the structural bound $A(X, X) \le k(|X|-1)$, we deduce:
+        \[
+          A(V \setminus X, X) = k|X| - A(X, X) \ge k|X| - k(|X|-1) = k.
+        \]
+        This proves that there are at least $k$ directed edges originating from $V \setminus X$ and terminating in $X$, establishing property (1).
+
+        \textbf{(1) $\implies$ (2)}:
+        Assume property (1) holds. Let $v$ be an arbitrary vertex in $V \setminus \{r\}$.
+        Taking $X = \{v\}$ as the nonempty subset, property (1) states that $A(V \setminus \{v\}, \{v\}) \ge k$.
+        This quantity is precisely the indegree of $v$, so $\text{indegree}(v) \ge k$ for all $v \neq r$.
+        There are $|V|-1$ such vertices in $V \setminus \{r\}$, so the sum of their indegrees must be at least $k(|V|-1)$.
+        However, the total sum of indegrees for all vertices in the graph is exactly the total number of edges, $|A| = k(|V|-1)$.
+        \[
+          k(|V|-1) = \sum_{u \in V} \text{indegree}(u) = \text{indegree}(r) + \sum_{v \in V \setminus \{r\}} \text{indegree}(v) \ge \text{indegree}(r) + k(|V|-1).
+        \]
+        Since indegrees must be non-negative integers, we are forced to conclude that $\text{indegree}(r) = 0$ and $\text{indegree}(v) = k$ exactly for all $v \in V \setminus \{r\}$. This establishes property (2).
+
+  \item % Solution for 13
+        \begin{enumerate}[label=(\roman*)]
+          \item Hamilton's canonical equations for the classical oscillator are given by:
+          \[
+            \dot{q} = \frac{\partial \mathcal{H}}{\partial p} = p, \quad \dot{p} = -\frac{\partial \mathcal{H}}{\partial q} = -\omega(t)^2 q.
+          \]
+          We examine the time derivative of $\mathcal{I}(t) = \frac{1}{2} \left( (\xi p - \dot{\xi} q)^2 + \left( \frac{q}{\xi} \right)^2 \right)$:
+          \begin{align*}
+            \frac{d}{dt} \left( \xi p - \dot{\xi} q \right) &= \dot{\xi} p + \xi \dot{p} - \ddot{\xi} q - \dot{\xi} \dot{q} \\
+            &= \dot{\xi} p + \xi (-\omega^2 q) - \ddot{\xi} q - \dot{\xi} p = -(\xi \omega^2 + \ddot{\xi}) q = -\frac{1}{\xi^3} q.
+          \end{align*}
+          Using the auxiliary equation $\ddot{\xi} + \omega^2 \xi = \frac{1}{\xi^3}$, we also calculate the time derivative of $\frac{q}{\xi}$:
+          \[
+            \frac{d}{dt} \left( \frac{q}{\xi} \right) = \frac{\dot{q} \xi - q \dot{\xi}}{\xi^2} = \frac{p \xi - q \dot{\xi}}{\xi^2}.
+          \]
+          Applying the chain rule to $\mathcal{I}(t)$:
+          \begin{align*}
+            \dot{\mathcal{I}}(t) &= (\xi p - \dot{\xi} q) \frac{d}{dt} (\xi p - \dot{\xi} q) + \left(\frac{q}{\xi}\right) \frac{d}{dt} \left(\frac{q}{\xi}\right) \\
+            &= (\xi p - \dot{\xi} q) \left( -\frac{q}{\xi^3} \right) + \left(\frac{q}{\xi}\right) \frac{\xi p - \dot{\xi} q}{\xi^2} \\
+            &= (\xi p - \dot{\xi} q) \left( -\frac{q}{\xi^3} + \frac{q}{\xi^3} \right) = 0.
+          \end{align*}
+          Thus, $\mathcal{I}(t)$ is an exact invariant of motion, $\dot{\mathcal{I}}(t) = 0$. (This is known as the Ermakov-Lewis invariant).
+
+          \item In the Heisenberg picture, the time evolution of an operator $O_H(t) = U(t)^\dagger O U(t)$ satisfies the Heisenberg equation $\dot{O}_H(t) = i[H_H(t), O_H(t)]$.
+          For position and momentum:
+          \begin{align*}
+            \dot{Q}(t) &= i[H(t), Q(t)] = \frac{i}{2} [P(t)^2, Q(t)] = \frac{i}{2} (-2i P(t)) = P(t), \\
+            \dot{P}(t) &= i[H(t), P(t)] = \frac{i \omega^2}{2} [Q(t)^2, P(t)] = \frac{i \omega^2}{2} (2i Q(t)) = -\omega^2 Q(t).
+          \end{align*}
+          The canonical commutator translates to $[Q(t), P(t)] = U(t)^\dagger [Q, P] U(t) = i$.
+          Using the definition of $A_\pm(t) = \frac{1}{\sqrt{2}} \left\{ \frac{Q}{\xi} \mp i (\xi P - \dot{\xi} Q) \right\}$ (omitting explicit $t$ dependence for readability), we evaluate their commutator:
+          \begin{align*}
+            [A_-(t), A_+(t)] &= \frac{1}{2} \left[ \frac{Q}{\xi} + i (\xi P - \dot{\xi} Q), \frac{Q}{\xi} - i (\xi P - \dot{\xi} Q) \right] \\
+            &= \frac{1}{2} \left( -i \left[ \frac{Q}{\xi}, \xi P \right] + i \left[ \xi P, \frac{Q}{\xi} \right] - \left[ \xi P, \dot{\xi} Q \right] + \left[ \dot{\xi} Q, \xi P \right] \right) \\
+            &= \frac{1}{2} \left( -i(i) + i(-i) - \xi\dot{\xi}(-i) + \dot{\xi}\xi(i) \right) = \frac{1}{2} (1 + 1 + i\xi\dot{\xi} - i\xi\dot{\xi}) = 1.
+          \end{align*}
+          Now we expand $A_+(t)A_-(t)$:
+          \begin{align*}
+            A_+(t)A_-(t) &= \frac{1}{2} \left( \frac{Q}{\xi} - i (\xi P - \dot{\xi} Q) \right) \left( \frac{Q}{\xi} + i (\xi P - \dot{\xi} Q) \right) \\
+            &= \frac{1}{2} \left( \left(\frac{Q}{\xi}\right)^2 + (\xi P - \dot{\xi} Q)^2 + i \frac{Q}{\xi}(\xi P - \dot{\xi} Q) - i (\xi P - \dot{\xi} Q)\frac{Q}{\xi} \right).
+          \end{align*}
+          The imaginary cross-terms resolve into a commutator:
+          \[
+            \frac{i}{2} \left[ \frac{Q}{\xi}, \xi P - \dot{\xi} Q \right] = \frac{i}{2} \left[ \frac{Q}{\xi}, \xi P \right] = \frac{i}{2} (i) = -\frac{1}{2}.
+          \]
+          Adding $1/2$ cancels this non-commutative correction exactly:
+          \[
+            A_+(t)A_-(t) + \frac{1}{2} = \frac{1}{2} \left( \left(\frac{Q}{\xi}\right)^2 + (\xi P - \dot{\xi} Q)^2 \right) = I(t).
+          \]
+          To prove $I(t)$ is conserved, we observe that $\frac{d}{dt}(O^2) = \dot{O}O + O\dot{O}$ and rely on the identical operator algebraic forms as the classical counterpart. Let $X = \xi P - \dot{\xi} Q$ and $Y = \frac{Q}{\xi}$. From earlier, $\dot{X} = -\frac{1}{\xi^3} Q = -\frac{1}{\xi^2} Y$ and $\dot{Y} = \frac{1}{\xi^2} X$.
+          \begin{align*}
+            \dot{I}(t) &= \frac{1}{2} (\dot{X}X + X\dot{X} + \dot{Y}Y + Y\dot{Y}) \\
+            &= \frac{1}{2} \left( -\frac{1}{\xi^2}YX - \frac{1}{\xi^2}XY + \frac{1}{\xi^2}XY + \frac{1}{\xi^2}YX \right) = 0.
+          \end{align*}
+          This confirms $\dot{I}(t) = 0$, establishing that the quantum Ermakov-Lewis invariant $I(t)$ is also conserved.
+        \end{enumerate}
+\end{enumerate}
+
+\end{document}
