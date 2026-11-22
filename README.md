@@ -1,25 +1,25 @@
 # 🎓 University Entry Test Archive
 
-Arsip komprehensif naskah soal, dokumen LaTeX, dan pembahasan ujian masuk program pascasarjana (Master / Graduate School) bidang Matematika dan Sains Komputasi.
+A comprehensive archive of past examination problem sets, LaTeX source files, and solution write-ups for graduate school admissions (Master's / Ph.D.) in Mathematics and Computational Sciences.
 
-## 🏛️ Universitas & Program
+## 🏛️ Universities & Programs
 
 ### 1. Kyoto University (Graduate School of Science / Informatics)
-- **Tahun**: 2022 – 2027
-- **Tingkat Soal**:
-  - `Basic` (Linear Algebra, Calculus, Differential Equations, Basic Analysis)
-  - `Advanced` (Abstract Algebra, Complex Analysis, Topology, Geometry, Applied Mathematics)
+- **Years**: 2022 – 2027
+- **Difficulty Levels**:
+  - `Basic`: Linear Algebra, Calculus, Ordinary Differential Equations, Introductory Analysis.
+  - `Advanced`: Abstract Algebra, Complex Analysis, Topology, Differential Geometry, Applied Mathematics.
 
 ### 2. The University of Tokyo (Graduate School of Mathematical Sciences / IST)
-- **Tahun**: 2022 – 2026
-- **Format**: Naskah LaTeX (`.tex`) dan dokumen siap cetak (`.pdf`)
-- **Topik**: Ujian spesialisasi matematika tingkat lanjut.
+- **Years**: 2022 – 2026
+- **Format**: Complete LaTeX source files (`.tex`) and compiled documents (`.pdf`).
+- **Topics**: Specialized advanced mathematics entrance examinations.
 
-### 3. Institut Teknologi Sepuluh Nopember (Magister Matematika ITS)
-- **Materi**: Tes Tulis Seleksi Masuk Program Magister (S2) Matematika ITS.
-- **Format**: LaTeX source (`.tex`) dan compiled PDF (`.pdf`).
+### 3. Institut Teknologi Sepuluh Nopember (Master of Mathematics ITS)
+- **Subject**: Written Examination for Graduate Admissions (S2 Mathematics ITS).
+- **Format**: LaTeX source (`.tex`) and compiled PDF (`.pdf`).
 
-## 📁 Struktur Direktori
+## 📁 Directory Structure
 
 ```
 University Entry Test/
@@ -40,9 +40,9 @@ University Entry Test/
     └── Tes Tulis S2 (.tex & .pdf)
 ```
 
-## 🛠️ Persyaratan Kompilasi
+## 🛠️ Compilation
 
-Naskah LaTeX dikompilasi menggunakan distribusi TeX standar (`pdfLaTeX` atau `XeLaTeX`):
+LaTeX documents can be compiled using any standard TeX distribution (`pdfLaTeX` or `XeLaTeX`):
 ```bash
 latexmk -pdf filename.tex
 ```
